@@ -36,15 +36,23 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Image/Preview Area */}
         <div className="aspect-video bg-gradient-to-br from-surface to-border flex items-center justify-center relative overflow-hidden">
-          <div className="text-4xl font-bold text-text-muted/30 group-hover:text-primary/20 transition-colors">
-            {project.title.charAt(0)}
-          </div>
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover object-top"
+            />
+          ) : (
+            <div className="text-4xl font-bold text-text-muted/30 group-hover:text-primary/20 transition-colors">
+              {project.title.charAt(0)}
+            </div>
+          )}
 
           {/* Overlay on hover */}
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
-            className="absolute inset-0 bg-foreground/5 flex items-center justify-center"
+            className="absolute inset-0 bg-foreground/60 flex items-center justify-center"
           >
             <div className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
               View Project

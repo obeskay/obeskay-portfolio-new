@@ -17,6 +17,7 @@ const projects: Project[] = [
     title: "QRapidito",
     description: "QR menu platform for restaurants",
     category: "SaaS",
+    image: "/projects/qrapidito.png",
     url: "https://qrapidito.com"
   },
   {
@@ -24,6 +25,7 @@ const projects: Project[] = [
     title: "Lottie Animator Skill",
     description: "Claude Code skill for Lottie animations",
     category: "Open Source",
+    image: "/projects/lottie-skill.png",
     stars: 3,
     url: "https://github.com/obeskay/lottie-animator-skill"
   },
@@ -32,6 +34,7 @@ const projects: Project[] = [
     title: "Vercel AI Agents",
     description: "Multi-agent conversational AI system",
     category: "Open Source",
+    image: "/projects/vercel-agents.png",
     stars: 2,
     url: "https://github.com/obeskay/vercel-ai-agents"
   },
@@ -40,6 +43,7 @@ const projects: Project[] = [
     title: "Swarm Ville",
     description: "AI agent collaboration in 2D",
     category: "Open Source",
+    image: "/projects/swarm-ville.png",
     url: "https://github.com/obeskay/swarm-ville"
   },
   {
@@ -47,6 +51,7 @@ const projects: Project[] = [
     title: "WhatsApp AI Agent",
     description: "Voice-enabled WhatsApp AI assistant",
     category: "Open Source",
+    image: "/projects/whatsapp-agent.png",
     url: "https://github.com/obeskay/whatsapp-ai-agent"
   }
 ];

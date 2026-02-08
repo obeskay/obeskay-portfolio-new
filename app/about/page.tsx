@@ -39,8 +39,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-surface to-border flex items-center justify-center overflow-hidden">
-              <div className="text-9xl font-bold text-text-muted/20">O</div>
+            <div className="aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <img
+                src="/img/obed/obeskay.webp"
+                alt="Obed Vargas"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
