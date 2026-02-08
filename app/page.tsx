@@ -125,12 +125,12 @@ export default function Home() {
           {/* Main heading with mixed typography */}
           <div className="mb-8">
             <RevealText delay={0.1}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-[1.1]">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-display mb-4">
                 Building <span className="font-display italic font-normal">products</span>
               </h1>
             </RevealText>
             <RevealText delay={0.2}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-[1.1]">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-display">
                 that <span className="font-display italic font-normal">actually</span> work
               </h1>
             </RevealText>
@@ -138,7 +138,7 @@ export default function Home() {
 
           {/* Subtitle */}
           <RevealText delay={0.4}>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed mb-12">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed letter-wide mb-12">
               Senior Software Engineer crafting AI-powered experiences 
               at the intersection of technology and design.
             </p>
@@ -156,7 +156,7 @@ export default function Home() {
                 <motion.div
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium btn-primary"
                 >
                   View my work
                   <motion.span
@@ -175,7 +175,7 @@ export default function Home() {
                 <motion.div
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground rounded-full font-medium border border-border hover:border-primary/30 hover:shadow-lg transition-all"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground rounded-full font-medium border-2 border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
                 >
                   About me
                 </motion.div>
