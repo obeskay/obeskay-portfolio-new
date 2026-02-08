@@ -10,7 +10,7 @@
   --surface: #f0fdfa;    /* Verde muy suave para superficies */
   --surface-hover: #ccfbf1;
   --border: #99f6e4;
-  --text-muted: #5eead4;
+  --text-muted: #4a7c78;  /* Gris-teal para texto secundario legible */
   --font-sans: var(--font-poppins);
 }
 
