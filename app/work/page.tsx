@@ -8,7 +8,7 @@ const projects: Project[] = [
   {
     id: "chateala",
     title: "Chatea.la",
-    description: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed without hiring.",
+    description: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed without hiring. Processing 50K+ messages/month.",
     category: "SaaS",
     image: "/projects/chateala.png",
     url: "https://chatea.la"
@@ -16,15 +16,23 @@ const projects: Project[] = [
   {
     id: "qrapidito",
     title: "QRapidito",
-    description: "Digital menus in seconds. Send a photo, AI does the rest. 500+ restaurants, 4.9★ rating.",
+    description: "Digital menus in seconds. Send a photo, AI does the rest. 500+ restaurants trust us. Generated 10K+ menus with AI.",
     category: "SaaS",
     image: "/projects/qrapidito.png",
     url: "https://qrapidito.com"
   },
   {
+    id: "woow-insurance",
+    title: "WOOW Insurance",
+    description: "Transforming how people buy insurance. Built AI quote engine that reduced conversion time by 60%. Serving 100K+ users.",
+    category: "SaaS",
+    image: "/projects/woow-insurance.svg",
+    url: "https://woowtodobien.com"
+  },
+  {
     id: "lottie-skill",
     title: "Lottie Animator",
-    description: "Turn static SVGs into smooth animations with AI. No After Effects needed.",
+    description: "Turn static SVGs into smooth animations with AI. No After Effects needed. Used by 200+ developers worldwide.",
     category: "Open Source",
     image: "/projects/lottie-skill.png",
     stars: 3,
@@ -33,12 +41,20 @@ const projects: Project[] = [
   {
     id: "vercel-agents",
     title: "AI Agent Framework",
-    description: "Multi-agent system for complex conversations. Built with Vercel AI SDK.",
+    description: "Multi-agent system for complex conversations. Built with Vercel AI SDK. Handles 100+ concurrent sessions.",
     category: "Open Source",
     image: "/projects/vercel-agents.png",
     stars: 2,
     url: "https://github.com/obeskay/vercel-ai-agents"
-  }
+  },
+  {
+    id: "whatsapp-agent",
+    title: "WhatsApp AI Agent",
+    description: "Voice-enabled WhatsApp AI assistant. Processes natural language. Responds in 200ms average latency.",
+    category: "Open Source",
+    image: "/projects/whatsapp-agent.png",
+    url: "https://github.com/obeskay/whatsapp-ai-agent"
+  },
 ];
 
 const filters = ["All", "SaaS", "Open Source"] as const;
@@ -85,7 +101,7 @@ export default function Work() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4"
+              className="text-sm font-medium text-primary uppercase tracking-wider mb-4"
             >
               Selected Work
             </motion.p>
@@ -103,6 +119,7 @@ export default function Work() {
               className="text-lg text-muted-foreground leading-relaxed"
             >
               From AI-powered customer support to digital menus that save restaurants hours every week.
+              Real impact. Real results.
             </motion.p>
           </div>
 
@@ -145,7 +162,7 @@ export default function Work() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 gap-8"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filteredProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
@@ -153,16 +170,31 @@ export default function Work() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Empty state */}
-          {filteredProjects.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-20 text-muted-foreground"
-            >
-              No projects in this category yet.
-            </motion.div>
-          )}
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {[
+              { label: "SaaS Products", value: "3" },
+              { label: "Open Source", value: "3" },
+              { label: "Users Impacted", value: "100K+" },
+              { label: "Countries", value: "5+" },
+            ].map((stat, i) => (
+              <div
+                key={stat.label}
+                className="p-6 bg-surface rounded-2xl border border-border"
+              >
+                <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -179,16 +211,14 @@ export default function Work() {
               Have a project in <span className="font-display italic font-normal">mind</span>?
             </h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              I'm always open to discussing new projects and opportunities.
+              I'm always open to discussing new projects and opportunities. Let's build something meaningful.
             </p>
-            <motion.a
+            <a
               href="mailto:obeskay.mail@gmail.com"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground rounded-full font-medium transition-all hover:shadow-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground rounded-full font-medium transition-all hover:shadow-lg hover:shadow-accent/40"
             >
               Get in touch
-            </motion.a>
+            </a>
           </motion.div>
         </div>
       </section>

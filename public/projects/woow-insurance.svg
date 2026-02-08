@@ -1,0 +1,24 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#2C3E35"/>
+  
+  <!-- Subtle pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D4E8B0" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  
+  <!-- Title -->
+  <text x="800" y="380" text-anchor="middle" fill="#D4E8B0" font-size="96" font-family="Georgia, serif" font-weight="bold" font-style="italic">WOOW</text>
+  <text x="800" y="480" text-anchor="middle" fill="#D4E8B0" font-size="72" font-family="Georgia, serif" font-weight="bold">Insurance</text>
+  
+  <!-- Subtitle -->
+  <text x="800" y="560" text-anchor="middle" fill="#FFFFFF" font-size="42" font-family="system-ui, sans-serif" font-weight="500">AI Quote Engine</text>
+  
+  <!-- Decorative accent -->
+  <circle cx="800" cy="680" r="120" fill="#D4E8B0" opacity="0.2"/>
+  <circle cx="800" cy="680" r="80" fill="#D4E8B0" opacity="0.3"/>
+  <text x="800" y="695" text-anchor="middle" fill="#2C3E35" font-size="32" font-family="system-ui, sans-serif" font-weight="bold">100K+ Users</text>
+</svg>
