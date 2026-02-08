@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard, { Project } from "../components/ProjectCard";
 
+// Metadata is handled in layout, but we add page-specific info here
+// export const metadata would go in a separate page metadata file for App Router
+
 const projects: Project[] = [
   {
     id: "chateala",
