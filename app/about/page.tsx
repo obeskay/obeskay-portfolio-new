@@ -99,28 +99,33 @@ export default function About() {
             >
               <motion.div 
                 style={{ y: imageY }}
-                className="relative aspect-[4/5] rounded-[32px] overflow-hidden bg-muted"
+                className="relative aspect-[4/5] rounded-[32px] overflow-hidden bg-gradient-to-br from-surface to-border border-2 border-border shadow-2xl"
               >
                 <Image
-                  src="/img/obed/obeskay.webp"
-                  alt="Obed Vargas"
+                  src="/img/nobanana.jpg"
+                  alt="No banana - Obed's creative vibe"
                   fill
                   className="object-cover"
                   priority
                 />
-              </motion.div>
-              
-              {/* Floating badge */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -right-4 bottom-12 bg-accent px-6 py-4 rounded-2xl shadow-lg"
-              >
-                <p className="text-sm font-medium text-foreground flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  Mexico City
-                </p>
+                
+                {/* Floating badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20, rotate: -10 }}
+                  animate={{ opacity: 1, x: 0, rotate: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="absolute -right-4 top-12 bg-accent px-6 py-4 rounded-2xl shadow-lg shadow-accent/30"
+                >
+                  <p className="text-sm font-medium text-foreground flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    Mexico City
+                  </p>
+                </motion.div>
+
+                {/* Creative tag */}
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-primary shadow-sm">
+                  🍌 No banana
+                </div>
               </motion.div>
             </motion.div>
 
