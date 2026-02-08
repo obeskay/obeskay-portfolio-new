@@ -118,15 +118,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        {/* Icons */}
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
+        {/* Modern favicon (SVG) */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         
-        {/* Favicon fallback */}
+        {/* Fallback ICO */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        
+        {/* Apple touch */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-sans antialiased">
         <Navigation />
