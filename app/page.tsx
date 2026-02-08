@@ -24,9 +24,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-xl text-text-muted mb-12"
+            className="text-xl md:text-2xl text-text-muted mb-12 max-w-xl mx-auto"
           >
-            I build enjoyable websites
+            Building AI products that solve real problems
           </motion.p>
 
           <motion.div

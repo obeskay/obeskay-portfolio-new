@@ -58,16 +58,16 @@ export default function About() {
             {/* Bio */}
             <div className="mb-10">
               <h2 className="text-2xl font-bold text-foreground mb-4">
-                Hi, I'm Obed
+                Hey, I'm Obed
               </h2>
               <p className="text-text-muted leading-relaxed mb-4">
-                I'm a senior software engineer based in Mexico City, passionate about building beautiful, functional digital experiences that people love to use.
+                I build products that actually work. Based in Mexico City, I focus on the intersection of AI and UX—making powerful technology feel simple and human.
               </p>
               <p className="text-text-muted leading-relaxed mb-4">
-                I specialize in TypeScript, Next.js, and AI agents. Currently exploring the intersection of UX and AI to create intelligent web experiences.
+                Currently at <span className="text-foreground font-medium">WOOW Todo Bien</span>, transforming how people buy insurance. On the side, I ship SaaS products and open source tools that solve real problems.
               </p>
               <p className="text-text-muted leading-relaxed">
-                When I'm not coding, you'll find me learning new technologies, contributing to open source, or experimenting with AI agents.
+                No fluff. Just useful software.
               </p>
             </div>
 

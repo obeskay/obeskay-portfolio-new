@@ -7,7 +7,7 @@ const projects: Project[] = [
   {
     id: "chateala",
     title: "Chatea.la",
-    description: "WhatsApp automation SaaS",
+    description: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed without hiring.",
     category: "SaaS",
     image: "/projects/chateala.png",
     url: "https://chatea.la"
@@ -15,15 +15,15 @@ const projects: Project[] = [
   {
     id: "qrapidito",
     title: "QRapidito",
-    description: "QR menu platform for restaurants",
+    description: "Digital menus in seconds. Send a photo, AI does the rest. 500+ restaurants, 4.9★ rating.",
     category: "SaaS",
     image: "/projects/qrapidito.png",
     url: "https://qrapidito.com"
   },
   {
     id: "lottie-skill",
-    title: "Lottie Animator Skill",
-    description: "Claude Code skill for Lottie animations",
+    title: "Lottie Animator",
+    description: "Turn static SVGs into smooth animations with AI. No After Effects needed.",
     category: "Open Source",
     image: "/projects/lottie-skill.png",
     stars: 3,
@@ -31,28 +31,12 @@ const projects: Project[] = [
   },
   {
     id: "vercel-agents",
-    title: "Vercel AI Agents",
-    description: "Multi-agent conversational AI system",
+    title: "AI Agent Framework",
+    description: "Multi-agent system for complex conversations. Built with Vercel AI SDK.",
     category: "Open Source",
     image: "/projects/vercel-agents.png",
     stars: 2,
     url: "https://github.com/obeskay/vercel-ai-agents"
-  },
-  {
-    id: "swarm-ville",
-    title: "Swarm Ville",
-    description: "AI agent collaboration in 2D",
-    category: "Open Source",
-    image: "/projects/swarm-ville.png",
-    url: "https://github.com/obeskay/swarm-ville"
-  },
-  {
-    id: "whatsapp-agent",
-    title: "WhatsApp AI Agent",
-    description: "Voice-enabled WhatsApp AI assistant",
-    category: "Open Source",
-    image: "/projects/whatsapp-agent.png",
-    url: "https://github.com/obeskay/whatsapp-ai-agent"
   }
 ];
 
@@ -68,10 +52,10 @@ export default function Work() {
           className="mb-20"
         >
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
-            Selected Work
+            Work
           </h1>
-          <p className="text-xl text-text-muted">
-            A collection of projects I've built
+          <p className="text-xl text-text-muted max-w-2xl">
+            Products that solve real problems. From AI-powered customer support to digital menus that save restaurants hours every week.
           </p>
         </motion.div>
 
@@ -93,8 +77,8 @@ export default function Work() {
           </button>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid - 2 columns for more visual impact */}
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
