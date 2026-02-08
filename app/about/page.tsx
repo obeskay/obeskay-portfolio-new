@@ -40,7 +40,7 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-surface to-border flex items-center justify-center overflow-hidden">
-              <div className="text-9xl font-bold text-muted/20">O</div>
+              <div className="text-9xl font-bold text-text-muted/20">O</div>
             </div>
           </motion.div>
 
@@ -56,13 +56,13 @@ export default function About() {
               <h2 className="text-2xl font-bold text-foreground mb-4">
                 Hi, I'm Obed
               </h2>
-              <p className="text-muted leading-relaxed mb-4">
+              <p className="text-text-muted leading-relaxed mb-4">
                 I'm a senior software engineer based in Mexico City, passionate about building beautiful, functional digital experiences that people love to use.
               </p>
-              <p className="text-muted leading-relaxed mb-4">
+              <p className="text-text-muted leading-relaxed mb-4">
                 I specialize in TypeScript, Next.js, and AI agents. Currently exploring the intersection of UX and AI to create intelligent web experiences.
               </p>
-              <p className="text-muted leading-relaxed">
+              <p className="text-text-muted leading-relaxed">
                 When I'm not coding, you'll find me learning new technologies, contributing to open source, or experimenting with AI agents.
               </p>
             </div>
@@ -85,7 +85,7 @@ export default function About() {
             </div>
 
             {/* Location */}
-            <div className="flex items-center gap-2 text-muted mb-8">
+            <div className="flex items-center gap-2 text-text-muted mb-8">
               <MapPin className="w-4 h-4" />
               <span>Mexico City, Mexico</span>
             </div>

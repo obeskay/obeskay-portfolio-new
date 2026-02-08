@@ -37,7 +37,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={`relative text-sm font-medium transition-colors ${
-                    isActive ? "text-foreground" : "text-muted hover:text-foreground"
+                    isActive ? "text-foreground" : "text-text-muted hover:text-foreground"
                   }`}
                 >
                   {link.label}
@@ -59,7 +59,7 @@ export default function Navigation() {
               href="https://github.com/obeskay"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-muted hover:text-primary transition-colors"
+              className="p-2 text-text-muted hover:text-primary transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -68,14 +68,14 @@ export default function Navigation() {
               href="https://linkedin.com/in/obeskay"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-muted hover:text-primary transition-colors"
+              className="p-2 text-text-muted hover:text-primary transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:obeskay.mail@gmail.com"
-              className="p-2 text-muted hover:text-primary transition-colors"
+              className="p-2 text-text-muted hover:text-primary transition-colors"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />

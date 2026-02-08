@@ -65,7 +65,7 @@ export default function Work() {
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
             Selected Work
           </h1>
-          <p className="text-xl text-muted">
+          <p className="text-xl text-text-muted">
             A collection of projects I've built
           </p>
         </motion.div>
@@ -80,10 +80,10 @@ export default function Work() {
           <button className="px-4 py-2 text-sm font-medium rounded-full bg-foreground text-background">
             All
           </button>
-          <button className="px-4 py-2 text-sm font-medium rounded-full text-muted hover:text-foreground transition-colors">
+          <button className="px-4 py-2 text-sm font-medium rounded-full text-text-muted hover:text-foreground transition-colors">
             SaaS
           </button>
-          <button className="px-4 py-2 text-sm font-medium rounded-full text-muted hover:text-foreground transition-colors">
+          <button className="px-4 py-2 text-sm font-medium rounded-full text-text-muted hover:text-foreground transition-colors">
             Open Source
           </button>
         </motion.div>

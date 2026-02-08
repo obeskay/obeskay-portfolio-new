@@ -24,7 +24,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-xl text-muted mb-12"
+            className="text-xl text-text-muted mb-12"
           >
             I build enjoyable websites
           </motion.p>
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="flex gap-4">
               <a
                 href="mailto:obeskay.mail@gmail.com"
-                className="p-3 text-muted hover:text-primary transition-colors"
+                className="p-3 text-text-muted hover:text-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -68,7 +68,7 @@ export default function Home() {
                 href="https://github.com/obeskay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 text-muted hover:text-primary transition-colors"
+                className="p-3 text-text-muted hover:text-primary transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -77,13 +77,13 @@ export default function Home() {
                 href="https://linkedin.com/in/obeskay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 text-muted hover:text-primary transition-colors"
+                className="p-3 text-text-muted hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
-            <p className="text-muted text-sm">
+            <p className="text-text-muted text-sm">
               © {new Date().getFullYear()} Obed Vargas
             </p>
           </div>

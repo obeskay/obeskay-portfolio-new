@@ -36,7 +36,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Image/Preview Area */}
         <div className="aspect-video bg-gradient-to-br from-surface to-border flex items-center justify-center relative overflow-hidden">
-          <div className="text-4xl font-bold text-muted/30 group-hover:text-primary/20 transition-colors">
+          <div className="text-4xl font-bold text-text-muted/30 group-hover:text-primary/20 transition-colors">
             {project.title.charAt(0)}
           </div>
 
@@ -60,19 +60,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
-              <p className="text-xs text-muted uppercase tracking-wider mt-1">
+              <p className="text-xs text-text-muted uppercase tracking-wider mt-1">
                 {project.category}
               </p>
             </div>
             {project.stars && project.stars > 0 && (
-              <div className="flex items-center gap-1 text-muted flex-shrink-0">
+              <div className="flex items-center gap-1 text-text-muted flex-shrink-0">
                 <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span className="text-sm">{project.stars}</span>
               </div>
             )}
           </div>
 
-          <p className="text-muted text-sm leading-relaxed">
+          <p className="text-text-muted text-sm leading-relaxed">
             {project.description}
           </p>
         </div>
