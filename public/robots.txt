@@ -1,4 +1,5 @@
 # Robots.txt for obeskay.com
+
 User-agent: *
 Allow: /
 
@@ -7,3 +8,7 @@ Sitemap: https://obeskay.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
+
+# Disallow specific paths (if any)
+# Disallow: /api/
+# Disallow: /admin/

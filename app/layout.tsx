@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import JsonLd from "./components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ const siteConfig = {
   title: "Obed Vargas — AI Products & Web Developer",
   description: "Building AI products that solve real problems. Senior Software Engineer specializing in TypeScript, Next.js, and conversational AI. Based in Mexico City.",
   url: "https://obeskay.com",
-  ogImage: "/og.png",
+  ogImage: "/api/og?title=Obed%20Vargas&subtitle=AI%20Products%20%26%20Web%20Developer",
 };
 
 export const metadata: Metadata = {
@@ -42,16 +43,21 @@ export const metadata: Metadata = {
     "Mexico City",
     "SaaS",
     "Open Source",
+    "React",
+    "Node.js",
+    "Framer Motion",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
+  
+  // Open Graph
   openGraph: {
     type: "website",
+    siteName: siteConfig.name,
     locale: "en_US",
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
-    siteName: siteConfig.name,
     images: [
       {
         url: siteConfig.ogImage,
@@ -61,13 +67,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+  
+  // Twitter Card
   twitter: {
     card: "summary_large_image",
+    site: "@obeskay",
+    creator: "@obeskay",
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@obeskay",
   },
+  
+  // Verification & SEO
+  verification: {
+    google: "your-google-verification-code", // Add your code
+    yandex: "your-yandex-verification-code", // Add your code
+  },
+  
+  // Robots
   robots: {
     index: true,
     follow: true,
@@ -78,6 +95,11 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  
+  // Alternates
+  alternates: {
+    canonical: siteConfig.url,
   },
 };
 
@@ -96,12 +118,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* Icons */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Favicon fallback */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="font-sans antialiased">
         <Navigation />
+        <JsonLd />
         <main>{children}</main>
       </body>
     </html>
