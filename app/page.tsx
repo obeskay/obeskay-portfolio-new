@@ -72,10 +72,37 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-[90vh] flex items-center justify-center px-6 lg:px-12 overflow-hidden"
       >
-        {/* Background decoration */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-accent/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-[5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+        {/* Background decoration - Premium */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Main accent blob */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.4, 0.3]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 right-[5%] w-[600px] h-[600px] bg-accent/30 rounded-full blur-[100px]" 
+          />
+          {/* Secondary blob */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.15, 1],
+              x: [0, 20, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-0 left-[0%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[80px]" 
+          />
+          {/* Subtle grid pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, var(--foreground) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px'
+            }}
+          />
         </div>
 
         <motion.div 
@@ -127,12 +154,18 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/work">
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow"
                 >
                   View my work
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <motion.span
+                    className="inline-block"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.span>
                 </motion.div>
               </Link>
             </motion.div>
@@ -140,9 +173,9 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/about">
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-muted text-foreground rounded-full font-medium transition-all hover:bg-surface-hover"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground rounded-full font-medium border border-border hover:border-primary/30 hover:shadow-lg transition-all"
                 >
                   About me
                 </motion.div>
@@ -169,8 +202,11 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Teaser */}
-      <section className="py-24 px-6 lg:px-12 bg-surface">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-32 px-6 lg:px-12 bg-surface relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="container mx-auto max-w-6xl relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -179,10 +215,10 @@ export default function Home() {
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
           >
             <div>
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+              <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
                 Featured Work
               </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
                 Recent <span className="font-display italic font-normal">projects</span>
               </h2>
             </div>
@@ -190,38 +226,67 @@ export default function Home() {
               href="/work"
               className="group inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
             >
-              View all projects
+              <span className="link-underline">View all projects</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </motion.div>
 
           {/* Bento Grid Preview */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Chatea.la", desc: "AI-powered WhatsApp automation", tag: "SaaS" },
-              { title: "QRapidito", desc: "Digital menus for restaurants", tag: "SaaS" },
+              { 
+                title: "Chatea.la", 
+                desc: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed.", 
+                tag: "SaaS",
+                image: "/projects/chateala.png"
+              },
+              { 
+                title: "QRapidito", 
+                desc: "Digital menus in seconds. 500+ restaurants trust us.", 
+                tag: "SaaS",
+                image: "/projects/qrapidito.png"
+              },
             ].map((project, i) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link href="/work" className="group block">
-                  <div className="card-luxury p-8 h-full">
-                    <span className="inline-block px-3 py-1 bg-accent text-sm font-medium rounded-full mb-6">
-                      {project.tag}
-                    </span>
-                    <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground">{project.desc}</p>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more
-                      <ArrowUpRight className="w-4 h-4" />
+                  <motion.div 
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="card-luxury overflow-hidden"
+                  >
+                    {/* Image */}
+                    <div className="aspect-[16/10] relative overflow-hidden bg-muted">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                  </div>
+                    
+                    {/* Content */}
+                    <div className="p-8">
+                      <span className="inline-block px-4 py-1.5 bg-accent text-sm font-medium rounded-full mb-4">
+                        {project.tag}
+                      </span>
+                      <h3 className="text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">{project.desc}</p>
+                      <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        Explore project
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </motion.div>
                 </Link>
               </motion.div>
             ))}

@@ -213,8 +213,11 @@ export default function About() {
       </section>
 
       {/* Experience Section */}
-      <section className="py-20 px-6 lg:px-12 bg-surface">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-32 px-6 lg:px-12 bg-surface relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[150px] pointer-events-none" />
+        
+        <div className="container mx-auto max-w-6xl relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +225,10 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
+              Experience
+            </p>
+            <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
               Where I've <span className="font-display italic font-normal">worked</span>
             </h2>
           </motion.div>
@@ -231,24 +237,32 @@ export default function About() {
             {experience.map((exp, i) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group p-8 bg-white rounded-[24px] hover:shadow-lg transition-all duration-300"
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      {exp.role}
-                    </h3>
-                    <p className="text-primary font-medium">{exp.company}</p>
-                    <p className="text-muted-foreground mt-2">{exp.description}</p>
+                <motion.div 
+                  whileHover={{ x: 8 }}
+                  transition={{ duration: 0.3 }}
+                  className="group p-8 bg-white rounded-[28px] shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-accent/50"
+                >
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 rounded-full bg-accent group-hover:scale-125 transition-transform" />
+                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                          {exp.role}
+                        </h3>
+                      </div>
+                      <p className="text-primary font-medium ml-6">{exp.company}</p>
+                      <p className="text-muted-foreground mt-3 ml-6 leading-relaxed">{exp.description}</p>
+                    </div>
+                    <span className="text-sm text-muted-foreground whitespace-nowrap ml-6 md:ml-0 px-4 py-2 bg-surface rounded-full">
+                      {exp.period}
+                    </span>
                   </div>
-                  <span className="text-sm text-muted-foreground whitespace-nowrap">
-                    {exp.period}
-                  </span>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
