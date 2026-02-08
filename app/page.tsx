@@ -191,7 +191,7 @@ export default function Home() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div className="flex items-center gap-1 text-text-muted">
-                    {project.stars > 0 && (
+                    {(project.stars ?? 0) > 0 && (
                       <>
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="text-sm">{project.stars}</span>
