@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Github, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
 
 const skills = [
   "TypeScript",
@@ -12,124 +14,274 @@ const skills = [
   "Conversational AI",
   "Tailwind CSS",
   "Framer Motion",
-  "Git",
+  "PostgreSQL",
 ];
 
-export default function About() {
-  return (
-    <main className="min-h-screen py-24 px-6">
-      <div className="container mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
-            About
-          </h1>
-        </motion.div>
+const experience = [
+  {
+    role: "Senior Software Engineer",
+    company: "WOOW Todo Bien",
+    period: "2023 — Present",
+    description: "Transforming how people buy insurance with AI-powered experiences.",
+  },
+  {
+    role: "Founder",
+    company: "Chatea.la",
+    period: "2024 — Present",
+    description: "Building AI agents for WhatsApp automation.",
+  },
+];
 
-        {/* Split Layout */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          {/* Photo Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl">
-              <img
-                src="/img/obed/obeskay.webp"
-                alt="Obed Vargas"
-                className="w-full h-full object-cover"
-              />
+// Reveal animation component
+const RevealText = ({ 
+  children, 
+  delay = 0,
+}: { 
+  children: React.ReactNode; 
+  delay?: number;
+}) => (
+  <div className="overflow-hidden">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ 
+        duration: 0.8, 
+        delay,
+        ease: [0.16, 1, 0.3, 1]
+      }}
+    >
+      {children}
+    </motion.div>
+  </div>
+);
+
+export default function About() {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-20 lg:py-32 px-6 lg:px-12">
+        <div className="container mx-auto max-w-6xl">
+          {/* Header */}
+          <div className="max-w-3xl mb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4"
+            >
+              About Me
+            </motion.p>
+            
+            <RevealText delay={0.2}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight">
+                Building <span className="font-display italic font-normal">useful</span> things
+              </h1>
+            </RevealText>
+          </div>
+
+          {/* Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Photo */}
+            <motion.div
+              ref={imageRef}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative"
+            >
+              <motion.div 
+                style={{ y: imageY }}
+                className="relative aspect-[4/5] rounded-[32px] overflow-hidden bg-muted"
+              >
+                <Image
+                  src="/img/obed/obeskay.webp"
+                  alt="Obed Vargas"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
+              
+              {/* Floating badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute -right-4 bottom-12 bg-accent px-6 py-4 rounded-2xl shadow-lg"
+              >
+                <p className="text-sm font-medium text-foreground flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Mexico City
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Content */}
+            <div className="flex flex-col justify-center">
+              {/* Bio */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mb-12"
+              >
+                <h2 className="text-2xl font-semibold text-foreground mb-6">
+                  Hey, I'm <span className="font-display italic font-normal">Obed</span>
+                </h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    I build products that actually work. Based in Mexico City, I focus on the 
+                    intersection of AI and UX—making powerful technology feel simple and human.
+                  </p>
+                  <p>
+                    Currently at <span className="text-foreground font-medium">WOOW Todo Bien</span>, 
+                    transforming how people buy insurance. On the side, I ship SaaS products and 
+                    open source tools that solve real problems.
+                  </p>
+                  <p className="text-foreground font-medium">
+                    No fluff. Just useful software.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Skills */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="mb-12"
+              >
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                  Technologies
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, i) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.6 + i * 0.05 }}
+                      className="px-4 py-2 bg-muted text-foreground text-sm font-medium rounded-full hover:bg-accent transition-colors cursor-default"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Connect */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                  Connect
+                </h3>
+                <div className="flex gap-3">
+                  {[
+                    { href: "mailto:obeskay.mail@gmail.com", icon: Mail, label: "Email" },
+                    { href: "https://github.com/obeskay", icon: Github, label: "GitHub" },
+                    { href: "https://linkedin.com/in/obeskay", icon: Linkedin, label: "LinkedIn" },
+                  ].map((social) => (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      target={social.href.startsWith("http") ? "_blank" : undefined}
+                      rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="p-4 bg-muted text-foreground rounded-2xl hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                      aria-label={social.label}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <social.icon className="w-5 h-5" />
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="py-20 px-6 lg:px-12 bg-surface">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+              Where I've <span className="font-display italic font-normal">worked</span>
+            </h2>
           </motion.div>
 
-          {/* Content Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center"
-          >
-            {/* Bio */}
-            <div className="mb-10">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
-                Hey, I'm Obed
-              </h2>
-              <p className="text-text-muted leading-relaxed mb-4">
-                I build products that actually work. Based in Mexico City, I focus on the intersection of AI and UX—making powerful technology feel simple and human.
-              </p>
-              <p className="text-text-muted leading-relaxed mb-4">
-                Currently at <span className="text-foreground font-medium">WOOW Todo Bien</span>, transforming how people buy insurance. On the side, I ship SaaS products and open source tools that solve real problems.
-              </p>
-              <p className="text-text-muted leading-relaxed">
-                No fluff. Just useful software.
-              </p>
-            </div>
-
-            {/* Skills */}
-            <div className="mb-10">
-              <h3 className="text-lg font-bold text-foreground mb-4">
-                Skills & Technologies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-surface text-foreground text-sm rounded-full hover:bg-primary hover:text-white transition-colors"
-                  >
-                    {skill}
+          <div className="space-y-6">
+            {experience.map((exp, i) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group p-8 bg-white rounded-[24px] hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                      {exp.role}
+                    </h3>
+                    <p className="text-primary font-medium">{exp.company}</p>
+                    <p className="text-muted-foreground mt-2">{exp.description}</p>
+                  </div>
+                  <span className="text-sm text-muted-foreground whitespace-nowrap">
+                    {exp.period}
                   </span>
-                ))}
-              </div>
-            </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Location */}
-            <div className="flex items-center gap-2 text-text-muted mb-8">
-              <MapPin className="w-4 h-4" />
-              <span>Mexico City, Mexico</span>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-4">
-                Let's Connect
-              </h3>
-              <div className="flex gap-3">
-                <a
-                  href="mailto:obeskay.mail@gmail.com"
-                  className="p-3 bg-surface rounded-full hover:bg-primary hover:text-white transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://github.com/obeskay"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-surface rounded-full hover:bg-primary hover:text-white transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/obeskay"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-surface rounded-full hover:bg-primary hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
+      {/* CTA Section */}
+      <section className="py-20 px-6 lg:px-12">
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
+              Let's build something <span className="font-display italic font-normal">together</span>
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              I'm always interested in hearing about new projects and opportunities.
+            </p>
+            <motion.a
+              href="mailto:obeskay.mail@gmail.com"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium transition-all hover:shadow-lg hover:shadow-primary/20"
+            >
+              Get in touch
+              <ArrowUpRight className="w-4 h-4" />
+            </motion.a>
           </motion.div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

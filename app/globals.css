@@ -1,30 +1,62 @@
 @import "tailwindcss";
 
+/* ===== CLINICAL LUXURY DESIGN SYSTEM ===== */
+/* Serene Wellness aesthetic - Deep Evergreen & Pale Lime */
+
 :root {
-  /* Soft minimalist teal palette - obeskay style */
-  --background: #ffffff;
-  --foreground: #023437;
-  --primary: #008698;
-  --secondary: #00a896;
-  --accent: #02c39a;
-  --surface: #f0fdfa;
-  --surface-hover: #ccfbf1;
-  --border: #99f6e4;
-  --text-muted: #4a7c78;
-  --font-sans: var(--font-poppins);
+  /* Core palette */
+  --background: #FAFAF9;
+  --foreground: #1C1917;
+  --primary: #2C3E35;
+  --primary-foreground: #FFFFFF;
+  --accent: #D4E8B0;
+  --accent-foreground: #1C1917;
+  --muted: #E7E5E4;
+  --muted-foreground: #78716C;
+  
+  /* Extended palette */
+  --surface: #F5F5F4;
+  --surface-hover: #E7E5E4;
+  --border: #D6D3D1;
+  --border-subtle: #E7E5E4;
+  
+  /* Semantic */
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --error: #EF4444;
+  
+  /* Spacing */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 40px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
-  --color-text-muted: var(--text-muted);
-  --font-sans: var(--font-poppins);
+  --color-border-subtle: var(--border-subtle);
+  
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+  
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
 }
 
 * {
@@ -38,15 +70,101 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* ===== TYPOGRAPHY UTILITIES ===== */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Mixed typography for headings */
+.heading-mixed span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal-mask {
+  overflow: hidden;
+}
+
+.reveal-text {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Stagger delays */
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+
+/* ===== BUTTON STYLES ===== */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-full);
+  padding: 1rem 2rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 40px -10px rgba(44, 62, 53, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-radius: var(--radius-full);
+  padding: 1rem 2rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-accent:hover {
+  transform: scale(1.02);
+  background: #c5dc9c;
+}
+
+/* ===== CARD STYLES ===== */
+.card-luxury {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -54,10 +172,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: var(--muted);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--accent);
+  color: var(--foreground);
 }
