@@ -55,6 +55,22 @@ const projects: Project[] = [
     image: "/projects/whatsapp-agent.png",
     url: "https://github.com/obeskay/whatsapp-ai-agent"
   },
+  {
+    id: "swarm-ville",
+    title: "SwarmVille",
+    description: "2D visualization of AI agents collaborating in real-time. Watch autonomous agents solve problems together.",
+    category: "Open Source",
+    image: "/projects/swarm-ville.png",
+    url: "https://github.com/obeskay/swarm-ville"
+  },
+  {
+    id: "one-shot",
+    title: "One-Shot",
+    description: "Context builder for LLMs. Drag, drop, ship. Built with Wails, Go, and React. Lightning-fast desktop app.",
+    category: "Open Source",
+    image: "/projects/one-shot.svg",
+    url: "https://github.com/obeskay/one-shot"
+  },
 ];
 
 const filters = ["All", "SaaS", "Open Source"] as const;
@@ -180,9 +196,9 @@ export default function Work() {
           >
             {[
               { label: "SaaS Products", value: "3" },
-              { label: "Open Source", value: "3" },
+              { label: "Open Source", value: "5" },
+              { label: "GitHub Stars", value: "5+" },
               { label: "Users Impacted", value: "100K+" },
-              { label: "Countries", value: "5+" },
             ].map((stat, i) => (
               <div
                 key={stat.label}

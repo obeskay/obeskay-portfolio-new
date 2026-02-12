@@ -20,10 +20,10 @@ const playfair = Playfair_Display({
 
 const siteConfig = {
   name: "Obed Vargas",
-  title: "Obed Vargas — AI Products & Web Developer",
-  description: "Building AI products that solve real problems. Senior Software Engineer specializing in TypeScript, Next.js, and conversational AI. Based in Mexico City.",
+  title: "Obed Vargas — AI Agents, Developer Tools & TypeScript",
+  description: "Building AI agents and developer tools that solve real problems. Senior Software Engineer specializing in TypeScript, multi-agent systems, Vercel AI SDK, and productivity automation. Based in Mexico City.",
   url: "https://obeskay.com",
-  ogImage: "/api/og?title=Obed%20Vargas&subtitle=AI%20Products%20%26%20Web%20Developer",
+  ogImage: "/api/og?title=Obed%20Vargas&subtitle=AI%20Agents%20%26%20Developer%20Tools",
 };
 
 export const metadata: Metadata = {
@@ -34,9 +34,13 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "AI Products",
+    "AI Agents",
+    "Multi-Agent Systems",
+    "Developer Tools",
     "TypeScript",
     "Next.js",
+    "Vercel AI SDK",
+    "LangChain",
     "Conversational AI",
     "WhatsApp Automation",
     "Software Engineer",
@@ -45,6 +49,8 @@ export const metadata: Metadata = {
     "Open Source",
     "React",
     "Node.js",
+    "Go",
+    "Wails",
     "Framer Motion",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],

@@ -1,0 +1,81 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.05"/>
+  </pattern>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+
+  <!-- Main window mockup -->
+  <rect x="200" y="100" width="800" height="550" rx="16" fill="#0f0f23" stroke="#333" stroke-width="2"/>
+
+  <!-- Window controls -->
+  <circle cx="235" cy="135" r="8" fill="#ff5f57"/>
+  <circle cx="265" cy="135" r="8" fill="#ffbd2e"/>
+  <circle cx="295" cy="135" r="8" fill="#28ca41"/>
+
+  <!-- Title bar -->
+  <rect x="330" y="120" width="200" height="30" rx="6" fill="#1a1a2e"/>
+  <text x="430" y="140" font-family="system-ui, sans-serif" font-size="14" fill="#888" text-anchor="middle">one-shot</text>
+
+  <!-- Sidebar -->
+  <rect x="220" y="170" width="180" height="460" rx="8" fill="#12121f"/>
+
+  <!-- Sidebar items -->
+  <rect x="235" y="190" width="150" height="40" rx="6" fill="#1e1e3f"/>
+  <rect x="235" y="245" width="150" height="40" rx="6" fill="url(#accent)" opacity="0.3"/>
+  <rect x="235" y="300" width="150" height="40" rx="6" fill="#1e1e3f"/>
+  <rect x="235" y="355" width="150" height="40" rx="6" fill="#1e1e3f"/>
+
+  <!-- File icons in sidebar -->
+  <rect x="250" y="203" width="16" height="16" rx="3" fill="#667eea"/>
+  <rect x="250" y="258" width="16" height="16" rx="3" fill="#667eea"/>
+  <rect x="250" y="313" width="16" height="16" rx="3" fill="#667eea"/>
+  <rect x="250" y="368" width="16" height="16" rx="3" fill="#667eea"/>
+
+  <!-- Main content area -->
+  <rect x="420" y="190" width="560" height="420" rx="8" fill="#0a0a1a"/>
+
+  <!-- Code editor mockup -->
+  <text x="445" y="230" font-family="monospace" font-size="13" fill="#6272a4">// context.ts</text>
+  <text x="445" y="260" font-family="monospace" font-size="13" fill="#ff79c6">import</text>
+  <text x="510" y="260" font-family="monospace" font-size="13" fill="#f8f8f2"> { buildContext } </text>
+  <text x="680" y="260" font-family="monospace" font-size="13" fill="#ff79c6">from</text>
+  <text x="725" y="260" font-family="monospace" font-size="13" fill="#f1fa8c"> './builder'</text>
+
+  <text x="445" y="295" font-family="monospace" font-size="13" fill="#8be9fd">const</text>
+  <text x="495" y="295" font-family="monospace" font-size="13" fill="#f8f8f2"> context = </text>
+  <text x="600" y="295" font-family="monospace" font-size="13" fill="#8be9fd">await</text>
+  <text x="660" y="295" font-family="monospace" font-size="13" fill="#50fa7b"> buildContext</text>
+  <text x="770" y="295" font-family="monospace" font-size="13" fill="#f8f8f2">({</text>
+
+  <text x="465" y="325" font-family="monospace" font-size="13" fill="#f8f8f2">files: [</text>
+  <text x="465" y="355" font-family="monospace" font-size="13" fill="#f1fa8c">'src/**/*.ts'</text>
+  <text x="465" y="385" font-family="monospace" font-size="13" fill="#f8f8f2">],</text>
+
+  <text x="465" y="415" font-family="monospace" font-size="13" fill="#f8f8f2">output: </text>
+  <text x="545" y="415" font-family="monospace" font-size="13" fill="#f1fa8c">'context.md'</text>
+
+  <text x="445" y="445" font-family="monospace" font-size="13" fill="#f8f8f2">})</text>
+
+  <!-- Glow effect -->
+  <ellipse cx="600" cy="400" rx="300" ry="150" fill="url(#accent)" opacity="0.08"/>
+
+  <!-- Logo/badge -->
+  <rect x="900" y="600" width="80" height="40" rx="20" fill="url(#accent)"/>
+  <text x="940" y="625" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">Go</text>
+
+</svg>

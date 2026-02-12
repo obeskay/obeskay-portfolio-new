@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, ArrowUpRight, Twitter } from "lucide-react";
 import { useRef } from "react";
 
 const skills = [
@@ -10,11 +10,13 @@ const skills = [
   "Next.js",
   "React",
   "Node.js",
-  "AI/ML",
-  "Conversational AI",
+  "AI Agents",
+  "Vercel AI SDK",
   "Tailwind CSS",
   "Framer Motion",
   "PostgreSQL",
+  "Go",
+  "Wails",
 ];
 
 const experience = [
@@ -143,12 +145,21 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I build products that actually work. Based in Mexico City, I focus on the 
+                    I build products that actually work. Based in Mexico City, I focus on the
                     intersection of AI and UX—making powerful technology feel simple and human.
                   </p>
                   <p>
-                    Currently at <span className="text-foreground font-medium">WOOW Todo Bien</span>, 
-                    transforming how people buy insurance. On the side, I ship SaaS products and 
+                    <span className="text-foreground font-medium">What I specialize in:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>AI Agents and multi-agent systems (Vercel AI SDK, LangChain)</li>
+                    <li>Developer tools and productivity automation</li>
+                    <li>TypeScript full-stack applications</li>
+                    <li>Desktop apps with Go and Wails</li>
+                  </ul>
+                  <p>
+                    Currently at <span className="text-foreground font-medium">WOOW Todo Bien</span>,
+                    transforming how people buy insurance. On the side, I ship SaaS products and
                     open source tools that solve real problems.
                   </p>
                   <p className="text-foreground font-medium">
@@ -196,6 +207,7 @@ export default function About() {
                     { href: "mailto:obeskay.mail@gmail.com", icon: Mail, label: "Email" },
                     { href: "https://github.com/obeskay", icon: Github, label: "GitHub" },
                     { href: "https://linkedin.com/in/obeskay", icon: Linkedin, label: "LinkedIn" },
+                    { href: "https://x.com/obeskay", icon: Twitter, label: "X / Twitter" },
                   ].map((social) => (
                     <motion.a
                       key={social.label}

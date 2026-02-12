@@ -234,17 +234,17 @@ export default function Home() {
           {/* Bento Grid Preview */}
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { 
-                title: "Chatea.la", 
-                desc: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed.", 
+              {
+                title: "Chatea.la",
+                desc: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed.",
                 tag: "SaaS",
                 image: "/projects/chateala.png"
               },
-              { 
-                title: "QRapidito", 
-                desc: "Digital menus in seconds. 500+ restaurants trust us.", 
-                tag: "SaaS",
-                image: "/projects/qrapidito.png"
+              {
+                title: "One-Shot",
+                desc: "Context builder for LLMs. Drag, drop, ship. Lightning-fast desktop app.",
+                tag: "Open Source",
+                image: "/projects/one-shot.svg"
               },
             ].map((project, i) => (
               <motion.div
