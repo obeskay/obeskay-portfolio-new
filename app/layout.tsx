@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import JsonLd from "./components/JsonLd";
+import GitHubCTA from "./components/GitHubCTA";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -140,6 +141,7 @@ export default function RootLayout({
         <Navigation />
         <JsonLd />
         <main>{children}</main>
+        <GitHubCTA />
       </body>
     </html>
   );

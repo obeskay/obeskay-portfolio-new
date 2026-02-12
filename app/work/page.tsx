@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Star, Users, MessageSquare, Github } from "lucide-react";
 import ProjectCard, { Project } from "../components/ProjectCard";
 
 const projects: Project[] = [
@@ -151,8 +152,8 @@ export default function Work() {
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 className={`relative px-6 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-                  activeFilter === filter 
-                    ? "text-primary-foreground" 
+                  activeFilter === filter
+                    ? "text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
                 whileHover={{ scale: 1.02 }}
@@ -168,6 +169,71 @@ export default function Work() {
                 <span className="relative z-10">{filter}</span>
               </motion.button>
             ))}
+          </motion.div>
+
+          {/* Impact Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-20"
+          >
+            <h2 className="text-sm font-medium text-primary uppercase tracking-wider mb-8">
+              By the numbers
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {[
+                {
+                  icon: Star,
+                  value: "5",
+                  suffix: "+",
+                  label: "Open Source Stars",
+                  trend: "+2 this month",
+                },
+                {
+                  icon: Users,
+                  value: "100",
+                  suffix: "K+",
+                  label: "Users Impacted",
+                  trend: "Across all projects",
+                },
+                {
+                  icon: MessageSquare,
+                  value: "50K",
+                  suffix: "/mo",
+                  label: "Messages Processed",
+                  trend: "Via AI agents",
+                },
+                {
+                  icon: Github,
+                  value: "12",
+                  suffix: "",
+                  label: "GitHub Followers",
+                  trend: "Growing weekly",
+                },
+              ].map((metric, i) => (
+                <motion.div
+                  key={metric.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="group bg-surface rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <metric.icon className="w-5 h-5 text-muted-foreground" />
+                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
+                      {metric.trend}
+                    </span>
+                  </div>
+                  <p className="text-3xl md:text-4xl font-bold text-foreground mb-1">
+                    {metric.value}{metric.suffix}
+                  </p>
+                  <p className="text-sm text-muted-foreground">{metric.label}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Projects Grid */}
