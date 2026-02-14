@@ -5,13 +5,15 @@ import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/journey", label: "Journey" },
-  { href: "/uses", label: "Uses" },
   { href: "/about", label: "About" },
+  { href: "/uses", label: "Uses" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navigation() {
@@ -91,6 +93,9 @@ export default function Navigation() {
 
             {/* Social Links & Mobile Toggle */}
             <div className="flex items-center gap-2">
+              {/* Theme Toggle */}
+              <ThemeToggle />
+
               {/* Desktop Socials */}
               <div className="hidden md:flex items-center gap-1">
                 {[

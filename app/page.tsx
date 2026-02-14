@@ -181,6 +181,18 @@ export default function Home() {
                 </motion.div>
               </Link>
             </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center px-8 py-4 bg-surface text-foreground rounded-full font-medium border-2 border-border hover:border-accent/50 hover:shadow-xl transition-all duration-300"
+                >
+                  Get in touch
+                </motion.div>
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
 
@@ -288,6 +300,58 @@ export default function Home() {
                     </div>
                   </motion.div>
                 </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-32 px-6 lg:px-12 bg-surface relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="container mx-auto max-w-6xl relative">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-16"
+          >
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
+              Expertise
+            </p>
+            <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
+              Technologies I <span className="font-display italic font-normal">master</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { name: "TypeScript", icon: "📘", level: "Expert" },
+              { name: "Next.js", icon: "⚡", level: "Expert" },
+              { name: "AI Agents", icon: "🤖", level: "Advanced" },
+              { name: "React", icon: "⚛️", level: "Expert" },
+              { name: "Node.js", icon: "🟢", level: "Advanced" },
+              { name: "Go", icon: "🐹", level: "Intermediate" },
+              { name: "Tailwind CSS", icon: "🎨", level: "Expert" },
+              { name: "PostgreSQL", icon: "🐘", level: "Advanced" },
+            ].map((skill, i) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8 }}
+                className="group p-6 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-accent/50 cursor-default"
+              >
+                <div className="text-3xl mb-3">{skill.icon}</div>
+                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {skill.name}
+                </h3>
+                <p className="text-xs text-muted-foreground">{skill.level}</p>
               </motion.div>
             ))}
           </div>

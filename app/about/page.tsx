@@ -6,17 +6,18 @@ import { Github, Linkedin, Mail, MapPin, ArrowUpRight, Twitter } from "lucide-re
 import { useRef } from "react";
 
 const skills = [
-  "TypeScript",
-  "Next.js",
-  "React",
-  "Node.js",
-  "AI Agents",
-  "Vercel AI SDK",
-  "Tailwind CSS",
-  "Framer Motion",
-  "PostgreSQL",
-  "Go",
-  "Wails",
+  { name: "TypeScript", level: 95, category: "Languages" },
+  { name: "Next.js", level: 92, category: "Frameworks" },
+  { name: "React", level: 94, category: "Frameworks" },
+  { name: "Node.js", level: 88, category: "Runtime" },
+  { name: "AI Agents", level: 90, category: "AI/ML" },
+  { name: "Vercel AI SDK", level: 89, category: "AI/ML" },
+  { name: "Tailwind CSS", level: 95, category: "Styling" },
+  { name: "Framer Motion", level: 85, category: "Animation" },
+  { name: "PostgreSQL", level: 82, category: "Database" },
+  { name: "Go", level: 78, category: "Languages" },
+  { name: "Wails", level: 80, category: "Desktop" },
+  { name: "LangChain", level: 85, category: "AI/ML" },
 ];
 
 const experience = [
@@ -175,20 +176,33 @@ export default function About() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="mb-12"
               >
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
-                  Technologies
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
+                  Technical Skills
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="space-y-4">
                   {skills.map((skill, i) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.6 + i * 0.05 }}
-                      className="px-4 py-2 bg-muted text-foreground text-sm font-medium rounded-full hover:bg-accent transition-colors cursor-default"
+                      className="group"
                     >
-                      {skill}
-                    </motion.span>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-muted rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: 0.8 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                        />
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>

@@ -438,9 +438,60 @@ body {
   }
 }
 
-/* ===== PREFERENCE QUERY: DARK MODE (future) ===== */
+/* ===== PREFERENCE QUERY: DARK MODE ===== */
 @media (prefers-color-scheme: dark) {
-  /* Ready for dark mode implementation */
+  :root {
+    /* Core palette - Dark mode */
+    --background: #0A0A0A;
+    --foreground: #FAFAF9;
+    --primary: #D4E8B0;
+    --primary-foreground: #1C1917;
+    --accent: #2C3E35;
+    --accent-foreground: #FAFAF9;
+    --muted: #1C1917;
+    --muted-foreground: #A8A29E;
+
+    /* Extended palette */
+    --surface: #171717;
+    --surface-hover: #262626;
+    --border: #262626;
+    --border-subtle: #1C1917;
+  }
+}
+
+/* Class-based dark mode for toggle */
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FAFAF9;
+  --primary: #D4E8B0;
+  --primary-foreground: #1C1917;
+  --accent: #2C3E35;
+  --accent-foreground: #FAFAF9;
+  --muted: #1C1917;
+  --muted-foreground: #A8A29E;
+  --surface: #171717;
+  --surface-hover: #262626;
+  --border: #262626;
+  --border-subtle: #1C1917;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(44, 62, 53, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(212, 232, 176, 0.05) 0%, transparent 40%);
+}
+
+.dark .card-luxury {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.dark .glass {
+  background: rgba(23, 23, 23, 0.85);
+}
+
+.dark .glass-dark {
+  background: rgba(212, 232, 176, 0.92);
 }
 
 /* ===== PRINT STYLES ===== */
