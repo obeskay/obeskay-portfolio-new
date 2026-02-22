@@ -8,10 +8,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Create cache directory with proper permissions
-RUN mkdir -p /app/.next/cache && \
-    chown -R nextjs:nodejs /app/.next/cache
-
 # Rebuild source code
 FROM base AS builder
 WORKDIR /app
@@ -37,6 +33,10 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+
+# Create writable cache dirs and set ownership (must come after user creation)
+RUN mkdir -p /app/.next/cache /app/.next/server && \
+    chown -R nextjs:nodejs /app/.next /app/public /app
 
 USER nextjs
 
