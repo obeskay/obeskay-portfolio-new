@@ -52,32 +52,22 @@ npm run build
 npm start
 ```
 
-## 🐳 Docker Deployment
+## 📦 Deployment
 
-### Using Docker Compose (Recommended)
+### Coolify (Recommended)
 
+**Quick Deploy:**
 ```bash
-# Build and start the container
-docker-compose up -d
+# Configure secrets (one-time setup)
+cp .env.example .env.local
+# Edit .env.local with your Coolify credentials
 
-# View logs
-docker-compose logs -f
-
-# Stop the container
-docker-compose down
+# Deploy
+npm run deploy
 ```
 
-### Using Docker directly
-
-```bash
-# Build the image
-docker build -t obeskay-portfolio .
-
-# Run the container
-docker run -p 3000:3000 obeskay-portfolio
-```
-
-## 📦 Coolify Deployment
+**Manual Deploy:**
+See [COOLIFY_DEPLOYMENT.md](COOLIFY_DEPLOYMENT.md) for complete instructions.
 
 1. **Push your code** to a Git repository (GitHub, GitLab, etc.)
 2. **Create a new application** in Coolify
@@ -92,6 +82,26 @@ Coolify will automatically:
 - Build the Docker image
 - Deploy the application
 - Set up SSL certificates (if configured)
+
+### Docker
+
+**Using Docker Compose:**
+```bash
+docker-compose up -d
+docker-compose logs -f
+```
+
+**Using Docker directly:**
+```bash
+docker build -t obeskay-portfolio .
+docker run -p 3000:3000 obeskay-portfolio
+```
+
+### Alternative Platforms
+
+- **Vercel**: `vercel` (install Vercel CLI first)
+- **Railway**: Connect GitHub repo, auto-deploys
+- **Render**: Deploy from Git repository
 
 ## 📁 Project Structure
 
