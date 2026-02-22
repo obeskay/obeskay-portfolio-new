@@ -114,7 +114,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#2C3E35",
+  themeColor: "#6750A4",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -125,16 +126,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        {/* Modern favicon (SVG) */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        
-        {/* Fallback ICO */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        
-        {/* Apple touch */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        
-        {/* PWA Manifest */}
+        <link rel="icon" href="/icon-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="icon" href="/icon-512x512.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-sans antialiased">

@@ -16,6 +16,8 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const springTransition = { type: "spring" as const, stiffness: 400, damping: 30 };
+
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -25,12 +27,12 @@ export default function Navigation() {
   const headerBg = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(250, 250, 249, 0)", "rgba(250, 250, 249, 0.9)"]
+    ["rgba(254, 247, 255, 0)", "rgba(254, 247, 255, 0.95)"]
   );
   const headerBorder = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(214, 211, 209, 0)", "rgba(214, 211, 209, 1)"]
+    ["rgba(103, 80, 164, 0)", "rgba(103, 80, 164, 0.15)"]
   );
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Navigation() {
           backgroundColor: headerBg,
           borderColor: headerBorder,
         }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-24 border-b transition-all duration-500 glass"
       >
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
@@ -57,7 +59,7 @@ export default function Navigation() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Obed<span className="font-display italic font-normal ml-1">Vargas</span>
+                Obed<span className="font-display italic font-normal ml-1 text-gradient-animated">Vargas</span>
               </motion.span>
             </Link>
 
@@ -71,19 +73,18 @@ export default function Navigation() {
                     href={link.href}
                     className="relative px-5 py-2.5 group"
                   >
-                    <span className={`relative z-10 text-sm font-medium transition-colors duration-300 ${
+                    <span className={`relative z-10 text-sm font-medium transition-colors ${
                       isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                     }`}>
                       {link.label}
                     </span>
                     
-                    {/* Active indicator */}
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-accent rounded-full"
+                        className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full"
                         style={{ zIndex: 0 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        transition={springTransition}
                       />
                     )}
                   </Link>
@@ -108,7 +109,7 @@ export default function Navigation() {
                     href={social.href}
                     target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="p-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-full transition-all duration-200"
+                    className="p-2.5 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-200 hover-glow"
                     aria-label={social.label}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}

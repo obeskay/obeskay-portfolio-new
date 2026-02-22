@@ -33,13 +33,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         delay: index * 0.1,
         ease: [0.16, 1, 0.3, 1]
       }}
-      className="group relative block"
+      className="group relative block hover-lift"
     >
-      {/* Card Container - Clinical Luxury style */}
       <motion.div
         whileHover={{ y: -8 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-white rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500"
+        className="card-luxury"
       >
         {/* Image Area */}
         <div className="aspect-[16/10] bg-muted relative overflow-hidden">
@@ -60,40 +59,37 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               />
             </motion.div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-surface">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 via-surface to-accent/20">
               <span className="text-6xl font-display italic text-muted-foreground/30">
                 {project.title.charAt(0)}
               </span>
             </div>
           )}
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           
           {/* View button */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
             <motion.div
               initial={{ scale: 0.8, y: 20 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white text-foreground px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg transform group-hover:scale-100 group-hover:translate-y-0 scale-90 translate-y-4 transition-all duration-500"
+              className="bg-white text-primary px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg transform group-hover:scale-100 group-hover:translate-y-0 scale-90 translate-y-4 transition-all duration-700 hover:bg-gradient-to-r hover:from-primary hover:to-primary-600 hover:text-white"
             >
               View Project
               <ArrowUpRight className="w-4 h-4" />
             </motion.div>
           </div>
 
-          {/* Category badge */}
           <div className="absolute top-5 left-5 z-10">
-            <span className="px-4 py-1.5 bg-white text-foreground text-xs font-semibold rounded-full shadow-sm uppercase tracking-wider">
+            <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-primary-600 text-white text-xs font-semibold rounded-full shadow-md uppercase tracking-wider">
               {project.category}
             </span>
           </div>
 
-          {/* Stars badge */}
           {project.stars && project.stars > 0 && (
             <div className="absolute top-5 right-5 z-10">
-              <span className="px-3 py-1.5 bg-white text-foreground text-xs font-semibold rounded-full shadow-sm flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <span className="px-3 py-1.5 bg-gradient-to-r from-warning to-warning/80 text-white text-xs font-semibold rounded-full shadow-md flex items-center gap-1.5">
+                <Star className="w-3.5 h-3.5 fill-white text-white" />
                 {project.stars}
               </span>
             </div>
@@ -102,7 +98,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Content */}
         <div className="p-8">
-          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-gradient transition-colors duration-500">
             {project.title}
           </h3>
 
@@ -110,8 +106,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.description}
           </p>
 
-          {/* Arrow indicator */}
-          <div className="mt-6 flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <div className="mt-6 flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
             <span className="text-sm">Explore project</span>
             <ArrowUpRight className="w-4 h-4" />
           </div>

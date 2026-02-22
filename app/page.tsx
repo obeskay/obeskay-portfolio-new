@@ -74,35 +74,34 @@ export default function Home() {
       >
         {/* Background decoration - Premium */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Main accent blob */}
           <motion.div 
             animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.4, 0.3]
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.4, 0.3],
+              rotate: [0, 180, 360]
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-10 right-[5%] w-[600px] h-[600px] bg-accent/30 rounded-full blur-[100px]" 
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 right-[5%] w-[700px] h-[700px] bg-gradient-to-br from-primary/40 to-primary-600/30 rounded-full blur-[120px]" 
           />
-          {/* Secondary blob */}
           <motion.div 
             animate={{ 
               scale: [1, 1.15, 1],
-              x: [0, 20, 0]
+              x: [0, 30, 0],
+              opacity: [0.2, 0.3, 0.2]
+            }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-0 left-[0%] w-[600px] h-[600px] bg-gradient-to-tr from-accent/30 to-tertiary/20 rounded-full blur-[100px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.1, 1],
+              y: [0, -40, 0],
+              opacity: [0.25, 0.35, 0.25]
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-0 left-[0%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[80px]" 
+            className="absolute top-1/2 left-[20%] w-[400px] h-[400px] bg-gradient-to-bl from-secondary/25 to-primary/20 rounded-full blur-[90px]" 
           />
-          {/* Subtle grid pattern */}
-          <div 
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, var(--foreground) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)
-              `,
-              backgroundSize: '60px 60px'
-            }}
-          />
+          <div className="absolute inset-0 bg-radial-spotlight opacity-60" />
         </div>
 
         <motion.div 
@@ -116,7 +115,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-foreground text-sm font-medium rounded-full">
+            <span className="badge-accent hover-lift">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               Available for projects
             </span>
@@ -126,12 +125,12 @@ export default function Home() {
           <div className="mb-8">
             <RevealText delay={0.1}>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-display mb-4">
-                Building <span className="font-display italic font-normal">products</span>
+                Building <span className="font-display italic font-normal text-gradient-animated">products</span>
               </h1>
             </RevealText>
             <RevealText delay={0.2}>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight leading-display">
-                that <span className="font-display italic font-normal">actually</span> work
+                that <span className="font-display italic font-normal text-gradient-animated">actually</span> work
               </h1>
             </RevealText>
           </div>
