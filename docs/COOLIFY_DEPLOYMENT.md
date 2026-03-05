@@ -279,8 +279,8 @@ In Coolify Dashboard:
 
 ## 📚 Related Documentation
 
-- `DEPLOYMENT_GUIDE.md` - Comprehensive deployment guide
-- `DEPLOYMENT_SCRIPTS.md` - Script documentation
+- [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - Comprehensive deployment guide
+- [DEPLOYMENT_SCRIPTS.md](./DEPLOYMENT_SCRIPTS.md) - Script documentation
 - `.env.example` - Environment variables template
 - `.coolify-secrets.md` - Current credentials
 

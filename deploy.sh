@@ -16,24 +16,22 @@ fi
 
 # Configuration with fallbacks
 COOLIFY_URL="${COOLIFY_URL:-https://admin.cloud.obeskay.com}"
-COOLIFY_APP_ID="${COOLIFY_APP_ID:-}"
-COOLIFY_BEARER_TOKEN="${COOLIFY_BEARER_TOKEN:-}"
+PORTFOLIO_APP_ID="${PORTFOLIO_APP_ID:-}"
+BEARER_TOKEN="${BEARER_TOKEN:-}"
 PORTFOLIO_DOMAIN="${PORTFOLIO_DOMAIN:-https://obeskay.com}"
 CHECK_INTERVAL="${CHECK_INTERVAL:-60}"
 MAX_ATTEMPTS="${MAX_ATTEMPTS:-10}"
 
 # Validate required variables
-if [ -z "$COOLIFY_APP_ID" ]; then
-    echo "❌ Error: COOLIFY_APP_ID not set"
+if [ -z "$PORTFOLIO_APP_ID" ]; then
+    echo "❌ Error: PORTFOLIO_APP_ID not set"
     echo "   Solution: Copy .env.example to .env.local and fill in your values"
-    echo "   Or see: .coolify-secrets.md for current configuration"
     exit 1
 fi
 
-if [ -z "$COOLIFY_BEARER_TOKEN" ]; then
-    echo "❌ Error: COOLIFY_BEARER_TOKEN not set"
+if [ -z "$BEARER_TOKEN" ]; then
+    echo "❌ Error: BEARER_TOKEN not set"
     echo "   Solution: Copy .env.example to .env.local and fill in your values"
-    echo "   Or see: .coolify-secrets.md for current configuration"
     exit 1
 fi
 
@@ -46,7 +44,7 @@ echo "🚀 COOLIFY DEPLOYMENT - OBEKSKAY PORTFOLIO"
 echo "============================================"
 echo "Domain: $PORTFOLIO_DOMAIN"
 echo "Coolify: $COOLIFY_URL"
-echo "App ID: $COOLIFY_APP_ID"
+echo "App ID: $PORTFOLIO_APP_ID"
 echo "============================================"
 echo ""
 
@@ -74,9 +72,9 @@ fi
 # Step 3: Trigger Coolify deployment
 echo "🚀 Triggering Coolify deployment..."
 DEPLOY_RESPONSE=$(curl -s -X POST \
-    -H "Authorization: Bearer $COOLIFY_BEARER_TOKEN" \
+    -H "Authorization: Bearer $BEARER_TOKEN" \
     -H "Content-Type: application/json" \
-    "$COOLIFY_URL/api/v1/applications/$COOLIFY_APP_ID/deploy" \
+    "$COOLIFY_URL/api/v1/applications/$PORTFOLIO_APP_ID/deploy" \
     2>/dev/null)
 
 if echo "$DEPLOY_RESPONSE" | grep -qi "error"; then
@@ -94,18 +92,18 @@ echo ""
 
 for i in $(seq 1 $MAX_ATTEMPTS); do
     ts=$(date +%H:%M:%S)
-    
+
     # Get application status
     status=$(curl -s \
-        -H "Authorization: Bearer $COOLIFY_BEARER_TOKEN" \
-        "$COOLIFY_URL/api/v1/applications/$COOLIFY_APP_ID" \
+        -H "Authorization: Bearer $BEARER_TOKEN" \
+        "$COOLIFY_URL/api/v1/applications/$PORTFOLIO_APP_ID" \
         2>/dev/null | jq -r '.status' 2>/dev/null || echo "unknown")
-    
+
     echo "[$i/$MAX_ATTEMPTS] $ts - Status: $status"
-    
+
     # Health check
     health_check=$(curl -s "$PORTFOLIO_DOMAIN" 2>&1 | head -c 200)
-    
+
     # Check if site is responding with our content
     if curl -s "$PORTFOLIO_DOMAIN" 2>&1 | grep -qi "Obed Vargas\|products\|actually work"; then
         echo ""
@@ -113,7 +111,7 @@ for i in $(seq 1 $MAX_ATTEMPTS); do
         echo ""
         break
     fi
-    
+
     if [ $i -lt $MAX_ATTEMPTS ]; then
         echo "⏳ Still building... waiting ${CHECK_INTERVAL}s"
         sleep $CHECK_INTERVAL
@@ -121,7 +119,7 @@ for i in $(seq 1 $MAX_ATTEMPTS); do
         echo ""
         echo "⚠️  Maximum attempts reached"
         echo "ℹ️  Deployment may still be in progress"
-        echo "📍 Check manually: $COOLIFY_URL/applications/$COOLIFY_APP_ID"
+        echo "📍 Check manually: $COOLIFY_URL/applications/$PORTFOLIO_APP_ID"
     fi
 done
 
@@ -134,7 +132,7 @@ echo "============================================"
 echo "✅ DEPLOYMENT COMPLETE"
 echo "============================================"
 echo "🌐 Live Site: $PORTFOLIO_DOMAIN"
-echo "🎛️  Dashboard: $COOLIFY_URL/applications/$COOLIFY_APP_ID"
+echo "🎛️  Dashboard: $COOLIFY_URL/applications/$PORTFOLIO_APP_ID"
 echo "============================================"
 echo ""
 

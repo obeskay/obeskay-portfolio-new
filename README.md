@@ -67,7 +67,7 @@ npm run deploy
 ```
 
 **Manual Deploy:**
-See [COOLIFY_DEPLOYMENT.md](COOLIFY_DEPLOYMENT.md) for complete instructions.
+See [docs/COOLIFY_DEPLOYMENT.md](docs/COOLIFY_DEPLOYMENT.md) for complete instructions.
 
 1. **Push your code** to a Git repository (GitHub, GitLab, etc.)
 2. **Create a new application** in Coolify
@@ -112,6 +112,7 @@ obeskay-portfolio-new/
 │   ├── globals.css       # Global styles with Tailwind 4
 │   ├── layout.tsx        # Root layout with metadata
 │   └── page.tsx          # Main portfolio page
+├── docs/                 # Deployment documentation
 ├── public/
 │   └── img/              # Images and assets
 ├── .dockerignore         # Docker ignore file

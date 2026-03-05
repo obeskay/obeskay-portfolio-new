@@ -36,6 +36,7 @@ yarn-error.log*
 
 # Coolify secrets (NEVER commit)
 .coolify-secrets.md
+deploy-portfolio.sh
 
 # vercel
 .vercel
