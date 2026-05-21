@@ -2,10 +2,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Products that solve real problems. From AI-powered customer support to digital menus. View my SaaS products and open source projects.",
+  description: "Independent products, agentic systems, and focused AI tools by Obed Vargas, including Chatea.la, Carti.app, and Freela.",
   openGraph: {
     title: "Work | Obed Vargas",
-    description: "Products that solve real problems. AI-powered SaaS and open source tools.",
-    images: ["/api/og?title=Work&subtitle=Products that solve real problems"],
+    description: "Independent products, agentic systems, and focused AI tools.",
+    images: ["/api/og?title=Work&subtitle=Independent%20AI%20products"],
   },
 };

@@ -5,16 +5,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
-// Simple fade-up animation
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-  },
-};
-
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -154,13 +144,18 @@ export default function Home() {
             {[
               {
                 title: "Chatea.la",
-                desc: "AI agents that handle customer support 24/7 via WhatsApp.",
-                tag: "SaaS"
+                desc: "WhatsApp AI automation for Mexican businesses.",
+                tag: "Product"
               },
               {
-                title: "One-Shot",
-                desc: "Context builder for LLMs. Drag, drop, ship.",
-                tag: "Open Source"
+                title: "Carti.app",
+                desc: "A WhatsApp-native finance assistant for transactions, budgets, and voice notes.",
+                tag: "Product"
+              },
+              {
+                title: "Freela",
+                desc: "An AI-native marketplace lab for freelance projects and proposal workflows.",
+                tag: "Lab"
               },
             ].map((project, i) => (
               <motion.div

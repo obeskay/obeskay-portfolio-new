@@ -2,59 +2,51 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Users, MessageSquare, Github } from "lucide-react";
+import { Bot, Layers3, MessageSquare, Rocket } from "lucide-react";
 import ProjectCard, { Project } from "../components/ProjectCard";
 
 const projects: Project[] = [
   {
     id: "chateala",
     title: "Chatea.la",
-    description: "AI agents that handle customer support 24/7 via WhatsApp. 3x more leads closed without hiring. Processing 50K+ messages/month.",
-    category: "SaaS",
+    description: "WhatsApp AI automation for Mexican businesses: lead capture, appointment flows, admin visibility, and resilient messaging infrastructure.",
+    category: "Product",
     image: "/projects/chateala.png",
     url: "https://chatea.la"
   },
   {
+    id: "carti",
+    title: "Carti.app",
+    description: "A WhatsApp-native finance assistant that turns text and voice notes into structured transactions, budgets, and useful money context.",
+    category: "Product",
+    image: "/projects/carti.svg",
+    url: "https://carti.app",
+    status: "Private beta"
+  },
+  {
+    id: "freela",
+    title: "Freela",
+    description: "An AI-native freelance marketplace experiment for matching briefs, proposals, conversations, and project signals in one focused workspace.",
+    category: "Lab",
+    image: "/projects/freela.svg",
+    status: "Prototype"
+  },
+  {
     id: "qrapidito",
     title: "QRapidito",
-    description: "Digital menus in seconds. Send a photo, AI does the rest. 500+ restaurants trust us. Generated 10K+ menus with AI.",
-    category: "SaaS",
+    description: "Digital menus in seconds. A practical AI workflow for restaurants that need to turn messy menu inputs into something customers can use.",
+    category: "Product",
     image: "/projects/qrapidito.png",
     url: "https://qrapidito.com"
   },
   {
-    id: "woow-insurance",
-    title: "WOOW Insurance",
-    description: "Transforming how people buy insurance. Built AI quote engine that reduced conversion time by 60%. Serving 100K+ users.",
-    category: "SaaS",
-    image: "/projects/woow-insurance.svg",
-    url: "https://woowtodobien.com"
-  },
-  {
     id: "lottie-skill",
     title: "Lottie Animator",
-    description: "Turn static SVGs into smooth animations with AI. No After Effects needed. Used by 200+ developers worldwide.",
+    description: "A local agent skill for turning static SVGs into motion-ready Lottie assets without opening a heavyweight animation stack.",
     category: "Open Source",
     image: "/projects/lottie-skill.png",
     stars: 3,
     url: "https://github.com/obeskay/lottie-animator-skill"
-  },
-  {
-    id: "vercel-agents",
-    title: "AI Agent Framework",
-    description: "Multi-agent system for complex conversations. Built with Vercel AI SDK. Handles 100+ concurrent sessions.",
-    category: "Open Source",
-    image: "/projects/vercel-agents.png",
-    stars: 2,
-    url: "https://github.com/obeskay/vercel-ai-agents"
-  },
-  {
-    id: "whatsapp-agent",
-    title: "WhatsApp AI Agent",
-    description: "Voice-enabled WhatsApp AI assistant. Processes natural language. Responds in 200ms average latency.",
-    category: "Open Source",
-    image: "/projects/whatsapp-agent.png",
-    url: "https://github.com/obeskay/whatsapp-ai-agent"
   },
   {
     id: "swarm-ville",
@@ -74,7 +66,7 @@ const projects: Project[] = [
   },
 ];
 
-const filters = ["All", "SaaS", "Open Source"] as const;
+const filters = ["All", "Product", "Lab", "Open Source"] as const;
 type Filter = typeof filters[number];
 
 // Reveal animation component
@@ -135,8 +127,8 @@ export default function Work() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-muted-foreground leading-relaxed"
             >
-              From AI-powered customer support to digital menus that save restaurants hours every week.
-              Real impact. Real results.
+              Independent products, agentic systems, and small tools with a bias toward
+              real operators, real workflows, and things that can survive outside a demo.
             </motion.p>
           </div>
 
@@ -185,32 +177,32 @@ export default function Work() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
                 {
-                  icon: Star,
-                  value: "5",
-                  suffix: "+",
-                  label: "Open Source Stars",
-                  trend: "+2 this month",
+                  icon: Rocket,
+                  value: "4",
+                  suffix: "",
+                  label: "Personal Products",
+                  trend: "Built end-to-end",
                 },
                 {
-                  icon: Users,
-                  value: "100",
-                  suffix: "K+",
-                  label: "Users Impacted",
-                  trend: "Across all projects",
+                  icon: Bot,
+                  value: "3",
+                  suffix: "",
+                  label: "Agentic Systems",
+                  trend: "WhatsApp + AI",
                 },
                 {
                   icon: MessageSquare,
-                  value: "50K",
-                  suffix: "/mo",
-                  label: "Messages Processed",
-                  trend: "Via AI agents",
+                  value: "24",
+                  suffix: "/7",
+                  label: "Messaging Focus",
+                  trend: "Ops-first",
                 },
                 {
-                  icon: Github,
-                  value: "12",
+                  icon: Layers3,
+                  value: "1",
                   suffix: "",
-                  label: "GitHub Followers",
-                  trend: "Growing weekly",
+                  label: "Founder OS",
+                  trend: "AI-assisted",
                 },
               ].map((metric, i) => (
                 <motion.div
@@ -261,11 +253,11 @@ export default function Work() {
             className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { label: "SaaS Products", value: "3" },
-              { label: "Open Source", value: "5" },
-              { label: "GitHub Stars", value: "5+" },
-              { label: "Users Impacted", value: "100K+" },
-            ].map((stat, i) => (
+              { label: "Products", value: "4" },
+              { label: "Labs", value: "1" },
+              { label: "Open Source", value: "3" },
+              { label: "Core Focus", value: "AI" },
+            ].map((stat) => (
               <div
                 key={stat.label}
                 className="p-6 bg-surface rounded-2xl border border-border"
@@ -293,7 +285,7 @@ export default function Work() {
               Have a project in <span className="font-display italic font-normal">mind</span>?
             </h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              I'm always open to discussing new projects and opportunities. Let's build something meaningful.
+              I&apos;m always open to discussing new projects and opportunities. Let&apos;s build something meaningful.
             </p>
             <a
               href="mailto:obeskay.mail@gmail.com"

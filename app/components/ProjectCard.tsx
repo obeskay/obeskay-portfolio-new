@@ -8,10 +8,11 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "SaaS" | "Open Source";
+  category: "Product" | "Lab" | "Open Source";
   image?: string;
   stars?: number;
-  url: string;
+  url?: string;
+  status?: string;
 }
 
 interface ProjectCardProps {
@@ -20,11 +21,17 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const CardTag = project.url ? motion.a : motion.div;
+
   return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <CardTag
+      {...(project.url
+        ? {
+            href: project.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+          }
+        : {})}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -94,6 +101,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
             </div>
           )}
+
+          {project.status && (
+            <div className="absolute top-5 right-5 z-10">
+              <span className="px-3 py-1.5 bg-surface/95 text-foreground text-xs font-semibold rounded-full shadow-md border border-border">
+                {project.status}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}
@@ -106,12 +121,18 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.description}
           </p>
 
-          <div className="mt-6 flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-            <span className="text-sm">Explore project</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </div>
+          {project.url ? (
+            <div className="mt-6 flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              <span className="text-sm">Explore project</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
+          ) : (
+            <div className="mt-6 text-sm text-muted-foreground">
+              Internal prototype
+            </div>
+          )}
         </div>
       </motion.div>
-    </motion.a>
+    </CardTag>
   );
 }

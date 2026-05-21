@@ -46,6 +46,16 @@ const nextConfig: NextConfig = {
         destination: 'https://qrapidito.com',
         permanent: false,
       },
+      {
+        source: '/carti',
+        destination: 'https://carti.app',
+        permanent: false,
+      },
+      {
+        source: '/freela',
+        destination: '/work#freela',
+        permanent: false,
+      },
     ];
   },
   
