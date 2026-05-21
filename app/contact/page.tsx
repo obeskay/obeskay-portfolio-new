@@ -98,7 +98,7 @@ export default function Contact() {
 
             <RevealText delay={0.2}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight mb-6">
-                Let's build something <span className="font-display italic font-normal">amazing</span>
+                Let&apos;s build something <span className="font-display italic font-normal">amazing</span>
               </h1>
             </RevealText>
 
@@ -109,7 +109,7 @@ export default function Contact() {
               className="text-lg text-muted-foreground leading-relaxed"
             >
               Have a project in mind? Want to collaborate? Or just want to say hi?
-              I'd love to hear from you.
+              I&apos;d love to hear from you.
             </motion.p>
           </div>
 
@@ -167,7 +167,7 @@ export default function Contact() {
               Send a <span className="font-display italic font-normal">message</span>
             </h2>
             <p className="text-muted-foreground">
-              Fill out the form below and I'll get back to you within 24 hours.
+              Fill out the form below and I&apos;ll get back to you within 24 hours.
             </p>
           </motion.div>
 

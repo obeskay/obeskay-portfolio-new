@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/carti',
-        destination: 'https://carti.app',
+        destination: '/work#carti',
         permanent: false,
       },
       {

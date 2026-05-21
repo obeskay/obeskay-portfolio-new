@@ -121,7 +121,7 @@ export default function Journey() {
               The journey <span className="font-display italic font-normal">continues</span>
             </h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto leading-relaxed">
-              Always learning, always building. Let's create something amazing together.
+              Always learning, always building. Let&apos;s create something amazing together.
             </p>
             <a
               href="mailto:obeskay.mail@gmail.com"

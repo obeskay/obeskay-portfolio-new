@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -21,7 +21,6 @@ const springTransition = { type: "spring" as const, stiffness: 400, damping: 30 
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   
   const { scrollY } = useScroll();
   const headerBg = useTransform(
@@ -34,12 +33,6 @@ export default function Navigation() {
     [0, 100],
     ["rgba(103, 80, 164, 0)", "rgba(103, 80, 164, 0.15)"]
   );
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>

@@ -142,7 +142,7 @@ export default function About() {
                 className="mb-12"
               >
                 <h2 className="text-2xl font-semibold text-foreground mb-6">
-                  Hey, I'm <span className="font-display italic font-normal">Obed</span>
+                  Hey, I&apos;m <span className="font-display italic font-normal">Obed</span>
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -260,7 +260,7 @@ export default function About() {
               Experience
             </p>
             <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
-              Where I've <span className="font-display italic font-normal">worked</span>
+              Where I&apos;ve <span className="font-display italic font-normal">worked</span>
             </h2>
           </motion.div>
 
@@ -310,10 +310,10 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-              Let's build something <span className="font-display italic font-normal">together</span>
+              Let&apos;s build something <span className="font-display italic font-normal">together</span>
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              I'm always interested in hearing about new projects and opportunities.
+              I&apos;m always interested in hearing about new projects and opportunities.
             </p>
             <motion.a
               href="mailto:obeskay.mail@gmail.com"

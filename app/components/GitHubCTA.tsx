@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Star, ArrowUpRight, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const STORAGE_KEY = "github-cta-dismissed";
 const DISMISS_DURATION_DAYS = 7;
@@ -10,7 +10,7 @@ const SCROLL_THRESHOLD = 0.3; // 30% scroll
 
 export default function GitHubCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
+  const isDismissed = useRef(false);
 
   useEffect(() => {
     // Check if user has dismissed the widget recently
@@ -22,21 +22,21 @@ export default function GitHubCTA() {
         (now - dismissedTime) / (1000 * 60 * 60 * 24);
 
       if (daysSinceDismissed < DISMISS_DURATION_DAYS) {
-        setIsDismissed(true);
+        isDismissed.current = true;
         return;
       }
     }
 
     // Scroll detection
     const handleScroll = () => {
-      if (isDismissed) return;
+      if (isDismissed.current) return;
 
       const scrollTop = window.scrollY;
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = scrollTop / docHeight;
 
-      if (scrollPercent >= SCROLL_THRESHOLD && !isVisible) {
+      if (scrollPercent >= SCROLL_THRESHOLD) {
         setIsVisible(true);
       }
     };
@@ -45,13 +45,13 @@ export default function GitHubCTA() {
     handleScroll(); // Check initial scroll position
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isVisible, isDismissed]);
+  }, []);
 
   const handleClose = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsVisible(false);
-    setIsDismissed(true);
+    isDismissed.current = true;
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
   };
 

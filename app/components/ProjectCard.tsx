@@ -128,7 +128,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           ) : (
             <div className="mt-6 text-sm text-muted-foreground">
-              Internal prototype
+              {project.status ?? "Internal prototype"}
             </div>
           )}
         </div>
