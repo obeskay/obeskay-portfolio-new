@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
+
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,27 +22,24 @@ const springTransition = { type: "spring" as const, stiffness: 400, damping: 30 
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  
-  const { scrollY } = useScroll();
-  const headerBg = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(254, 247, 255, 0)", "rgba(254, 247, 255, 0.95)"]
-  );
-  const headerBorder = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(103, 80, 164, 0)", "rgba(103, 80, 164, 0.15)"]
-  );
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <motion.header
-        style={{ 
-          backgroundColor: headerBg,
-          borderColor: headerBorder,
-        }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-24 border-b transition-all duration-500 glass"
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 backdrop-blur-md ${
+          isScrolled 
+            ? "bg-background/90 border-border-subtle shadow-xs py-1" 
+            : "bg-transparent border-transparent py-3"
+        }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
@@ -75,7 +73,7 @@ export default function Navigation() {
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full"
+                        className="absolute inset-0 bg-moss/8 border border-moss/12 rounded-full"
                         style={{ zIndex: 0 }}
                         transition={springTransition}
                       />
@@ -102,7 +100,7 @@ export default function Navigation() {
                     href={social.href}
                     target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="p-2.5 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-full transition-all duration-200 hover-glow"
+                    className="p-2.5 text-text-secondary hover:text-moss hover:bg-moss/8 rounded-full transition-all duration-200"
                     aria-label={social.label}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -124,7 +122,7 @@ export default function Navigation() {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
       <motion.div

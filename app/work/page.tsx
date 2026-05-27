@@ -19,7 +19,7 @@ const projects: Project[] = [
     title: "Carti.app",
     description: "A WhatsApp-native finance assistant that turns text and voice notes into structured transactions, budgets, and useful money context.",
     category: "Product",
-    image: "/projects/carti.svg",
+    image: "/projects/carti.png",
     status: "Private beta"
   },
   {
@@ -27,7 +27,7 @@ const projects: Project[] = [
     title: "Freela",
     description: "An AI-native freelance marketplace experiment for matching briefs, proposals, conversations, and project signals in one focused workspace.",
     category: "Lab",
-    image: "/projects/freela.svg",
+    image: "/projects/freela.png",
     status: "Prototype"
   },
   {

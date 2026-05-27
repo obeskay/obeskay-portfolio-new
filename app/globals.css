@@ -278,6 +278,57 @@ img {
   border-radius: 4px;
 }
 
+/* ===== HAND-DRAWN DOODLE ANIMATIONS ===== */
+@keyframes draw-doodle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-doodle {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw-doodle 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ===== ORGANIC FLOATING ANIMATIONS ===== */
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* ===== REAL-TIME WEATHER / CLOCK GLOWS ===== */
+.status-glow-green {
+  box-shadow: 0 0 12px rgba(90, 107, 92, 0.4);
+}
+
+/* ===== TEXT GRADIENT ANIMATION ===== */
+.text-gradient-animated {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-highlight) 50%, var(--accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -289,3 +340,4 @@ img {
     scroll-behavior: auto;
   }
 }
+
