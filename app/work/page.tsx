@@ -28,7 +28,16 @@ const projects: Project[] = [
     description: "An AI-native freelance marketplace experiment for matching briefs, proposals, conversations, and project signals in one focused workspace.",
     category: "Lab",
     image: "/projects/freela.png",
-    status: "Prototype"
+    status: "Prototype",
+    url: "https://freela.cloud.obeskay.com"
+  },
+  {
+    id: "stickycovers",
+    title: "StickyCovers",
+    description: "Creative skins for payment cards in Mexico City. Custom AI designs, premium collections, and automated WhatsApp purchasing pipeline.",
+    category: "Product",
+    image: "/projects/stickycovers.png",
+    url: "https://stickycovers.cloud.obeskay.com"
   },
   {
     id: "qrapidito",

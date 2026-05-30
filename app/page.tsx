@@ -457,16 +457,16 @@ export default function Home() {
                 link: "https://chatea.la"
               },
               {
-                title: "Carti.app",
-                desc: "A WhatsApp finance agent translating loose voice notes and messages into structured accounting.",
+                title: "StickyCovers",
+                desc: "Creative skins for payment cards in Mexico City. Custom AI designs, premium collections, and automated WhatsApp purchasing pipeline.",
                 tag: "Product",
-                link: "/work"
+                link: "https://stickycovers.cloud.obeskay.com"
               },
               {
                 title: "Freela",
                 desc: "An AI-native freelance matching lab showcasing project proposals, briefs, and client/freelancer pipelines.",
                 tag: "Lab",
-                link: "/work"
+                link: "https://freela.cloud.obeskay.com"
               },
               {
                 title: "SwarmVille",

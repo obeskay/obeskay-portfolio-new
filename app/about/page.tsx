@@ -166,10 +166,7 @@ export default function About() {
                   </p>
                 </motion.div>
 
-                {/* Creative Custom Tag */}
-                <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold text-text-primary shadow-xs border border-border-subtle">
-                  🍌 No banana
-                </div>
+
               </motion.div>
             </motion.div>
 
