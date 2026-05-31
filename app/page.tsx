@@ -452,25 +452,25 @@ export default function Home() {
             {[
               {
                 title: "Chatea.la",
-                desc: "WhatsApp AI automation for Mexican businesses: lead capture, active calendars, and resilient backend structures.",
-                tag: "Product",
+                desc: "WhatsApp AI lead-capture and auto-scheduling SaaS. Powering active customer communication for Mexican SMBs, transforming raw conversations into structured CRM database records. Cash-flowing with solid MRR.",
+                tag: "SaaS",
                 link: "https://chatea.la"
               },
               {
                 title: "StickyCovers",
-                desc: "E-commerce de stickers para tarjetas en CDMX. Creador con IA, bundles de 3/5/10, upsells (UV, mate, regalo), checkout con MercadoPago, suscripción StickyClub ($149-349/mes), y email automation con Resend. Generando EBITDA.",
+                desc: "E-commerce de stickers para tarjetas en CDMX. Creador de stickers con IA, bundles con optimización de ticket promedio (AOV), checkout con MercadoPago, suscripción StickyClub, e email marketing con Resend. Rentable y EBITDA positivo.",
                 tag: "Product",
                 link: "https://stickycovers.cloud.obeskay.com"
               },
               {
                 title: "Freela",
-                desc: "An AI-native freelance matching lab showcasing project proposals, briefs, and client/freelancer pipelines.",
+                desc: "AI-native matching prototype and scoping engine. A validation lab engineered to test automatic brief synthesis, freelance proposal pipelines, and project routing.",
                 tag: "Lab",
                 link: "https://freela.cloud.obeskay.com"
               },
               {
                 title: "SwarmVille",
-                desc: "Real-time 2D visualizations mapping how multiple autonomous agents communicate and solve problems.",
+                desc: "Real-time 2D visualization agent environment mapping how autonomous multi-agent swarms coordinate and execute complex tasks.",
                 tag: "Open Source",
                 link: "https://github.com/obeskay/swarm-ville"
               }
