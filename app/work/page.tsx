@@ -9,7 +9,7 @@ const projects: Project[] = [
   {
     id: "chateala",
     title: "Chatea.la",
-    description: "WhatsApp AI automation for Mexican businesses: lead capture, appointment flows, admin visibility, and resilient messaging infrastructure.",
+    description: "WhatsApp-first conversational AI and lead capture SaaS. Converts unstructured customer messages and voice notes into structured CRM database records and synced appointments. Built on a resilient multi-agent architecture handling thousands of monthly messages.",
     category: "Product",
     image: "/projects/chateala.png",
     url: "https://chatea.la"
@@ -17,7 +17,7 @@ const projects: Project[] = [
   {
     id: "carti",
     title: "Carti.app",
-    description: "A WhatsApp-native finance assistant that turns text and voice notes into structured transactions, budgets, and useful money context.",
+    description: "A WhatsApp-native personal and household finance agent. Leverages LLMs to capture spontaneous expenses, classify transactions, and manage budgets from raw voice notes or text logs. Built on a highly secure, tokenized API pipeline.",
     category: "Product",
     image: "/projects/carti.png",
     status: "Private beta",
@@ -26,7 +26,7 @@ const projects: Project[] = [
   {
     id: "freela",
     title: "Freela",
-    description: "An AI-native freelance marketplace experiment for matching briefs, proposals, conversations, and project signals in one focused workspace.",
+    description: "AI-native freelancer matching engine and scoping prototype. A functional validation lab designed to synthesize client briefs, automate proposals, and optimize matching pipelines using robust LLM scoping.",
     category: "Lab",
     image: "/projects/freela.png",
     status: "Prototype",
@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     id: "stickycovers",
     title: "StickyCovers",
-    description: "Creative skins for payment cards in Mexico City. Custom AI designs, premium collections, and automated WhatsApp purchasing pipeline.",
+    description: "E-commerce de stickers personalizados para tarjetas en CDMX. Creador de diseños únicos con IA, carrito inteligente para optimizar el ticket promedio (AOV), pasarela de MercadoPago, y flujos automáticos de email y retención vía Resend. Rentable y EBITDA positivo.",
     category: "Product",
     image: "/projects/stickycovers.png",
     url: "https://stickycovers.cloud.obeskay.com"

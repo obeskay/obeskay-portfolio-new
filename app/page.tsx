@@ -452,27 +452,27 @@ export default function Home() {
             {[
               {
                 title: "Chatea.la",
-                desc: "WhatsApp AI lead-capture and auto-scheduling SaaS. Powering active customer communication for Mexican SMBs, transforming raw conversations into structured CRM database records. Cash-flowing with solid MRR.",
+                desc: "WhatsApp-first conversational AI and lead scheduling SaaS. Converts unstructured customer voice notes and texts into structured CRM database records and synced appointments for Mexican SMBs. Live production deploy with active MRR.",
                 tag: "SaaS",
                 link: "https://chatea.la"
               },
               {
+                title: "Carti.app",
+                desc: "WhatsApp-native personal and household finance agent. Uses LLMs to parse spontaneous expenses, classify transactions, and manage budgets directly from raw voice messages and texts. Secure, tokenized API pipeline.",
+                tag: "Private Beta",
+                link: "https://carti.app"
+              },
+              {
                 title: "StickyCovers",
-                desc: "E-commerce de stickers para tarjetas en CDMX. Creador de stickers con IA, bundles con optimización de ticket promedio (AOV), checkout con MercadoPago, suscripción StickyClub, e email marketing con Resend. Rentable y EBITDA positivo.",
+                desc: "E-commerce de stickers personalizados para tarjetas en CDMX. Creador de diseños únicos con IA, carrito inteligente para optimizar el ticket promedio (AOV), pasarela de MercadoPago, y flujos automáticos de email y retención vía Resend. Rentable y EBITDA positivo.",
                 tag: "Product",
                 link: "https://stickycovers.cloud.obeskay.com"
               },
               {
                 title: "Freela",
-                desc: "AI-native matching prototype and scoping engine. A validation lab engineered to test automatic brief synthesis, freelance proposal pipelines, and project routing.",
+                desc: "AI-native freelancer matching engine and scoping prototype. A functional validation lab designed to synthesize client briefs, automate proposals, and optimize matching pipelines using robust LLM scoping.",
                 tag: "Lab",
                 link: "https://freela.cloud.obeskay.com"
-              },
-              {
-                title: "SwarmVille",
-                desc: "Real-time 2D visualization agent environment mapping how autonomous multi-agent swarms coordinate and execute complex tasks.",
-                tag: "Open Source",
-                link: "https://github.com/obeskay/swarm-ville"
               }
             ].map((project, i) => (
               <motion.div
