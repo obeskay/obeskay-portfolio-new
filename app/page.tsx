@@ -458,7 +458,7 @@ export default function Home() {
               },
               {
                 title: "StickyCovers",
-                desc: "Creative skins for payment cards in Mexico City. Custom AI designs, premium collections, and automated WhatsApp purchasing pipeline.",
+                desc: "E-commerce de stickers para tarjetas en CDMX. Creador con IA, bundles de 3/5/10, upsells (UV, mate, regalo), checkout con MercadoPago, suscripción StickyClub ($149-349/mes), y email automation con Resend. Generando EBITDA.",
                 tag: "Product",
                 link: "https://stickycovers.cloud.obeskay.com"
               },
