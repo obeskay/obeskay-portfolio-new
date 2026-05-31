@@ -145,7 +145,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8 flex flex-col sm:flex-row items-center gap-3 bg-surface border border-border-subtle rounded-full px-5 py-2 shadow-sm"
+            className="mb-8 flex flex-col sm:flex-row items-center gap-3 bg-surface border border-border-subtle rounded-[20px] sm:rounded-full px-5 py-2 shadow-sm"
           >
             <span className="flex items-center gap-2 text-xs font-semibold text-text-secondary">
               <span className={`w-2.5 h-2.5 rounded-full ${cdmxStatus.color} animate-pulse`} />

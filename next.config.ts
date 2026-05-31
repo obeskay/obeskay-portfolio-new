@@ -48,12 +48,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/carti',
-        destination: '/work#carti',
+        destination: 'https://carti.app',
         permanent: false,
       },
       {
         source: '/freela',
-        destination: '/work#freela',
+        destination: 'https://freela.cloud.obeskay.com',
         permanent: false,
       },
     ];
