@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, Layers3, MessageSquare, Rocket } from "lucide-react";
+import { ArrowUpRight, Bot, Layers3, MessageSquare, Rocket, Sparkles } from "lucide-react";
 import ProjectCard, { Project } from "../components/ProjectCard";
 
 const projects: Project[] = [
@@ -35,9 +36,10 @@ const projects: Project[] = [
   {
     id: "sello",
     title: "Sello",
-    description: "Digital loyalty cards for local Mexican businesses. Replaces paper stamp cards with a WhatsApp-native QR checking flow. Demonstrates frictionless localStorage states for rapid prototype validation.",
+    description: "Digital loyalty cards for local Mexican businesses. Replaces paper stamp cards with a WhatsApp-native QR checking flow, live pilot CTA, and Obeskay neobrutalist brand system.",
     category: "Lab",
     image: "/projects/sello.webp",
+    status: "Live pilot",
     url: "https://sello.cloud.obeskay.com"
   },
   {
@@ -117,67 +119,145 @@ export default function Work() {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background relative overflow-hidden">
+      {/* Subtle Warm Spot */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[5%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-bg/10 blur-[100px]" />
+        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/8 blur-[90px]" />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 px-6 lg:px-12">
+      <section className="pt-24 pb-12 px-6 lg:px-12 relative z-10">
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
-          <div className="max-w-3xl mb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-medium text-primary uppercase tracking-wider mb-4"
+              transition={{ duration: 0.6 }}
+              className="mb-4"
             >
-              Selected Work
-            </motion.p>
+              <span className="badge badge-blue">Selected Work</span>
+            </motion.div>
             
-            <RevealText delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight mb-6">
-                Products that <span className="font-display italic font-normal">solve</span> real problems
+            <RevealText delay={0.1}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-text-primary tracking-tight leading-tight lowercase">
+                products that <span className="italic">solve real problems.</span>
               </h1>
             </RevealText>
             
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-muted-foreground leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-xl mt-6 font-normal"
             >
-              Independent products, agentic systems, and small tools with a bias toward
-              real operators, real workflows, and things that can survive outside a demo.
+              Independent products, multi-agent frameworks, and developer utilities built with a strong bias toward physical operators, active user loops, and resilient engineering.
             </motion.p>
           </div>
 
+          {/* Recent Shipping Proof */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-16 p-6 md:p-8 bg-surface border border-border rounded-lg relative overflow-hidden shadow-xs"
+          >
+            <div className="absolute top-4 right-4 z-10">
+              <span className="badge badge-red uppercase tracking-wider">
+                Recent shipment
+              </span>
+            </div>
+
+            <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center">
+              {/* Product Preview Image */}
+              <div className="relative border border-border bg-surface-alt rounded overflow-hidden aspect-[16/10]">
+                <Image
+                  src="/projects/sello.webp"
+                  alt="Sello loyalty product preview"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  className="object-cover object-top grayscale opacity-90 contrast-[1.05] hover:grayscale-0 hover:opacity-100 hover:scale-[1.01] transition-all duration-700"
+                />
+              </div>
+
+              <div className="flex flex-col gap-5 text-left">
+                <div className="flex flex-wrap gap-2">
+                  <span className="badge badge-green">sello</span>
+                  <span className="badge badge-yellow">live pilot</span>
+                </div>
+
+                <div>
+                  <h2 className="text-xl md:text-2xl font-semibold text-text-primary tracking-tight mb-3">
+                    Loyalty cards for local operators, shipped as a sellable demo.
+                  </h2>
+                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-normal">
+                    Rebuilt Sello as an ultra-clean, minimal product surface: optimized WebP assets, resolved rate-limiting queues, set up structural SEO hooks, and wired a live WhatsApp pilot route for Mexican retailers.
+                  </p>
+                </div>
+
+                {/* Micro metrics */}
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    ["358kb", "hero WebP"],
+                    ["0", "restars"],
+                    ["1", "live CTA"],
+                  ].map(([value, label]) => (
+                    <div key={label} className="bg-surface-alt border border-border p-3.5 rounded text-left">
+                      <p className="font-mono font-semibold text-base text-text-primary leading-none">{value}</p>
+                      <p className="font-mono text-[9px] uppercase text-text-muted mt-1.5 tracking-wide leading-none">{label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-2.5">
+                  <a
+                    href="https://sello.cloud.obeskay.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center gap-2 text-xs py-2 px-4 cursor-pointer"
+                  >
+                    Open live Sello
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href="https://wa.me/525560348476?text=Hola%20Obed%2C%20quiero%20probar%20Sello%20para%20mi%20negocio%20local."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2 text-xs py-2 px-4 cursor-pointer"
+                  >
+                    Pilot via WhatsApp
+                    <Sparkles className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Filter Tabs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap gap-2 mb-16"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-wrap gap-2 mb-12"
           >
-            {filters.map((filter) => (
-              <motion.button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`relative px-6 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-                  activeFilter === filter
-                    ? "text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {activeFilter === filter && (
-                  <motion.div
-                    layoutId="filter-bg"
-                    className="absolute inset-0 bg-primary rounded-full"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{filter}</span>
-              </motion.button>
-            ))}
+            {filters.map((filter) => {
+              const isActive = activeFilter === filter;
+              return (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-2 border text-xs font-medium rounded-md transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-surface-alt text-text-primary font-semibold border-text-secondary shadow-xs"
+                      : "bg-surface border-border text-text-secondary hover:bg-surface-alt hover:text-text-primary"
+                  }`}
+                >
+                  <span>{filter.toLowerCase()}</span>
+                </button>
+              );
+            })}
           </motion.div>
 
           {/* Impact Metrics */}
@@ -185,61 +265,61 @@ export default function Work() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="text-sm font-medium text-primary uppercase tracking-wider mb-8">
-              By the numbers
+            <h2 className="text-[10px] font-mono font-semibold text-text-muted uppercase tracking-wider mb-6">
+              technical indicators
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 {
-                  icon: Rocket,
-                  value: "4",
+                  value: "5",
                   suffix: "",
-                  label: "Personal Products",
-                  trend: "Built end-to-end",
+                  label: "Active SaaS Products",
+                  trend: "built end-to-end",
+                  badgeClass: "badge-blue",
                 },
                 {
-                  icon: Bot,
                   value: "3",
                   suffix: "",
-                  label: "Agentic Systems",
-                  trend: "WhatsApp + AI",
+                  label: "Multi-Agent Frameworks",
+                  trend: "whatsapp loops",
+                  badgeClass: "badge-yellow",
                 },
                 {
-                  icon: MessageSquare,
                   value: "24",
                   suffix: "/7",
-                  label: "Messaging Focus",
-                  trend: "Ops-first",
+                  label: "Operational Uptime",
+                  trend: "resilient queues",
+                  badgeClass: "badge-green",
                 },
                 {
-                  icon: Layers3,
                   value: "1",
                   suffix: "",
-                  label: "Founder OS",
-                  trend: "AI-assisted",
+                  label: "Integrated Founder OS",
+                  trend: "TypeScript + Go",
+                  badgeClass: "badge-red",
                 },
               ].map((metric, i) => (
                 <motion.div
                   key={metric.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="group bg-surface rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
+                  transition={{ delay: i * 0.05, duration: 0.5 }}
+                  className="bg-surface border border-border p-5 rounded-lg hover:border-text-secondary transition-all shadow-xs"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <metric.icon className="w-5 h-5 text-muted-foreground" />
-                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className={`badge ${metric.badgeClass}`}>
                       {metric.trend}
                     </span>
                   </div>
-                  <p className="text-3xl md:text-4xl font-bold text-foreground mb-1">
+                  <p className="text-2xl md:text-3xl font-semibold text-text-primary tracking-tight leading-none mb-1">
                     {metric.value}{metric.suffix}
                   </p>
-                  <p className="text-sm text-muted-foreground">{metric.label}</p>
+                  <p className="text-xs text-text-secondary mt-2 font-normal leading-normal">{metric.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -252,8 +332,8 @@ export default function Work() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              transition={{ duration: 0.2 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {filteredProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
@@ -261,28 +341,28 @@ export default function Work() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Stats */}
+          {/* Core Focus Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {[
-              { label: "Products", value: "4" },
-              { label: "Labs", value: "1" },
-              { label: "Open Source", value: "3" },
-              { label: "Core Focus", value: "AI" },
+              { label: "Production SaaS", value: "5" },
+              { label: "Digital Labs", value: "2" },
+              { label: "Open Source Nodes", value: "3" },
+              { label: "Core Pipeline Focus", value: "AI Agents" },
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="p-6 bg-surface rounded-2xl border border-border"
+                className="p-5 bg-surface border border-border rounded-lg text-left"
               >
-                <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">
-                  {stat.value}
+                <p className="text-2xl font-semibold text-text-primary mb-1">
+                  {stat.value.toLowerCase()}
                 </p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <p className="text-xs text-text-secondary leading-normal font-normal">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -290,26 +370,29 @@ export default function Work() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 lg:px-12 bg-primary">
+      <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle text-center relative z-10">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-semibold text-primary-foreground mb-6">
-              Have a project in <span className="font-display italic font-normal">mind</span>?
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary mb-6 lowercase">
+              have a project in <span className="italic">mind?</span>
             </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              I&apos;m always open to discussing new projects and opportunities. Let&apos;s build something meaningful.
+            <p className="text-text-secondary mb-8 max-w-md mx-auto text-xs md:text-sm leading-relaxed font-normal">
+              I am always happy to sync about technical architecture pipelines, agent loops, or premium UI dashboards.
             </p>
-            <a
+            <motion.a
               href="mailto:obeskay.mail@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-foreground rounded-full font-medium transition-all hover:shadow-lg hover:shadow-accent/40"
+              whileHover={{ scale: 0.98 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-primary inline-flex items-center gap-2 cursor-pointer"
             >
               Get in touch
-            </a>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </motion.a>
           </motion.div>
         </div>
       </section>

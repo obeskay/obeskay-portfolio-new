@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const springTransition = { type: "spring" as const, stiffness: 400, damping: 25 };
+const springTransition = { type: "spring" as const, stiffness: 380, damping: 30 };
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -33,31 +33,31 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-4 border-ink bg-background ${
-          isScrolled ? "py-1.5" : "py-3"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border-subtle bg-background/80 backdrop-blur-md ${
+          isScrolled ? "py-1" : "py-3"
         }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="group">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-terracotta border-3 border-ink text-white font-mono text-sm font-black uppercase tracking-wider neobrutal-shadow-xs hover:translate-y-[-2px] hover:box-shadow-[4px_4px_0_var(--ink)] active:translate-y-[2px] transition-all">
-                Obed <span className="text-gold font-serif normal-case italic font-medium ml-1">Vargas</span>
+              <span className="font-serif lowercase italic text-2xl tracking-tight text-text-primary select-none transition-opacity hover:opacity-80">
+                obeskay<span className="text-accent font-sans not-italic">.</span>
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-3">
+            <nav className="hidden md:flex items-center gap-1.5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="relative px-4 py-2 group"
+                    className="relative px-3.5 py-1.5 group"
                   >
-                    <span className={`relative z-10 text-xs font-mono font-black uppercase tracking-wider transition-colors ${
-                      isActive ? "text-ink" : "text-text-secondary group-hover:text-ink"
+                    <span className={`relative z-10 text-xs font-medium tracking-wide transition-colors ${
+                      isActive ? "text-text-primary font-semibold" : "text-text-secondary group-hover:text-text-primary"
                     }`}>
                       {link.label}
                     </span>
@@ -65,7 +65,7 @@ export default function Navigation() {
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-gold border-3 border-ink neobrutal-shadow-xs"
+                        className="absolute inset-0 bg-surface-alt border border-border rounded-md shadow-xs"
                         style={{ zIndex: 0 }}
                         transition={springTransition}
                       />
@@ -76,12 +76,12 @@ export default function Navigation() {
             </nav>
 
             {/* Social Links & Mobile Toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {/* Theme Toggle */}
               <ThemeToggle />
 
               {/* Desktop Socials */}
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-1.5">
                 {[
                   { href: "https://github.com/obeskay", icon: Github, label: "GitHub" },
                   { href: "https://linkedin.com/in/obeskay", icon: Linkedin, label: "LinkedIn" },
@@ -92,7 +92,7 @@ export default function Navigation() {
                     href={social.href}
                     target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="p-2 bg-surface border-3 border-ink text-text-primary hover:bg-gold hover:translate-y-[-2px] hover:shadow-[4px_4px_0_var(--ink)] active:translate-y-[2px] transition-all"
+                    className="p-2 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md"
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
@@ -103,10 +103,10 @@ export default function Navigation() {
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 bg-surface border-3 border-ink text-text-primary hover:bg-gold hover:translate-y-[-2px] hover:shadow-[4px_4px_0_var(--ink)] active:translate-y-[2px] transition-all"
+                className="md:hidden p-2 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md"
                 aria-label="Toggle menu"
               >
-                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
             </div>
           </div>
@@ -116,13 +116,14 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <motion.div
         initial={false}
-        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-        className={`fixed inset-x-0 top-20 z-40 bg-background border-b-4 border-ink md:hidden ${
+        animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className={`fixed inset-x-0 top-16 z-40 bg-background border-b border-border-subtle md:hidden ${
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
         <div className="container mx-auto px-6 py-6">
-          <nav className="flex flex-col gap-3">
+          <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -130,10 +131,10 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 border-3 border-ink text-sm font-mono font-black uppercase tracking-wider neobrutal-shadow-xs transition-all ${
+                  className={`block px-4 py-2.5 border border-border text-xs font-medium tracking-wide transition-all rounded-md ${
                     isActive 
-                      ? "bg-gold text-ink" 
-                      : "bg-surface text-text-secondary hover:bg-gold hover:text-ink"
+                      ? "bg-surface-alt text-text-primary font-semibold" 
+                      : "bg-surface text-text-secondary hover:bg-surface-alt hover:text-text-primary"
                   }`}
                 >
                   {link.label}
@@ -143,7 +144,7 @@ export default function Navigation() {
           </nav>
           
           {/* Mobile Socials */}
-          <div className="flex items-center gap-3 mt-6 pt-6 border-t-3 border-ink">
+          <div className="flex items-center gap-2 mt-6 pt-6 border-t border-border-subtle">
             {[
               { href: "https://github.com/obeskay", icon: Github, label: "GitHub" },
               { href: "https://linkedin.com/in/obeskay", icon: Linkedin, label: "LinkedIn" },
@@ -154,10 +155,10 @@ export default function Navigation() {
                 href={social.href}
                 target={social.href.startsWith("http") ? "_blank" : undefined}
                 rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="p-3 bg-surface border-3 border-ink text-text-primary hover:bg-gold hover:translate-y-[-2px] hover:shadow-[4px_4px_0_var(--ink)] active:translate-y-[2px] transition-all"
+                className="p-2.5 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md"
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5" />
+                <social.icon className="w-4 h-4" />
               </a>
             ))}
           </div>
@@ -165,7 +166,7 @@ export default function Navigation() {
       </motion.div>
 
       {/* Spacer for fixed header */}
-      <div className="h-20" />
+      <div className="h-16" />
     </>
   );
 }

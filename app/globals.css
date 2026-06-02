@@ -1,25 +1,30 @@
 @import "tailwindcss";
 
-/* ===== OBESKAY SIGNATURE NEOBRUTALIST DESIGN SYSTEM ===== */
-/* High-impact, raw, tactile, direct. Thick ink-black borders, solid 3D drop shadows */
+/* ===== OBESKAY PREMIUM MINIMALIST & EDITORIAL DESIGN SYSTEM ===== */
+/* Warm Off-White / Bone Light Theme & Deep Charcoal Dark Theme */
 
 :root {
-  /* ---- COLOR PALETTE: High contrast, neobrutalist ---- */
-  --ink: #101010;
-  --cream-paper: #FAF6F0;
-  --cream-dark: #F8F1DF;
+  /* ---- COLOR PALETTE: Warm Minimalist Light Theme ---- */
+  --ink: #111111; /* Off-black Charcoal */
+  --cream-paper: #FBFBFA; /* Warm Off-white / Bone */
+  --cream-dark: #F5F4F0; /* Soft Warm Gray */
   --white: #FFFFFF;
-  --charcoal: #1A1A1A;
   
-  /* Accents */
-  --terracotta: #ff5b46;
-  --terracotta-light: #ffe2da;
-  --gold: #d7ff1f;
-  --gold-light: #f1ff9f;
-  --cobalt: #2563eb;
-  --cobalt-light: #dbeafe;
-  --forest-green: #00a75f;
-  --forest-green-light: #d3ffe2;
+  /* Muted Editorial Accents (Desaturated Spot Pastels) */
+  --pastel-red-bg: #FDEBEC;
+  --pastel-red-fg: #9F2F2D;
+  --pastel-blue-bg: #E1F3FE;
+  --pastel-blue-fg: #1F6C9F;
+  --pastel-green-bg: #EDF3EC;
+  --pastel-green-fg: #346538;
+  --pastel-yellow-bg: #FBF3DB;
+  --pastel-yellow-fg: #956400;
+
+  /* Accent Spot Colors mapped to custom values */
+  --accent: var(--pastel-blue-fg);
+  --accent-bg: var(--pastel-blue-bg);
+  --accent-highlight: var(--pastel-red-fg);
+  --accent-highlight-bg: var(--pastel-red-bg);
   
   /* ---- SURFACES ---- */
   --background: var(--cream-paper);
@@ -28,60 +33,79 @@
 
   /* ---- TEXT ---- */
   --text-primary: var(--ink);
-  --text-secondary: #3c342b;
-  --text-muted: #5c544b;
-
-  /* ---- ACCENTS ---- */
-  --accent: var(--cobalt);
-  --accent-highlight: var(--terracotta);
+  --text-secondary: #5F5E5B;
+  --text-muted: #8E8D8A;
 
   /* ---- BORDERS ---- */
-  --border: var(--ink);
-  --border-subtle: var(--ink);
-  --border-width: 3px;
+  --border: #EAEAEA;
+  --border-subtle: #F0EFEA;
+  --border-width: 1px;
 
   /* ---- RADIUS ---- */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   /* ---- TYPOGRAPHY ---- */
-  --font-display: var(--font-playfair), Georgia, serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ---- SHADOWS: Solid offset 3D shadows, zero blur ---- */
-  --shadow-xs: 2px 2px 0 var(--ink);
-  --shadow-sm: 4px 4px 0 var(--ink);
-  --shadow-md: 6px 6px 0 var(--ink);
-  --shadow-lg: 8px 8px 0 var(--ink);
-  --shadow-xl: 12px 12px 0 var(--ink);
+  /* ---- SHADOWS: Ultra-low opacity, diffuse soft shadows ---- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.015);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.025);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.035);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.045);
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides (both CSS class and system media query for consistency) */
+.dark {
+  /* ---- COLOR PALETTE: Deep Charcoal Dark Theme ---- */
+  --ink: #ECEBE8; /* Bone white text */
+  --cream-paper: #0D0F10; /* Deep Charcoal Background */
+  --cream-dark: #121415; /* Subtly lighter charcoal */
+  --white: #16191A; /* Surface color */
+  
+  /* Muted Editorial Accents for Dark Mode (Desaturated & visible on dark) */
+  --pastel-red-bg: #2C1A1B;
+  --pastel-red-fg: #FFA3A1;
+  --pastel-blue-bg: #132533;
+  --pastel-blue-fg: #A2D6FF;
+  --pastel-green-bg: #1C261D;
+  --pastel-green-fg: #A3E0A7;
+  --pastel-yellow-bg: #2C2512;
+  --pastel-yellow-fg: #FFDFA2;
+
+  --accent: var(--pastel-blue-fg);
+  --accent-bg: var(--pastel-blue-bg);
+  --accent-highlight: var(--pastel-red-fg);
+  --accent-highlight-bg: var(--pastel-red-bg);
+  
+  --background: var(--cream-paper);
+  --surface: var(--white);
+  --surface-alt: var(--cream-dark);
+  
+  --text-primary: var(--ink);
+  --text-secondary: #A3A29E;
+  --text-muted: #706E6B;
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #111111;
-    --surface: #1e1d1b;
-    --surface-alt: #2c2a27;
-    --cream-paper: #111111;
-    --cream-dark: #1e1d1b;
-    
-    --text-primary: #FAF6F0;
-    --text-secondary: #e6dfd5;
-    --text-muted: #bdae9c;
-    
-    --ink: #FAF6F0;
-    --white: #1e1d1b;
-    --border: #FAF6F0;
-    --border-subtle: #FAF6F0;
-    
-    --shadow-xs: 2px 2px 0 #FAF6F0;
-    --shadow-sm: 4px 4px 0 #FAF6F0;
-    --shadow-md: 6px 6px 0 #FAF6F0;
-    --shadow-lg: 8px 8px 0 #FAF6F0;
-    --shadow-xl: 12px 12px 0 #FAF6F0;
+  /* Only apply media-query variables if theme cookie/class doesn't explicitly disable it */
+  :root:not(.light-force) {
+    /* Fallback media dark theme identical to class .dark */
   }
 }
 
@@ -94,17 +118,12 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-accent: var(--accent);
-  --color-accent-highlight: var(--accent-highlight);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
-  --color-terracotta: var(--terracotta);
-  --color-gold: var(--gold);
-  --color-cobalt: var(--cobalt);
-  --color-moss: var(--forest-green);
-  --color-stone: var(--text-muted);
 
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
 
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
@@ -133,300 +152,212 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-body);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ===== NEOBRUTALIST TYPOGRAPHY ===== */
+/* ===== EDITORIAL TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 900;
   color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+/* Display Titles use elegant Instrument Serif display font */
+.font-serif {
+  font-family: var(--font-display);
+  font-weight: 400;
   line-height: 1.1;
-  text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
-/* Custom Serif Heading overrides */
-.font-display {
-  font-family: var(--font-display);
+/* System Sans for technical labels & buttons */
+.font-sans {
+  font-family: var(--font-body);
 }
 
-/* Monospace overrides for technical UI details */
 .font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: var(--font-mono);
 }
 
-/* ===== STAMPED & TATTOOED BADGES ===== */
+/* ===== MINIMALIST CHROME WINDOW CHROMATICS ===== */
+.window-chrome {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.window-header {
+  height: 38px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 6px;
+}
+
+.window-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  opacity: 0.3;
+}
+
+/* ===== CRISP EDITORIAL BADGES ===== */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  background: var(--gold);
-  color: var(--ink);
-  border: var(--border-width) solid var(--ink);
-  font-family: ui-monospace, monospace;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
-  box-shadow: var(--shadow-xs);
-  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
 }
 
-/* ===== NEOBRUTALIST INTERACTIVE CARDS ===== */
+.badge-red {
+  background: var(--pastel-red-bg);
+  color: var(--pastel-red-fg);
+}
+
+.badge-blue {
+  background: var(--pastel-blue-bg);
+  color: var(--pastel-blue-fg);
+}
+
+.badge-green {
+  background: var(--pastel-green-bg);
+  color: var(--pastel-green-fg);
+}
+
+.badge-yellow {
+  background: var(--pastel-yellow-bg);
+  color: var(--pastel-yellow-fg);
+}
+
+/* ===== EDITORIAL BENTO CARDS ===== */
 .card {
   background: var(--surface);
-  border: var(--border-width) solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
   position: relative;
 }
 
 .card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--text-muted);
 }
 
 .card:active {
-  transform: translate(2px, 2px);
-  box-shadow: var(--shadow-xs);
+  transform: translateY(0);
 }
 
-/* ===== SOLID BENTO BOX GRID ===== */
-.bento-box {
-  background: var(--surface);
-  border: 4px solid var(--border);
-  box-shadow: var(--shadow-md);
-  padding: 28px;
-  position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ===== PREMIUM SOLID BUTTONS ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--ink);
+  color: var(--background) !important;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
 }
 
-.bento-box:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: var(--shadow-lg);
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(0.98);
 }
 
-/* ===== PREMIUM tactile BUTTONS ===== */
-.btn-primary,
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: var(--border-width) solid var(--ink);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-  color: var(--text-primary);
-  font-family: ui-monospace, monospace;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 13px;
-  padding: 12px 24px;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
-}
-
-.btn-primary {
-  background-color: var(--terracotta);
-  color: #FFFFFF !important;
-}
-
-/* Dark theme button text safety */
-@media (prefers-color-scheme: dark) {
-  .btn-primary {
-    color: #101010 !important;
-  }
-}
-
-.btn-secondary {
   background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 
-.btn-primary:hover,
 .btn-secondary:hover {
-  background-color: var(--gold);
-  color: var(--ink) !important;
-  box-shadow: var(--shadow-md);
-  transform: translate(-2px, -2px);
+  background-color: var(--surface-alt);
+  border-color: var(--text-muted);
+  transform: scale(0.98);
 }
 
-.btn-primary:active,
 .btn-secondary:active {
-  box-shadow: var(--shadow-xs);
-  transform: translate(2px, 2px);
-}
-
-/* ===== DECORATIVE NEOBRUTALISTIC ELEMENTS ===== */
-.neobrutal-outline {
-  border: var(--border-width) solid var(--border);
-}
-
-.neobrutal-shadow-xs {
-  box-shadow: var(--shadow-xs);
-}
-
-.neobrutal-shadow-sm {
-  box-shadow: var(--shadow-sm);
-}
-
-.neobrutal-shadow-md {
-  box-shadow: var(--shadow-md);
-}
-
-.neobrutal-shadow-lg {
-  box-shadow: var(--shadow-lg);
-}
-
-/* Custom highlighted text inside headers */
-.text-gradient {
-  background: var(--gold);
-  border: 2px solid var(--border);
-  padding: 2px 8px;
-  display: inline-block;
-  color: var(--ink);
-  box-shadow: var(--shadow-xs);
-  transform: rotate(-1.5deg);
-  text-transform: uppercase;
-  font-style: normal;
-}
-
-/* WebP Hero Container specific neobrutal styling */
-.hero-art-container {
-  border: 5px solid var(--border);
-  box-shadow: var(--shadow-xl);
-  overflow: hidden;
-  background: var(--surface-alt);
-  position: relative;
-}
-
-.hero-art-container::after {
-  content: "OBESKAY FOUNDER OS";
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  padding: 4px 8px;
-  background: var(--gold);
-  border: 2px solid var(--border);
-  font-family: ui-monospace, monospace;
-  font-size: 10px;
-  font-weight: 900;
-  color: var(--ink);
-  box-shadow: var(--shadow-xs);
+  transform: scale(0.96);
 }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--background);
-  border-left: 3px solid var(--border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--terracotta);
-  border: 3px solid var(--border);
-  border-radius: 0px;
+  background: var(--border);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--text-muted);
 }
 
-/* ===== INTERACTIVE WHATSAPP SIMULATOR OVERRIDES ===== */
-.simulator-box {
-  background: var(--surface-alt);
-  border: 4px solid var(--border);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-lg);
-}
-
-.chat-bubble-bot {
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-xs);
-}
-
-.chat-bubble-user {
-  background: var(--cobalt-light);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--ink);
-  box-shadow: var(--shadow-xs);
-}
-
-.quick-reply-btn {
-  background: var(--surface);
-  border: 2px solid var(--border);
-  font-family: ui-monospace, monospace;
-  font-weight: 700;
-  font-size: 12px;
-  box-shadow: var(--shadow-xs);
-  transition: all 0.15s ease;
-}
-
-.quick-reply-btn:hover {
-  background: var(--gold);
-  transform: translate(-1px, -1px);
-  box-shadow: var(--shadow-sm);
-}
-
-.quick-reply-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
-}
-
-/* CDMX Time widget overrides */
-.time-widget {
-  background: var(--surface);
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow-xs);
-}
-
-/* Navigation items overrides */
-.nav-bar {
-  background: rgba(250, 246, 240, 0.95);
-  border-bottom: 4px solid var(--border);
-  backdrop-filter: blur(8px);
-}
-
-@media (prefers-color-scheme: dark) {
-  .nav-bar {
-    background: rgba(17, 17, 17, 0.95);
-  }
-}
-
-/* Progress bar for skills neobrutal look */
+/* ===== TELEMETRY & PROGRESS WIDGETS ===== */
 .skill-bar-track {
   background: var(--surface-alt);
-  border: 2px solid var(--border);
-  height: 16px;
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  height: 8px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .skill-bar-fill {
-  background: var(--terracotta);
-  border-right: 2px solid var(--border);
+  background: var(--pastel-blue-fg);
   height: 100%;
+  border-radius: var(--radius-full);
 }
 
-/* Pulse animation standard */
-@keyframes neobrutal-pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Faint ambient light spot */
+.radial-spot {
+  background: radial-gradient(circle, rgba(162, 214, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+  position: absolute;
+  pointer-events: none;
 }
 
-.animate-neopulse {
-  animation: neobrutal-pulse 3s infinite ease-in-out;
+.dark .radial-spot {
+  background: radial-gradient(circle, rgba(162, 214, 255, 0.015) 0%, rgba(0, 0, 0, 0) 70%);
 }

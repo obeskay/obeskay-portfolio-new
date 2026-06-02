@@ -1,134 +1,154 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Laptop, Rocket, TrendingUp, Building2, Bot, Sparkles, MapPin, ArrowUpRight } from "lucide-react";
 
 const milestones = [
   {
     year: "2018",
-    title: "Started Coding",
-    description: "First lines of code. Began building utilities, scripting automations, and exploring core systems.",
-    icon: "💻",
+    title: "started coding",
+    description: "Wrote first lines of code. Developed quick utilities, scripted automated routines, and learned the foundations of runtime systems.",
+    icon: Laptop,
+    badgeClass: "badge-blue",
   },
   {
     year: "2020",
-    title: "First Software Role",
-    description: "Landed my first developer role. Scaled web backends and learned system resilience.",
-    icon: "🚀",
+    title: "first software role",
+    description: "Began my professional engineering path. Managed web backends, resolved rate-limiting bottlenecks, and worked on database resilience.",
+    icon: Rocket,
+    badgeClass: "badge-yellow",
   },
   {
     year: "2022",
-    title: "Senior Developer",
-    description: "Stepped into Senior Engineer responsibilities. Led design, refactoring, and architectural decisions.",
-    icon: "📈",
+    title: "senior developer",
+    description: "Assumed senior architectural responsibilities. Managed technical roadmaps, refactored hot paths, and directed front-to-back integrations.",
+    icon: TrendingUp,
+    badgeClass: "badge-green",
   },
   {
     year: "2023",
-    title: "WOOW Todo Bien",
-    description: "Joined WOOW Todo Bien. Scaled insurance buying operations using real-time backends and AI-powered interfaces.",
-    icon: "🏢",
+    title: "woow todo bien",
+    description: "Joined WOOW Todo Bien. Designed digital insurance workflows, built chat layers, and improved active customer conversions.",
+    icon: Building2,
+    badgeClass: "badge-red",
   },
   {
     year: "2024",
-    title: "Chatea.la",
-    description: "Launched Chatea.la. Structured WhatsApp AI agents that handle thousands of active customer leads for Mexican businesses.",
-    icon: "🤖",
+    title: "chatea.la",
+    description: "Launched Chatea.la. Structured resilient WhatsApp conversational agents that manage thousands of operations for Mexican retailers.",
+    icon: Bot,
+    badgeClass: "badge-blue",
   },
   {
     year: "2026",
-    title: "Founder OS",
-    description: "Shipping personal products (Chatea, Carti) and scaling resilient systems as a senior solo founder.",
-    icon: "✨",
+    title: "founder os",
+    description: "Shipping personal products (Chatea, Carti) and scaling robust digital automation layers as a senior solo engineer.",
+    icon: Sparkles,
+    badgeClass: "badge-green",
   },
 ];
 
 export default function Journey() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background relative overflow-hidden">
+      {/* Subtle Warm Spot */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[5%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-bg/10 blur-[100px]" />
+        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/8 blur-[90px]" />
+      </div>
+
       {/* Hero */}
-      <section className="py-32 px-6 lg:px-12 bg-surface relative overflow-hidden">
-        {/* Background accent */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/15 rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="container mx-auto max-w-6xl relative">
+      <section className="pt-24 pb-20 px-6 lg:px-12 relative z-10 flex flex-col items-center justify-center min-h-[50vh] text-center">
+        <div className="container mx-auto max-w-4xl flex flex-col items-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
+            className="mb-4"
           >
-            <p className="text-sm font-medium text-primary uppercase tracking-[0.15em] mb-3 letter-wide">
-              My Journey
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground leading-display">
-              From <span className="font-display italic font-normal">curiosity</span> to{" "}
-              <span className="font-display italic font-normal">building</span> products
+            <span className="badge badge-blue">My Journey</span>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-text-primary tracking-tight leading-tight lowercase">
+              from <span className="italic">curiosity</span> to <span className="italic">building products.</span>
             </h1>
           </motion.div>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="py-32 px-6 lg:px-12">
-        <div className="container mx-auto max-w-4xl">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
-            
-            {milestones.map((milestone, i) => (
-              <motion.div
-                key={milestone.year}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative py-12 md:py-16 ${
-                  i % 2 === 0 ? 'md:text-left md:pr-16' : 'md:text-right md:pl-16'
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-8 top-1/2 -translate-y-1/2 md:left-1/2 md:-translate-x-1/2">
-                  <div className="w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/30" />
-                </div>
-                
-                {/* Content */}
-                <div className="ml-16 md:ml-0 pl-8 md:pl-0">
-                  <span className="inline-block px-4 py-1.5 bg-primary text-primary-foreground text-sm font-medium rounded-full mb-4">
-                    {milestone.year}
-                  </span>
-                  <h3 className="text-2xl font-semibold text-foreground mb-3 flex items-center gap-3">
-                    <span className="text-3xl">{milestone.icon}</span>
-                    {milestone.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-lg">
-                    {milestone.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+      <section className="py-16 pb-32 px-6 lg:px-12 relative z-10">
+        <div className="container mx-auto max-w-3xl">
+          <div className="relative border-l border-border pl-6 ml-4 md:pl-10 md:ml-10 space-y-16">
+            {milestones.map((milestone, i) => {
+              const IconComponent = milestone.icon;
+              return (
+                <motion.div
+                  key={milestone.year}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="relative group text-left"
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute -left-[35px] md:-left-[51px] top-1.5 flex items-center justify-center bg-background rounded-full border border-border w-6 h-6 md:w-8 md:h-8 group-hover:border-text-secondary transition-colors">
+                    <IconComponent className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-text-secondary" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div>
+                    <div className="mb-3">
+                      <span className={`badge ${milestone.badgeClass}`}>
+                        {milestone.year}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold text-text-primary tracking-tight mb-2 lowercase">
+                      {milestone.title}
+                    </h3>
+                    
+                    <p className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-2xl font-normal">
+                      {milestone.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6 lg:px-12 bg-primary">
+      <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle relative z-10 text-center">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-semibold text-primary-foreground mb-6">
-              The journey <span className="font-display italic font-normal">continues</span>
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary mb-6 lowercase">
+              the journey <span className="italic">continues.</span>
             </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto leading-relaxed">
-              Always learning, always building. Let&apos;s create something amazing together.
+            <p className="text-text-secondary mb-8 max-w-md mx-auto text-xs md:text-sm leading-relaxed font-normal">
+              Always scripting, always automating. Let&apos;s build clean, resilient developer experiences.
             </p>
-            <a
+            <motion.a
               href="mailto:obeskay.mail@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:shadow-lg hover:shadow-accent/40 transition-all"
+              whileHover={{ scale: 0.98 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-primary inline-flex items-center gap-2 cursor-pointer"
             >
               Get in touch
-            </a>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </motion.a>
           </motion.div>
         </div>
       </section>

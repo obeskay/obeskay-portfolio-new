@@ -132,40 +132,45 @@ const getPackageIcon = (name: string): LucideIcon | null => {
 
 export default function UsesPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background relative overflow-hidden">
+      {/* Subtle Warm Spot */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[5%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-bg/10 blur-[100px]" />
+        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/8 blur-[90px]" />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 px-6 lg:px-12">
+      <section className="pt-24 pb-12 px-6 lg:px-12 relative z-10">
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
-          <div className="max-w-3xl mb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4"
+              transition={{ duration: 0.6 }}
+              className="mb-4"
             >
-              Uses
-            </motion.p>
+              <span className="badge badge-blue">Uses</span>
+            </motion.div>
 
-            <RevealText delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight">
-                The tools I use <span className="font-display italic font-normal">daily</span>
+            <RevealText delay={0.1}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-text-primary tracking-tight leading-tight lowercase">
+                the tools i use <span className="italic">daily.</span>
               </h1>
             </RevealText>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-lg text-muted-foreground leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-xl mt-6 font-normal"
             >
-              A collection of hardware, software, and packages that power my workflow.
-              Inspired by{" "}
+              A collection of hardware setup elements, engineering tools, and package architectures that power my workflow. Inspired by{" "}
               <a
                 href="https://uses.tech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="text-text-primary font-medium hover:underline"
               >
                 uses.tech
               </a>
@@ -178,27 +183,26 @@ export default function UsesPage() {
             {sections.map((section, sectionIndex) => (
               <motion.div
                 key={section.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.4 + sectionIndex * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.5,
+                  delay: 0.3 + sectionIndex * 0.05,
                 }}
-                className="bg-surface rounded-[28px] p-8 border border-border hover:border-accent/50 transition-all duration-300"
+                className="bg-surface rounded-lg p-6 border border-border hover:border-text-secondary transition-colors shadow-xs"
               >
                 {/* Section Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-accent/20 rounded-2xl">
-                    <section.icon className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-3.5 mb-6">
+                  <div className="p-2 bg-surface-alt border border-border rounded-lg">
+                    <section.icon className="w-4 h-4 text-text-secondary" />
                   </div>
-                  <h2 className="text-xl font-semibold text-foreground">
-                    {section.title}
+                  <h2 className="text-base font-semibold text-text-primary uppercase tracking-wider">
+                    {section.title.toLowerCase()}
                   </h2>
                 </div>
 
                 {/* Items */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {section.items.map((item, itemIndex) => {
                     let ItemIcon: LucideIcon | null = null;
                     if (section.title === "Hardware Setup") {
@@ -212,30 +216,24 @@ export default function UsesPage() {
                     }
 
                     return (
-                      <motion.div
+                      <div
                         key={item.name}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.5 + sectionIndex * 0.1 + itemIndex * 0.05,
-                        }}
-                        className="group p-4 bg-white rounded-2xl hover:shadow-md transition-all duration-300 border border-transparent hover:border-accent/30"
+                        className="group p-4 bg-surface-alt rounded border border-border hover:border-text-muted transition-colors"
                       >
                         <div className="flex items-start gap-3">
                           {ItemIcon && (
-                            <ItemIcon className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                            <ItemIcon className="w-4 h-4 text-text-muted mt-0.5 flex-shrink-0" />
                           )}
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                            <h3 className="font-mono text-xs font-semibold text-text-primary transition-colors tracking-wide lowercase">
                               {item.name}
                             </h3>
-                            <p className="text-sm text-muted-foreground mt-0.5">
+                            <p className="text-xs text-text-secondary mt-1 font-normal leading-relaxed">
                               {item.description}
                             </p>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>
@@ -246,17 +244,16 @@ export default function UsesPage() {
       </section>
 
       {/* Outro Section */}
-      <section className="py-20 px-6 lg:px-12 bg-surface">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle relative z-10 text-center">
+        <div className="container mx-auto max-w-2xl">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-muted-foreground leading-relaxed">
-              This setup evolves constantly. I&apos;m always trying new tools and refining my workflow
-              to be more efficient and enjoy the process of building software.
+            <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-normal">
+              This stack is subject to steady iteration. I actively prune dependencies, debug performance leaks, and optimize integrations to keep my building flows fast and uncluttered.
             </p>
           </motion.div>
         </div>
