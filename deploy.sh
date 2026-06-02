@@ -257,7 +257,7 @@ for i in $(seq 1 $MAX_ATTEMPTS); do
     
     # Make curl call to health check endpoint
     health_curl_out=$(curl -s -w "\n%{http_code}" "$health_api_url" 2>/dev/null || echo -e "failed\n000")
-    health_body=$(echo "$health_curl_out" | head -n -1)
+    health_body=$(echo "$health_curl_out" | sed '$d')
     health_code=$(echo "$health_curl_out" | tail -n 1)
     
     layer1_ok=false
