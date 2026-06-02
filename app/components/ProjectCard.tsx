@@ -48,7 +48,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top filter grayscale opacity-90 contrast-[1.05] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
                 loading="lazy"
-                quality={85}
               />
             </div>
           ) : (
