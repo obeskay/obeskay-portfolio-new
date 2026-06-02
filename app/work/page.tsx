@@ -27,7 +27,7 @@ const projects: Project[] = [
   {
     id: "freela",
     title: "Freela",
-    description: "AI-native freelancer matching engine and scoping prototype. A functional validation lab designed to synthesize client briefs, automate proposals, and optimize matching pipelines using robust LLM scoping.",
+    description: "AI-native freelancer matching engine and scoping prototype. A functional validation lab designed to synthesize client briefs, automate proposals, and optimize matching pipelines using automated LLM scoping.",
     category: "Lab",
     image: "/projects/freela.png",
     status: "Prototype",

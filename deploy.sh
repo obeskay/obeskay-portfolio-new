@@ -168,8 +168,8 @@ if [ "$SKIP_GIT" = false ] && [ -d ".git" ]; then
     log_section "🔄 STEP 2: GIT AUTOMATION"
     log_info "Checking for uncommitted modifications..."
     
-    # Check if there are changes to commit
-    if ! git diff --quiet || ! git diff --cached --quiet; then
+    # Check if there are changes to commit (including untracked files)
+    if [ -n "$(git status --porcelain)" ]; then
         log_info "Uncommitted changes detected. Staging and committing..."
         git add .
         COMMIT_MSG="Deploy portfolio: $(date '+%Y-%m-%d %H:%M:%S')"
@@ -212,7 +212,7 @@ log_section "🚀 STEP 3: TRIGGER DEPLOYMENT ON COOLIFY"
 log_info "Triggering remote build via Coolify API..."
 
 # Make API call and capture response
-DEPLOY_RESPONSE=$(curl -s -X POST \
+DEPLOY_RESPONSE=$(curl -s -X GET \
     -H "Authorization: Bearer $BEARER_TOKEN" \
     -H "Content-Type: application/json" \
     "$COOLIFY_URL/api/v1/deploy?uuid=$PORTFOLIO_APP_ID" \

@@ -42,7 +42,7 @@ const milestones = [
   {
     year: "2026",
     title: "founder os",
-    description: "Shipping personal products (Chatea, Carti) and scaling robust digital automation layers as a senior solo engineer.",
+    description: "Shipping personal products (Chatea, Carti) and scaling reliable digital automation layers as a senior solo engineer.",
     icon: Sparkles,
     badgeClass: "badge-green",
   },
@@ -99,7 +99,7 @@ export default function Journey() {
                 >
                   {/* Timeline dot */}
                   <div className="absolute -left-[35px] md:-left-[51px] top-1.5 flex items-center justify-center bg-background rounded-full border border-border w-6 h-6 md:w-8 md:h-8 group-hover:border-text-secondary transition-colors">
-                    <IconComponent className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-text-secondary" />
+                    <IconComponent className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-text-secondary shrink-0" />
                   </div>
                   
                   {/* Content */}

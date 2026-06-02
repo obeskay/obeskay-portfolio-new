@@ -192,7 +192,7 @@ export default function About() {
                     Currently at <strong className="text-text-primary font-medium">WOOW Todo Bien</strong>, refining how digital insurance matched active client routines. On the side, I structure and scale personal tools and SaaS experiments that support actual operators.
                   </p>
                   <p className="text-pastel-green-fg font-medium italic">
-                    No artificial hype. Just robust software.
+                    No artificial hype. Just software that works.
                   </p>
                 </div>
               </motion.div>
@@ -217,7 +217,7 @@ export default function About() {
                         className="bg-surface border border-border p-5 rounded-lg hover:border-text-secondary transition-all duration-300 shadow-xs"
                       >
                         <div className="flex items-center gap-2 mb-3.5 text-text-primary">
-                          <IconComponent className="w-4 h-4 text-text-secondary" />
+                          <IconComponent className="w-4 h-4 text-text-secondary shrink-0" />
                           <h4 className="text-xs font-semibold uppercase tracking-wider">{category.toLowerCase()}</h4>
                         </div>
                         <div className="flex flex-wrap gap-1.5">
