@@ -79,7 +79,7 @@ export default function GitHubCTA() {
                 <span className="font-semibold text-xs text-text-primary flex items-center gap-1.5 leading-none">
                   @obeskay
                   <span className="badge badge-yellow text-[9px] px-1.5 py-0">
-                    <Star className="w-2.5 h-2.5 fill-current" />
+                    <Star className="w-2.5 h-2.5 fill-current shrink-0" />
                     5+
                   </span>
                 </span>
@@ -87,12 +87,8 @@ export default function GitHubCTA() {
               <ArrowUpRight className="w-3.5 h-3.5 text-text-muted group-hover:text-text-primary transition-colors flex-shrink-0" />
             </a>
             
-            <button
-              onClick={handleClose}
-              className="absolute -top-1.5 -right-1.5 bg-surface border border-border rounded p-0.5 shadow-xs text-text-muted hover:text-text-primary hover:bg-surface-alt transition-colors cursor-pointer"
-              aria-label="Close GitHub CTA"
-            >
-              <X className="w-3 h-3" />
+            <button onClick={handleClose} className="absolute -top-1.5 -right-1.5 bg-surface border border-border rounded p-0.5 shadow-xs text-text-muted hover:text-text-primary hover:bg-surface-alt transition-colors cursor-pointer whitespace-nowrap" aria-label="Close GitHub CTA">
+              <X className="w-3 h-3 shrink-0" />
             </button>
           </div>
         </motion.div>

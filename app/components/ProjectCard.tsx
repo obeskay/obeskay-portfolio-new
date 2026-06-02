@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           {project.stars && project.stars > 0 && (
             <div className="absolute top-3 right-3 z-10">
               <span className="badge badge-yellow flex items-center gap-1">
-                <Star className="w-3 h-3 fill-current" />
+                <Star className="w-3 h-3 fill-current shrink-0" />
                 {project.stars}
               </span>
             </div>
@@ -90,8 +90,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.title}
             </h3>
             {project.url && (
-              <div className="p-1 text-text-muted group-hover:text-text-primary transition-colors">
-                <ArrowUpRight className="w-4 h-4" />
+              <div className="p-1 text-text-muted group-hover:text-text-primary transition-colors shrink-0">
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
               </div>
             )}
           </div>

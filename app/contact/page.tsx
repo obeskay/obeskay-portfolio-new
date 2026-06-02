@@ -134,7 +134,7 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.05 }}
                 className="group p-5 bg-surface border border-border rounded-lg hover:border-text-secondary transition-colors shadow-xs"
               >
-                <method.icon className="w-5 h-5 text-text-secondary mb-4" />
+                <method.icon className="w-5 h-5 text-text-secondary mb-4 shrink-0" />
                 <div className="mb-2">
                   <span className={`badge ${method.badgeClass}`}>
                     {method.title.toLowerCase()}
@@ -153,7 +153,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex items-center gap-3.5 px-5 py-3 bg-surface border border-border rounded-lg w-fit shadow-xs mb-16"
           >
-            <MapPin className="w-4 h-4 text-text-muted" />
+            <MapPin className="w-4 h-4 text-text-muted shrink-0" />
             <div>
               <p className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Based in</p>
               <p className="text-xs text-text-secondary font-medium">Mexico City, Mexico</p>
@@ -217,12 +217,9 @@ export default function Contact() {
               ))}
             </div>
 
-            <button
-              type="submit"
-              className="btn-primary w-full mt-6 inline-flex items-center justify-center gap-2 cursor-pointer"
-            >
+            <button type="submit" className="btn-primary w-full mt-6 inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
               Send Message
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-3.5 h-3.5 shrink-0" />
             </button>
           </motion.form>
         </div>
@@ -247,10 +244,10 @@ export default function Contact() {
               href="mailto:obeskay.mail@gmail.com?subject=Quick%20Chat%20Request"
               whileHover={{ scale: 0.98 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary inline-flex items-center gap-2 cursor-pointer"
+              className="btn-secondary inline-flex items-center gap-2 cursor-pointer whitespace-nowrap"
             >
               Schedule a call
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </motion.a>
           </motion.div>
         </div>

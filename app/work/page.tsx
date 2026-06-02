@@ -219,7 +219,7 @@ export default function Work() {
                     className="btn-primary inline-flex items-center gap-2 text-xs py-2 px-4 cursor-pointer"
                   >
                     Open live Sello
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                   </a>
                   <a
                     href="https://wa.me/525560348476?text=Hola%20Obed%2C%20quiero%20probar%20Sello%20para%20mi%20negocio%20local."
@@ -228,7 +228,7 @@ export default function Work() {
                     className="btn-secondary inline-flex items-center gap-2 text-xs py-2 px-4 cursor-pointer"
                   >
                     Pilot via WhatsApp
-                    <Sparkles className="w-3.5 h-3.5" />
+                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 </div>
               </div>
@@ -245,15 +245,11 @@ export default function Work() {
             {filters.map((filter) => {
               const isActive = activeFilter === filter;
               return (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-2 border text-xs font-medium rounded-md transition-all cursor-pointer ${
+                <button key={filter} onClick={() => setActiveFilter(filter)} className={`px-4 py-2 border text-xs font-medium rounded-md transition-all cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-surface-alt text-text-primary font-semibold border-text-secondary shadow-xs"
                       : "bg-surface border-border text-text-secondary hover:bg-surface-alt hover:text-text-primary"
-                  }`}
-                >
+                  }`}>
                   <span>{filter.toLowerCase()}</span>
                 </button>
               );
@@ -391,7 +387,7 @@ export default function Work() {
               className="btn-primary inline-flex items-center gap-2 cursor-pointer"
             >
               Get in touch
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </motion.a>
           </motion.div>
         </div>

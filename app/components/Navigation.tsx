@@ -95,18 +95,14 @@ export default function Navigation() {
                     className="p-2 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-4 h-4" />
+                    <social.icon className="w-4 h-4 shrink-0" />
                   </a>
                 ))}
               </div>
 
               {/* Mobile Menu Toggle */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md"
-                aria-label="Toggle menu"
-              >
-                {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 bg-surface border border-border text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors rounded-md whitespace-nowrap" aria-label="Toggle menu">
+                {isOpen ? <X className="w-4 h-4 shrink-0" /> : <Menu className="w-4 h-4 shrink-0" />}
               </button>
             </div>
           </div>

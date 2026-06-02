@@ -147,7 +147,7 @@ export default function Journey() {
               className="btn-primary inline-flex items-center gap-2 cursor-pointer"
             >
               Get in touch
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </motion.a>
           </motion.div>
         </div>

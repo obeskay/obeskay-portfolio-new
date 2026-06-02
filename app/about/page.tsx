@@ -144,7 +144,7 @@ export default function About() {
                   className="absolute right-4 top-4 bg-surface border border-border px-3.5 py-1.5 rounded-full shadow-xs text-text-secondary"
                 >
                   <p className="text-[10px] font-mono font-semibold flex items-center gap-1.5 uppercase tracking-wider">
-                    <MapPin className="w-3.5 h-3.5 text-text-muted" />
+                    <MapPin className="w-3.5 h-3.5 text-text-muted shrink-0" />
                     CDMX
                   </p>
                 </motion.div>
@@ -262,7 +262,7 @@ export default function About() {
                       whileHover={{ scale: 0.98 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <social.icon className="w-4 h-4" />
+                      <social.icon className="w-4 h-4 shrink-0" />
                     </motion.a>
                   ))}
                 </div>
@@ -342,7 +342,7 @@ export default function About() {
               className="btn-primary inline-flex items-center gap-2 cursor-pointer"
             >
               Get in touch
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </motion.a>
           </motion.div>
         </div>

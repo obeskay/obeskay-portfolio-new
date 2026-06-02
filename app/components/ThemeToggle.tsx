@@ -22,7 +22,7 @@ export default function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = !isDark;
+    const newTheme = (!isDark);
     setIsDark(newTheme);
 
     if (newTheme) {
@@ -49,7 +49,7 @@ export default function ThemeToggle() {
         animate={{ rotate: isDark ? 180 : 0 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
-        {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        {isDark ? <Sun className="w-5 h-5 shrink-0" /> : <Moon className="w-5 h-5 shrink-0" />}
       </motion.div>
     </motion.button>
   );

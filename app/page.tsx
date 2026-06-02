@@ -5,9 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, MessageSquare, Send, Sparkles, User, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   TYPES & CONTEXTS
-   ═══════════════════════════════════════════════════════════════════════════ */
+// TYPES & CONTEXTS
 interface ChatMessage {
   sender: "user" | "bot";
   text: string;
@@ -15,9 +13,7 @@ interface ChatMessage {
 }
 
 export default function Home() {
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CDMX REAL-TIME CLOCK & STATUS WIDGET
-     ═══════════════════════════════════════════════════════════════════════════ */
+  // CDMX REAL-TIME CLOCK & STATUS WIDGET
   const [cdmxTime, setCdmxTime] = useState("");
   const [cdmxStatus, setCdmxStatus] = useState({ text: "Active & Shipping", color: "bg-[#346538]" });
 
@@ -62,9 +58,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     INTERACTIVE WHATSAPP SIMULATOR STATE
-     ═══════════════════════════════════════════════════════════════════════════ */
+  // INTERACTIVE WHATSAPP SIMULATOR STATE
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: "bot",
@@ -75,9 +69,7 @@ export default function Home() {
   const [isTyping, setIsTyping] = useState(false);
   const [selectedQuickReplies, setSelectedQuickReplies] = useState<string[]>([]);
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     ECOSYSTEM LIVE TELEMETRY STATE
-     ═══════════════════════════════════════════════════════════════════════════ */
+  // ECOSYSTEM LIVE TELEMETRY STATE
   const [telemetry, setTelemetry] = useState({
     chateaHealth: "loading",
     cartiHealth: "loading",
@@ -150,9 +142,7 @@ export default function Home() {
         <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/10 blur-[100px]" />
       </div>
 
-      {/* ═══════════════════════════════════════════════════════════════════════════
-         HERO SECTION
-         ═══════════════════════════════════════════════════════════════════════════ */}
+      {/* HERO SECTION */}
       <section className="relative pt-24 pb-28 md:py-36 px-6 lg:px-12 z-10 flex flex-col items-center justify-center min-h-[75vh]">
         <div className="relative container mx-auto max-w-4xl text-center flex flex-col items-center">
           {/* Status Badge with Mexico City Time */}
@@ -168,7 +158,7 @@ export default function Home() {
             </span>
             <span className="hidden sm:inline text-border font-light">|</span>
             <span className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-text-muted uppercase tracking-wider">
-              <Clock className="w-3.5 h-3.5 text-text-muted" />
+              <Clock className="w-3.5 h-3.5 text-text-muted shrink-0" />
               cdmx • {cdmxTime || "cst"}
             </span>
           </motion.div>
@@ -192,7 +182,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm md:text-base text-text-secondary max-w-lg mx-auto leading-relaxed mb-10 px-4 font-normal"
           >
-            Software Engineer based in Mexico City. I build robust AI experiences, multi-agent frameworks, and productivity systems that turn complex logic into clean, intuitive utilities.
+            Software Engineer based in Mexico City. I build production-grade AI systems, multi-agent frameworks, and developer tools that turn complex logic into clean, intuitive utilities.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -203,14 +193,14 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm px-6"
           >
             <Link href="/work" className="w-full">
-              <button className="btn-primary w-full">
+              <button className="btn-primary w-full whitespace-nowrap">
                 explore my work
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </button>
             </Link>
 
             <Link href="/contact" className="w-full">
-              <button className="btn-secondary w-full">
+              <button className="btn-secondary w-full whitespace-nowrap">
                 get in touch
               </button>
             </Link>
@@ -218,9 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════════
-         INTERACTIVE WHATSAPP AGENT PREVIEW (SPECIAL TOUCH)
-         ═══════════════════════════════════════════════════════════════════════════ */}
+      {/* INTERACTIVE WHATSAPP AGENT PREVIEW */}
       <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
@@ -237,17 +225,17 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="p-2 bg-pastel-blue-bg text-pastel-blue-fg rounded-lg h-fit border border-border">
-                    <Sparkles className="w-4 h-4" />
+                    <Sparkles className="w-4 h-4 shrink-0" />
                   </div>
                   <div>
                     <h4 className="font-sans font-semibold text-text-primary text-sm tracking-tight">Structured State Workflows</h4>
-                    <p className="text-xs text-text-muted mt-1 leading-relaxed">Handling robust webhook pings, contextual memory states, and rate-limiting gracefully.</p>
+                    <p className="text-xs text-text-muted mt-1 leading-relaxed">Handling concurrent webhook streams, contextual memory states, and rate-limiting gracefully.</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <div className="p-2 bg-pastel-red-bg text-pastel-red-fg rounded-lg h-fit border border-border">
-                    <MessageSquare className="w-4 h-4" />
+                    <MessageSquare className="w-4 h-4 shrink-0" />
                   </div>
                   <div>
                     <h4 className="font-sans font-semibold text-text-primary text-sm tracking-tight">Operator Handover Loops</h4>
@@ -273,10 +261,7 @@ export default function Home() {
                   <div className="window-dot" />
                   <span className="text-[10px] font-mono text-text-muted uppercase ml-2 tracking-wider">obeskay_agent_worker</span>
                 </div>
-                <button 
-                  onClick={resetChat}
-                  className="text-[9px] font-mono text-pastel-red-fg px-2.5 py-0.5 bg-pastel-red-bg border border-border rounded-full hover:opacity-85 transition-opacity"
-                >
+                <button onClick={resetChat} className="text-[9px] font-mono text-pastel-red-fg px-2.5 py-0.5 bg-pastel-red-bg border border-border rounded-full hover:opacity-85 transition-opacity whitespace-nowrap">
                   reset
                 </button>
               </div>
@@ -315,40 +300,19 @@ export default function Home() {
                 </p>
                 <div className="flex gap-2 overflow-x-auto flex-nowrap scrollbar-none pb-1 -mx-1 px-1">
                   {!selectedQuickReplies.includes("chateala") && (
-                    <button
-                      onClick={() => handleQuickReply(
-                        "Tell me about Chatea.la",
-                        "Chatea.la is a WhatsApp AI automation platform for Mexican businesses. It processes unstructured messages, coordinates calendars, qualifies leads, and updates active CRM databases automatically.",
-                        "chateala"
-                      )}
-                      className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-                    >
+                    <button onClick={() => handleQuickReply("Tell me about Chatea.la", "Chatea.la is a WhatsApp AI automation platform for Mexican businesses. It processes unstructured messages, coordinates calendars, qualifies leads, and updates active CRM databases automatically.", "chateala")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
                       chatea.la
                     </button>
                   )}
 
                   {!selectedQuickReplies.includes("carti") && (
-                    <button
-                      onClick={() => handleQuickReply(
-                        "What is Carti.app?",
-                        "Carti.app is a secure WhatsApp assistant for personal finance tracking. It parses messy voice logs and text receipts into instant ledger updates. It is a live agent making accounting friction-free.",
-                        "carti"
-                      )}
-                      className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-                    >
+                    <button onClick={() => handleQuickReply("What is Carti.app?", "Carti.app is a secure WhatsApp assistant for personal finance tracking. It parses messy voice logs and text receipts into instant ledger updates. It is a live agent making accounting friction-free.", "carti")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
                       carti.app
                     </button>
                   )}
 
                   {!selectedQuickReplies.includes("about") && (
-                    <button
-                      onClick={() => handleQuickReply(
-                        "Are you currently available?",
-                        "Yes. Obed is available for architectural advisory, multi-agent pipelines, and premium TypeScript engineering integrations. He loves designing elegant developer products.",
-                        "about"
-                      )}
-                      className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-                    >
+                    <button onClick={() => handleQuickReply("Are you currently available?", "Yes. Obed is available for architectural advisory, multi-agent pipelines, and premium TypeScript engineering integrations. He loves designing elegant developer products.", "about")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
                       availability
                     </button>
                   )}
@@ -365,9 +329,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════════
-         FEATURED WORK
-         ═══════════════════════════════════════════════════════════════════════════ */}
+      {/* FEATURED WORK */}
       <section className="py-24 px-6 lg:px-12 bg-background border-t border-border-subtle relative z-10">
         <div className="container mx-auto max-w-5xl">
           <motion.div
@@ -388,7 +350,7 @@ export default function Home() {
               className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-text-secondary hover:text-text-primary transition-colors group"
             >
               Explore all
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform shrink-0" />
             </Link>
           </motion.div>
 
@@ -544,9 +506,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════════
-         SKILLS SECTION
-         ═══════════════════════════════════════════════════════════════════════════ */}
+      {/* SKILLS SECTION */}
       <section className="py-24 px-6 lg:px-12 bg-background relative z-10">
         <div className="container mx-auto max-w-5xl">
           <motion.div
@@ -584,15 +544,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════════
-         FOOTER
-         ═══════════════════════════════════════════════════════════════════════════ */}
+      {/* FOOTER */}
       <footer className="py-12 px-6 lg:px-12 border-t border-border-subtle bg-surface-alt relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
             <p>© {new Date().getFullYear()} Obed Vargas</p>
             <p className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5" />
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
               Mexico City, Mexico
             </p>
           </div>
