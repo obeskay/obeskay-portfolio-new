@@ -38,7 +38,7 @@ const projects: Project[] = [
     title: "Sello",
     description: "Digital loyalty cards for local Mexican businesses. Replaces paper stamp cards with a WhatsApp-native QR checking flow, live pilot CTA, and Obeskay neobrutalist brand system.",
     category: "Lab",
-    image: "/projects/sello.webp",
+    image: "/projects/sello.png",
     status: "Live pilot",
     url: "https://sello.cloud.obeskay.com"
   },
@@ -173,7 +173,7 @@ export default function Work() {
               {/* Product Preview Image */}
               <div className="relative border border-border bg-surface-alt rounded overflow-hidden aspect-[16/10]">
                 <Image
-                  src="/projects/sello.webp"
+                  src="/projects/sello.png"
                   alt="Sello loyalty product preview"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

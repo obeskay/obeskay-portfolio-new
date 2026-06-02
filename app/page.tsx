@@ -416,7 +416,7 @@ export default function Home() {
                 desc: "WhatsApp-native digital loyalty cards. Swaps easily misplaced paper stamp cards with a fast QR scanning flow that runs directly in the client chat.",
                 tag: "Lab",
                 link: "https://sello.cloud.obeskay.com",
-                image: "/projects/sello.webp",
+                image: "/projects/sello.png",
                 badgeClass: "badge-green"
               },
               {
