@@ -43,6 +43,7 @@ const groupedSkills = skills.reduce((acc, skill) => {
 }, {} as Record<string, typeof skills>);
 
 // Category Icons mapping
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const categoryIcons: Record<string, any> = {
   "Languages": Code2,
   "Frameworks": Laptop,

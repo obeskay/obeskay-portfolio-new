@@ -8,7 +8,7 @@ This folder contains all deployment-related documentation for the ObeSkay Portfo
 |------|-------------|
 | `COOLIFY_DEPLOYMENT.md` | Complete Coolify deployment guide with credentials location |
 | `DEPLOYMENT_GUIDE.md` | Step-by-step deployment instructions for multiple platforms |
-| `DEPLOYMENT_SCRIPTS.md` | Documentation for deploy.sh and deploy-portfolio.sh scripts |
+| `DEPLOYMENT_SCRIPTS.md` | Documentation for the unified deploy.sh script |
 | `PROJECT_SUMMARY.md` | Project implementation summary |
 
 ## Quick Deploy

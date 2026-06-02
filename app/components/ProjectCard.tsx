@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Star, ArrowUpRight } from "lucide-react";
 
 export interface Project {
@@ -21,118 +20,93 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const CardTag = project.url ? motion.a : motion.div;
+  const isExternal = project.url?.startsWith("http");
 
   return (
-    <CardTag
-      {...(project.url
-        ? {
-            href: project.url,
-            target: "_blank",
-            rel: "noopener noreferrer",
-          }
-        : {})}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1]
-      }}
-      className="group relative block hover-lift"
+    <a
+      href={project.url || "#"}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className="group block relative"
+      style={{ textDecoration: "none" }}
     >
-      <motion.div
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="card-luxury"
-      >
+      <div className="card h-full flex flex-col gap-5 bg-surface text-text-primary transition-all">
         {/* Image Area */}
-        <div className="aspect-[16/10] bg-muted relative overflow-hidden">
+        <div className="aspect-[16/10] bg-surface-alt relative overflow-hidden border-3 border-ink neobrutal-shadow-xs">
           {project.image ? (
-            <motion.div 
-              className="relative w-full h-full"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
+            <div className="relative w-full h-full">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top"
+                className="object-cover object-top filter grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
                 loading="lazy"
                 quality={85}
               />
-            </motion.div>
+            </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 via-surface to-accent/20">
-              <span className="text-6xl font-display italic text-muted-foreground/30">
-                {project.title.charAt(0)}
+            <div className="w-full h-full flex items-center justify-center bg-gold">
+              <span className="text-5xl font-mono font-black text-ink">
+                {project.title.substring(0, 2).toUpperCase()}
               </span>
             </div>
           )}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          
-          {/* View button */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <motion.div
-              initial={{ scale: 0.8, y: 20 }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white text-primary px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg transform group-hover:scale-100 group-hover:translate-y-0 scale-90 translate-y-4 transition-all duration-700 hover:bg-gradient-to-r hover:from-primary hover:to-primary-600 hover:text-white"
-            >
-              View Project
-              <ArrowUpRight className="w-4 h-4" />
-            </motion.div>
-          </div>
-
-          <div className="absolute top-5 left-5 z-10">
-            <span className="px-4 py-1.5 bg-gradient-to-r from-primary to-primary-600 text-white text-xs font-semibold rounded-full shadow-md uppercase tracking-wider">
+          {/* Neobrutalist Tag Badge */}
+          <div className="absolute top-4 left-4 z-10">
+            <span className="px-3 py-1 bg-terracotta border-2 border-ink text-white font-mono text-[10px] font-black uppercase tracking-wider neobrutal-shadow-xs">
               {project.category}
             </span>
           </div>
 
           {project.stars && project.stars > 0 && (
-            <div className="absolute top-5 right-5 z-10">
-              <span className="px-3 py-1.5 bg-gradient-to-r from-warning to-warning/80 text-white text-xs font-semibold rounded-full shadow-md flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 fill-white text-white" />
+            <div className="absolute top-4 right-4 z-10">
+              <span className="px-2.5 py-1 bg-gold border-2 border-ink text-ink font-mono text-[10px] font-black uppercase tracking-wider neobrutal-shadow-xs flex items-center gap-1">
+                <Star className="w-3 h-3 fill-ink text-ink" />
                 {project.stars}
               </span>
             </div>
           )}
 
           {project.status && (
-            <div className="absolute top-5 right-5 z-10">
-              <span className="px-3 py-1.5 bg-surface/95 text-foreground text-xs font-semibold rounded-full shadow-md border border-border">
+            <div className="absolute top-4 right-4 z-10">
+              <span className="px-2.5 py-1 bg-surface border-2 border-ink text-text-primary font-mono text-[10px] font-black uppercase tracking-wider neobrutal-shadow-xs">
                 {project.status}
               </span>
             </div>
           )}
         </div>
 
-        {/* Content */}
-        <div className="p-8">
-          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-gradient transition-colors duration-500">
-            {project.title}
-          </h3>
+        {/* Content Area */}
+        <div className="flex flex-col flex-grow gap-3">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-lg font-black font-display text-text-primary uppercase tracking-tight group-hover:text-terracotta transition-colors">
+              {project.title}
+            </h3>
+            {project.url && (
+              <div className="p-1 bg-surface border-2 border-ink text-ink neobrutal-shadow-xs group-hover:translate-x-[2px] group-hover:translate-y-[-2px] group-hover:shadow-[4px_4px_0_var(--ink)] active:translate-x-0 active:translate-y-0 transition-all">
+                <ArrowUpRight className="w-4 h-4" />
+              </div>
+            )}
+          </div>
 
-          <p className="text-muted-foreground leading-relaxed line-clamp-2">
+          <p className="text-text-secondary font-sans font-medium text-xs leading-relaxed flex-grow">
             {project.description}
           </p>
 
           {project.url ? (
-            <div className="mt-6 flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              <span className="text-sm">Explore project</span>
-              <ArrowUpRight className="w-4 h-4" />
+            <div className="mt-2 flex items-center gap-1.5 text-xs font-mono font-black text-terracotta uppercase">
+              <span>EXPLORE</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </div>
           ) : (
-            <div className="mt-6 text-sm text-muted-foreground">
-              {project.status ?? "Internal prototype"}
+            <div className="mt-2 text-[10px] font-mono font-black text-text-muted uppercase">
+              {project.status ?? "Internal lab"}
             </div>
           )}
         </div>
-      </motion.div>
-    </CardTag>
+      </div>
+    </a>
   );
 }

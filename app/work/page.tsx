@@ -33,6 +33,14 @@ const projects: Project[] = [
     url: "https://freela.cloud.obeskay.com"
   },
   {
+    id: "sello",
+    title: "Sello",
+    description: "Digital loyalty cards for local Mexican businesses. Replaces paper stamp cards with a WhatsApp-native QR checking flow. Demonstrates frictionless localStorage states for rapid prototype validation.",
+    category: "Lab",
+    image: "/projects/sello.webp",
+    url: "https://sello.cloud.obeskay.com"
+  },
+  {
     id: "stickycovers",
     title: "StickyCovers",
     description: "E-commerce de stickers personalizados para tarjetas en CDMX. Creador de diseños únicos con IA, carrito inteligente para optimizar el ticket promedio (AOV), pasarela de MercadoPago, y flujos automáticos de email y retención vía Resend. Rentable y EBITDA positivo.",

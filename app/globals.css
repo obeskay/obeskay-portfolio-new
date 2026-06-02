@@ -1,95 +1,91 @@
 @import "tailwindcss";
 
-/* ===== MINIMALIST ORGANIC DESIGN SYSTEM ===== */
-/* Less is more - Natural forms, breathing room, clarity */
+/* ===== OBESKAY SIGNATURE NEOBRUTALIST DESIGN SYSTEM ===== */
+/* High-impact, raw, tactile, direct. Thick ink-black borders, solid 3D drop shadows */
 
 :root {
-  /* ---- COLOR PALETTE: Earth tones, organic ---- */
-  --sand: #F5F3EF;
-  --sand-dark: #EBE8E0;
-  --clay: #C4B5A0;
-  --stone: #8B8578;
-  --charcoal: #2A2824;
-  --moss: #5A6B5C;
-  --moss-light: #7A8B7C;
-  --terracotta: #B87D6B;
-
+  /* ---- COLOR PALETTE: High contrast, neobrutalist ---- */
+  --ink: #101010;
+  --cream-paper: #FAF6F0;
+  --cream-dark: #F8F1DF;
+  --white: #FFFFFF;
+  --charcoal: #1A1A1A;
+  
+  /* Accents */
+  --terracotta: #ff5b46;
+  --terracotta-light: #ffe2da;
+  --gold: #d7ff1f;
+  --gold-light: #f1ff9f;
+  --cobalt: #2563eb;
+  --cobalt-light: #dbeafe;
+  --forest-green: #00a75f;
+  --forest-green-light: #d3ffe2;
+  
   /* ---- SURFACES ---- */
-  --background: var(--sand);
-  --surface: #FFFFFF;
-  --surface-alt: var(--sand-dark);
+  --background: var(--cream-paper);
+  --surface: var(--white);
+  --surface-alt: var(--cream-dark);
 
   /* ---- TEXT ---- */
-  --text-primary: var(--charcoal);
-  --text-secondary: var(--stone);
-  --text-muted: #A8A298;
+  --text-primary: var(--ink);
+  --text-secondary: #3c342b;
+  --text-muted: #5c544b;
 
   /* ---- ACCENTS ---- */
-  --accent: var(--moss);
+  --accent: var(--cobalt);
   --accent-highlight: var(--terracotta);
 
   /* ---- BORDERS ---- */
-  --border: var(--clay);
-  --border-subtle: var(--sand-dark);
+  --border: var(--ink);
+  --border-subtle: var(--ink);
+  --border-width: 3px;
 
-  /* ---- SPACING (8px grid) ---- */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-
-  /* ---- RADIUS: Soft, natural ---- */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* ---- RADIUS ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
   /* ---- TYPOGRAPHY ---- */
   --font-display: var(--font-playfair), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
 
-  /* ---- SHADOWS: Subtle, layered ---- */
-  --shadow-xs: 0 1px 2px rgba(42, 40, 36, 0.04);
-  --shadow-sm: 0 2px 4px rgba(42, 40, 36, 0.06);
-  --shadow-md: 0 4px 12px rgba(42, 40, 36, 0.08);
-  --shadow-lg: 0 8px 24px rgba(42, 40, 36, 0.1);
-  --shadow-xl: 0 16px 48px rgba(42, 40, 36, 0.12);
-
-  /* ---- MOTION: Natural, organic ---- */
-  --ease-organic: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
+  /* ---- SHADOWS: Solid offset 3D shadows, zero blur ---- */
+  --shadow-xs: 2px 2px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+  --shadow-md: 6px 6px 0 var(--ink);
+  --shadow-lg: 8px 8px 0 var(--ink);
+  --shadow-xl: 12px 12px 0 var(--ink);
 }
 
-/* Dark mode */
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1A1816;
-    --surface: #242220;
-    --surface-alt: #2A2824;
-    --sand: #1A1816;
-    --sand-dark: #242220;
-    --text-primary: #E8E6E0;
-    --text-secondary: #A8A498;
-    --text-muted: #6B6860;
-    --border: #3A3630;
-    --border-subtle: #2A2824;
-    --moss: #7A8B7C;
-    --moss-light: #8A9B8C;
+    --background: #111111;
+    --surface: #1e1d1b;
+    --surface-alt: #2c2a27;
+    --cream-paper: #111111;
+    --cream-dark: #1e1d1b;
+    
+    --text-primary: #FAF6F0;
+    --text-secondary: #e6dfd5;
+    --text-muted: #bdae9c;
+    
+    --ink: #FAF6F0;
+    --white: #1e1d1b;
+    --border: #FAF6F0;
+    --border-subtle: #FAF6F0;
+    
+    --shadow-xs: 2px 2px 0 #FAF6F0;
+    --shadow-sm: 4px 4px 0 #FAF6F0;
+    --shadow-md: 6px 6px 0 #FAF6F0;
+    --shadow-lg: 8px 8px 0 #FAF6F0;
+    --shadow-xl: 12px 12px 0 #FAF6F0;
   }
 }
 
+/* Tailwind theme bindings for v4 */
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -101,13 +97,11 @@
   --color-accent-highlight: var(--accent-highlight);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
-  --color-moss: var(--moss);
-  --color-sand: var(--sand);
-  --color-sand-dark: var(--sand-dark);
-  --color-stone: var(--stone);
-  --color-clay: var(--clay);
-  --color-charcoal: var(--charcoal);
   --color-terracotta: var(--terracotta);
+  --color-gold: var(--gold);
+  --color-cobalt: var(--cobalt);
+  --color-moss: var(--forest-green);
+  --color-stone: var(--text-muted);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -117,9 +111,15 @@
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
   --radius-full: var(--radius-full);
+  
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
 }
 
-/* ===== GLOBAL RESETS ===== */
+/* ===== GLOBAL RESETS & STYLING ===== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -127,217 +127,306 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
   min-height: 100vh;
 }
 
-/* ===== TYPOGRAPHY ===== */
+/* ===== NEOBRUTALIST TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.2;
-  margin: 0;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
+/* Custom Serif Heading overrides */
 .font-display {
   font-family: var(--font-display);
 }
 
-.font-body {
-  font-family: var(--font-body);
+/* Monospace overrides for technical UI details */
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* ===== UTILITIES ===== */
-.text-gradient {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-highlight) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--text-primary);
-}
-
-/* ===== BUTTONS ===== */
-.btn-primary {
-  background: var(--accent);
-  color: white;
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  transition: all var(--duration-normal) var(--ease-organic);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: var(--moss-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  border: 1px solid var(--border);
-  transition: all var(--duration-normal) var(--ease-organic);
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  border-color: var(--accent);
-  background: var(--surface);
-}
-
-/* ===== CARDS ===== */
-.card {
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  transition: all var(--duration-normal) var(--ease-smooth);
-  border: 1px solid var(--border-subtle);
-}
-
-.card:hover {
-  border-color: var(--border);
-  box-shadow: var(--shadow-md);
-}
-
-/* ===== BADGES ===== */
+/* ===== STAMPED & TATTOOED BADGES ===== */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.375rem 0.875rem;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--gold);
+  color: var(--ink);
+  border: var(--border-width) solid var(--ink);
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-xs);
+  border-radius: var(--radius-sm);
+}
+
+/* ===== NEOBRUTALIST INTERACTIVE CARDS ===== */
+.card {
   background: var(--surface);
-  color: var(--accent);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
 }
 
-/* ===== LINKS ===== */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity var(--duration-fast);
+.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-md);
 }
 
-a:hover {
-  opacity: 0.7;
+.card:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-xs);
 }
 
-/* ===== IMAGES ===== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ===== SOLID BENTO BOX GRID ===== */
+.bento-box {
+  background: var(--surface);
+  border: 4px solid var(--border);
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-box:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== PREMIUM tactile BUTTONS ===== */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: var(--border-width) solid var(--ink);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
+  font-family: ui-monospace, monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.btn-primary {
+  background-color: var(--terracotta);
+  color: #FFFFFF !important;
+}
+
+/* Dark theme button text safety */
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    color: #101010 !important;
+  }
+}
+
+.btn-secondary {
+  background-color: var(--surface);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: var(--gold);
+  color: var(--ink) !important;
+  box-shadow: var(--shadow-md);
+  transform: translate(-2px, -2px);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  box-shadow: var(--shadow-xs);
+  transform: translate(2px, 2px);
+}
+
+/* ===== DECORATIVE NEOBRUTALISTIC ELEMENTS ===== */
+.neobrutal-outline {
+  border: var(--border-width) solid var(--border);
+}
+
+.neobrutal-shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.neobrutal-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.neobrutal-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.neobrutal-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Custom highlighted text inside headers */
+.text-gradient {
+  background: var(--gold);
+  border: 2px solid var(--border);
+  padding: 2px 8px;
+  display: inline-block;
+  color: var(--ink);
+  box-shadow: var(--shadow-xs);
+  transform: rotate(-1.5deg);
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* WebP Hero Container specific neobrutal styling */
+.hero-art-container {
+  border: 5px solid var(--border);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  background: var(--surface-alt);
+  position: relative;
+}
+
+.hero-art-container::after {
+  content: "OBESKAY FOUNDER OS";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 4px 8px;
+  background: var(--gold);
+  border: 2px solid var(--border);
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--ink);
+  box-shadow: var(--shadow-xs);
 }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--background);
+  border-left: 3px solid var(--border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--clay);
-  border-radius: 4px;
+  background: var(--terracotta);
+  border: 3px solid var(--border);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--stone);
+  background: var(--gold);
 }
 
-/* ===== SELECTION ===== */
-::selection {
-  background: var(--clay);
+/* ===== INTERACTIVE WHATSAPP SIMULATOR OVERRIDES ===== */
+.simulator-box {
+  background: var(--surface-alt);
+  border: 4px solid var(--border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+.chat-bubble-bot {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
   color: var(--text-primary);
+  box-shadow: var(--shadow-xs);
 }
 
-/* ===== FOCUS ===== */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+.chat-bubble-user {
+  background: var(--cobalt-light);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  box-shadow: var(--shadow-xs);
 }
 
-/* ===== HAND-DRAWN DOODLE ANIMATIONS ===== */
-@keyframes draw-doodle {
-  to {
-    stroke-dashoffset: 0;
+.quick-reply-btn {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: var(--shadow-xs);
+  transition: all 0.15s ease;
+}
+
+.quick-reply-btn:hover {
+  background: var(--gold);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.quick-reply-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+/* CDMX Time widget overrides */
+.time-widget {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Navigation items overrides */
+.nav-bar {
+  background: rgba(250, 246, 240, 0.95);
+  border-bottom: 4px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-bar {
+    background: rgba(17, 17, 17, 0.95);
   }
 }
 
-.animate-doodle {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: draw-doodle 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+/* Progress bar for skills neobrutal look */
+.skill-bar-track {
+  background: var(--surface-alt);
+  border: 2px solid var(--border);
+  height: 16px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
-/* ===== ORGANIC FLOATING ANIMATIONS ===== */
-@keyframes float-slow {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(1.5deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
+.skill-bar-fill {
+  background: var(--terracotta);
+  border-right: 2px solid var(--border);
+  height: 100%;
 }
 
-.animate-float {
-  animation: float-slow 6s ease-in-out infinite;
+/* Pulse animation standard */
+@keyframes neobrutal-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-/* ===== REAL-TIME WEATHER / CLOCK GLOWS ===== */
-.status-glow-green {
-  box-shadow: 0 0 12px rgba(90, 107, 92, 0.4);
+.animate-neopulse {
+  animation: neobrutal-pulse 3s infinite ease-in-out;
 }
-
-/* ===== TEXT GRADIENT ANIMATION ===== */
-.text-gradient-animated {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-highlight) 50%, var(--accent) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-}
-
-/* ===== REDUCED MOTION ===== */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
-

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "deploy": "./deploy.sh",
-    "deploy:monitor": "./deploy-portfolio.sh"
+    "deploy:monitor": "./deploy.sh"
   },
   "dependencies": {
     "framer-motion": "^12.33.0",
