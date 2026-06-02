@@ -1,0 +1,1989 @@
+[
+  {
+    "id": "qr-scan",
+    "name": "QR Scan",
+    "slug": "qr-scan",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de escaneo QR para digitalización de menús, pagos y flujos rápidos.",
+    "tags": [
+      "qr",
+      "scan",
+      "digital",
+      "menu"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-01-qr-scan@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-01-qr-scan@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-01-qr-scan@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-01-qr-scan.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "speed-lightning",
+    "name": "Speed Lightning",
+    "slug": "speed-lightning",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de rayo que representa la rapidez y agilidad de entrega y servicio.",
+    "tags": [
+      "speed",
+      "lightning",
+      "fast",
+      "delivery"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-02-speed-lightning@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-02-speed-lightning@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-02-speed-lightning@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-02-speed-lightning.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "menu-list",
+    "name": "Menu List",
+    "slug": "menu-list",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de lista para mostrar menús digitales, categorías o listas de órdenes.",
+    "tags": [
+      "menu",
+      "list",
+      "order"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-03-menu-list@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-03-menu-list@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-03-menu-list@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-03-menu-list.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "category-grid",
+    "name": "Category Grid",
+    "slug": "category-grid",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de cuadrícula para navegación por categorías de comida o servicios.",
+    "tags": [
+      "grid",
+      "category",
+      "navigation"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-04-category-grid@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-04-category-grid@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-04-category-grid@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-04-category-grid.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "taco",
+    "name": "Taco",
+    "slug": "taco",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de taco para representar la sección de comida mexicana.",
+    "tags": [
+      "taco",
+      "food",
+      "mexican",
+      "category"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-05-taco@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-05-taco@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-05-taco@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-05-taco.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "pizza",
+    "name": "Pizza",
+    "slug": "pizza",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de rebanada de pizza para representar la sección de comida italiana o rápida.",
+    "tags": [
+      "pizza",
+      "food",
+      "fastfood",
+      "category"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-06-pizza@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-06-pizza@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-06-pizza@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-06-pizza.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "drink-cup",
+    "name": "Drink Cup",
+    "slug": "drink-cup",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de vaso de bebida con popote para refrescos, jugos y bebidas.",
+    "tags": [
+      "drink",
+      "cup",
+      "beverage",
+      "category"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-07-drink-cup@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-07-drink-cup@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-07-drink-cup@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-07-drink-cup.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "ice-cream",
+    "name": "Ice Cream",
+    "slug": "ice-cream",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de helado para la sección de postres, dulces y helados.",
+    "tags": [
+      "icecream",
+      "dessert",
+      "sweet",
+      "category"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-08-ice-cream@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-08-ice-cream@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-08-ice-cream@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-08-ice-cream.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "service-bell",
+    "name": "Service Bell",
+    "slug": "service-bell",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de campana de servicio para notificaciones de órdenes listas o llamadas a mesero.",
+    "tags": [
+      "bell",
+      "service",
+      "waiter",
+      "notification"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-09-service-bell@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-09-service-bell@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-09-service-bell@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-09-service-bell.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "receipt-ticket",
+    "name": "Receipt Ticket",
+    "slug": "receipt-ticket",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de ticket de recibo para historial de compras, facturas o detalles de la orden.",
+    "tags": [
+      "receipt",
+      "ticket",
+      "bill",
+      "invoice"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-10-receipt-ticket@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-10-receipt-ticket@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-10-receipt-ticket@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-10-receipt-ticket.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "analytics-bars",
+    "name": "Analytics Bars",
+    "slug": "analytics-bars",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de barras de análisis para mostrar ventas, reportes y crecimiento de negocio.",
+    "tags": [
+      "analytics",
+      "chart",
+      "sales",
+      "report"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-11-analytics-bars@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-11-analytics-bars@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-11-analytics-bars@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-11-analytics-bars.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "heart",
+    "name": "Heart",
+    "slug": "heart",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de corazón para guardar elementos favoritos, likes o satisfacción del cliente.",
+    "tags": [
+      "heart",
+      "favorite",
+      "like",
+      "love"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-12-heart@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-12-heart@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-12-heart@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-12-heart.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "smiley",
+    "name": "Smiley",
+    "slug": "smiley",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de cara feliz para representar una buena experiencia o feedback positivo.",
+    "tags": [
+      "smiley",
+      "happy",
+      "rating",
+      "feedback"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-13-smiley@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-13-smiley@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-13-smiley@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-13-smiley.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "storefront",
+    "name": "Storefront",
+    "slug": "storefront",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de tienda o restaurante físico para selección de sucursales o perfiles de comercio.",
+    "tags": [
+      "storefront",
+      "shop",
+      "restaurant",
+      "branch"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-14-storefront@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-14-storefront@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-14-storefront@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-14-storefront.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "mobile-phone",
+    "name": "Mobile Phone",
+    "slug": "mobile-phone",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de teléfono móvil para flujos móviles, apps y menús digitales en celular.",
+    "tags": [
+      "phone",
+      "mobile",
+      "app",
+      "digital"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-15-mobile-phone@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-15-mobile-phone@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-15-mobile-phone@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-15-mobile-phone.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "search",
+    "name": "Search",
+    "slug": "search",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de lupa para búsquedas de platos, restaurantes o configuraciones.",
+    "tags": [
+      "search",
+      "magnifying",
+      "find"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-16-search@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-16-search@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-16-search@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-16-search.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "share",
+    "name": "Share",
+    "slug": "share",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de compartir para difundir menús, tickets o códigos QR de referidos.",
+    "tags": [
+      "share",
+      "send",
+      "recommend"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-17-share@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-17-share@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-17-share@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-17-share.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "download",
+    "name": "Download",
+    "slug": "download",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de descarga para guardar recibos, menús o imágenes de códigos QR.",
+    "tags": [
+      "download",
+      "save",
+      "offline"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-18-download@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-18-download@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-18-download@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-18-download.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "verified-badge",
+    "name": "Verified Badge",
+    "slug": "verified-badge",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de insignia verificada para indicar comercios seguros o transacciones exitosas.",
+    "tags": [
+      "verified",
+      "badge",
+      "check",
+      "trust"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-19-verified-badge@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-19-verified-badge@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-19-verified-badge@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-19-verified-badge.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "star",
+    "name": "Star",
+    "slug": "star",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de estrella para calificaciones, reviews de platillos o destacar elementos.",
+    "tags": [
+      "star",
+      "rating",
+      "favorite",
+      "review"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-20-star@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-20-star@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-20-star@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-20-star.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "chat-bubble",
+    "name": "Chat Bubble",
+    "slug": "chat-bubble",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de globo de chat para soporte al cliente, chats con repartidor o IA en WhatsApp.",
+    "tags": [
+      "chat",
+      "support",
+      "whatsapp",
+      "message"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-21-chat-bubble@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-21-chat-bubble@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-21-chat-bubble@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-21-chat-bubble.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "settings-gear",
+    "name": "Settings Gear",
+    "slug": "settings-gear",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de engranaje para panel de configuración, ajustes de cuenta o negocio.",
+    "tags": [
+      "settings",
+      "gear",
+      "config",
+      "admin"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-22-settings-gear@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-22-settings-gear@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-22-settings-gear@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-22-settings-gear.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "clock",
+    "name": "Clock",
+    "slug": "clock",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de reloj para indicar tiempos de entrega, horarios de apertura o historial.",
+    "tags": [
+      "clock",
+      "time",
+      "history",
+      "delivery"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-23-clock@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-23-clock@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-23-clock@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-23-clock.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "delivery-bag",
+    "name": "Delivery Bag",
+    "slug": "delivery-bag",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de bolsa de entrega para pedidos para llevar o entrega a domicilio.",
+    "tags": [
+      "delivery",
+      "bag",
+      "takeaway",
+      "order"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-24-delivery-bag@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-24-delivery-bag@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-24-delivery-bag@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-24-delivery-bag.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "sparkles",
+    "name": "Sparkles",
+    "slug": "sparkles",
+    "type": "icon",
+    "set": "icons",
+    "description": "Ícono de destellos para destacar novedades, funciones premium o platillos especiales.",
+    "tags": [
+      "sparkles",
+      "new",
+      "magic",
+      "premium"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/icons/qrapidito-icons-25-sparkles@1x.png",
+      "png_2x": "/assets/qrapidito/icons/qrapidito-icons-25-sparkles@2x.png",
+      "png_3x": "/assets/qrapidito/icons/qrapidito-icons-25-sparkles@3x.png",
+      "png_master": "/assets/qrapidito/icons/qrapidito-icons-25-sparkles.png"
+    },
+    "recommended_usage": [
+      "button_icon",
+      "feature_card",
+      "navigation_link",
+      "list_header"
+    ]
+  },
+  {
+    "id": "qr-badge",
+    "name": "QR Badge",
+    "slug": "qr-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker circular QR para escanear y acceder directamente a menús digitales.",
+    "tags": [
+      "sticker",
+      "qr",
+      "badge",
+      "brand"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-01-qr-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-01-qr-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-01-qr-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-01-qr-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "smiley-button",
+    "name": "Smiley Button",
+    "slug": "smiley-button",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker decorativo de cara feliz en formato botón tridimensional.",
+    "tags": [
+      "sticker",
+      "happy",
+      "feedback",
+      "rating"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-02-smiley-button@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-02-smiley-button@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-02-smiley-button@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-02-smiley-button.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "heart-badge",
+    "name": "Heart Badge",
+    "slug": "heart-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker con forma de corazón acolchado para destacar favoritos y amor de marca.",
+    "tags": [
+      "sticker",
+      "heart",
+      "favorite",
+      "love"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-03-heart-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-03-heart-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-03-heart-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-03-heart-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "cloche-badge",
+    "name": "Cloche Badge",
+    "slug": "cloche-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker decorativo con campana de comida cubreplatos para menús gourmet.",
+    "tags": [
+      "sticker",
+      "cloche",
+      "food",
+      "bell"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-04-cloche-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-04-cloche-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-04-cloche-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-04-cloche-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "taco-badge",
+    "name": "Taco Badge",
+    "slug": "taco-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker ilustrado de taco con outline grueso, ideal para promociones mexicanas.",
+    "tags": [
+      "sticker",
+      "taco",
+      "food",
+      "mexican"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-05-taco-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-05-taco-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-05-taco-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-05-taco-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "pizza-badge",
+    "name": "Pizza Badge",
+    "slug": "pizza-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker ilustrado de pizza humeante para secciones de comida rápida.",
+    "tags": [
+      "sticker",
+      "pizza",
+      "food",
+      "fastfood"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-06-pizza-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-06-pizza-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-06-pizza-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-06-pizza-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "drink-badge",
+    "name": "Drink Badge",
+    "slug": "drink-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker ilustrado de vaso de refresco refrescante con popote de color.",
+    "tags": [
+      "sticker",
+      "drink",
+      "beverage",
+      "soda"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-07-drink-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-07-drink-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-07-drink-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-07-drink-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "dessert-badge",
+    "name": "Dessert Badge",
+    "slug": "dessert-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker decorativo de helado o postre para banners de repostería.",
+    "tags": [
+      "sticker",
+      "dessert",
+      "sweet",
+      "icecream"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-08-dessert-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-08-dessert-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-08-dessert-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-08-dessert-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "storefront-badge",
+    "name": "Storefront Badge",
+    "slug": "storefront-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker tridimensional de tienda física para ambientación de comercios.",
+    "tags": [
+      "sticker",
+      "storefront",
+      "shop",
+      "restaurant"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-09-storefront-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-09-storefront-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-09-storefront-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-09-storefront-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "analytics-badge",
+    "name": "Analytics Badge",
+    "slug": "analytics-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker de gráfica de barras ascendente para indicar crecimiento de ventas.",
+    "tags": [
+      "sticker",
+      "analytics",
+      "chart",
+      "growth"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-10-analytics-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-10-analytics-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-10-analytics-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-10-analytics-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "receipt-badge",
+    "name": "Receipt Badge",
+    "slug": "receipt-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker tridimensional de ticket de compra impreso para checkout.",
+    "tags": [
+      "sticker",
+      "receipt",
+      "ticket",
+      "order"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-11-receipt-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-11-receipt-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-11-receipt-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-11-receipt-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "phone-badge",
+    "name": "Phone Badge",
+    "slug": "phone-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker de teléfono móvil para resaltar la facilidad de ordenar desde el celular.",
+    "tags": [
+      "sticker",
+      "phone",
+      "mobile",
+      "app"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-12-phone-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-12-phone-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-12-phone-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-12-phone-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "download-badge",
+    "name": "Download Badge",
+    "slug": "download-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker decorativo con flecha de descarga para incentivar el guardado de la app.",
+    "tags": [
+      "sticker",
+      "download",
+      "save",
+      "action"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-13-download-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-13-download-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-13-download-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-13-download-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "star-badge",
+    "name": "Star Badge",
+    "slug": "star-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker de estrella brillante tridimensional para valoraciones y favoritos.",
+    "tags": [
+      "sticker",
+      "star",
+      "rating",
+      "review"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-14-star-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-14-star-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-14-star-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-14-star-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "verified-badge",
+    "name": "Verified Badge",
+    "slug": "verified-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker de escudo o sello de verificación y autenticidad del negocio.",
+    "tags": [
+      "sticker",
+      "verified",
+      "badge",
+      "check"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-15-verified-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-15-verified-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-15-verified-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-15-verified-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "sparkles-badge",
+    "name": "Sparkles Badge",
+    "slug": "sparkles-badge",
+    "type": "sticker",
+    "set": "stickers",
+    "description": "Sticker de estrellas destellantes amarillas para resaltar secciones novedosas.",
+    "tags": [
+      "sticker",
+      "sparkles",
+      "magic",
+      "new"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/stickers/qrapidito-stickers-16-sparkles-badge@1x.png",
+      "png_2x": "/assets/qrapidito/stickers/qrapidito-stickers-16-sparkles-badge@2x.png",
+      "png_3x": "/assets/qrapidito/stickers/qrapidito-stickers-16-sparkles-badge@3x.png",
+      "png_master": "/assets/qrapidito/stickers/qrapidito-stickers-16-sparkles-badge.png"
+    },
+    "recommended_usage": [
+      "hero_decoration",
+      "badge_label",
+      "marketing_promo",
+      "empty_state"
+    ]
+  },
+  {
+    "id": "lightning-pop",
+    "name": "Lightning Pop",
+    "slug": "lightning-pop",
+    "type": "motion",
+    "set": "motion",
+    "description": "Rayo decorativo para transiciones enérgicas o loaders de velocidad.",
+    "tags": [
+      "motion",
+      "lightning",
+      "pop",
+      "energy"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-01-lightning-pop@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-01-lightning-pop@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-01-lightning-pop@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-01-lightning-pop.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "smiley-pop",
+    "name": "Smiley Pop",
+    "slug": "smiley-pop",
+    "type": "motion",
+    "set": "motion",
+    "description": "Carita feliz flotante para animaciones de feedback de cliente exitoso.",
+    "tags": [
+      "motion",
+      "smiley",
+      "pop",
+      "happy"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-02-smiley-pop@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-02-smiley-pop@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-02-smiley-pop@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-02-smiley-pop.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "heart-pop",
+    "name": "Heart Pop",
+    "slug": "heart-pop",
+    "type": "motion",
+    "set": "motion",
+    "description": "Corazón dinámico ideal para animar clicks en favoritos u opiniones.",
+    "tags": [
+      "motion",
+      "heart",
+      "pop",
+      "like"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-03-heart-pop@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-03-heart-pop@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-03-heart-pop@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-03-heart-pop.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "shooting-star",
+    "name": "Shooting Star",
+    "slug": "shooting-star",
+    "type": "motion",
+    "set": "motion",
+    "description": "Estrella fugaz para destacar funciones o transiciones mágicas.",
+    "tags": [
+      "motion",
+      "star",
+      "shooting",
+      "flash"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-04-shooting-star@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-04-shooting-star@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-04-shooting-star@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-04-shooting-star.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "sparkle-cluster",
+    "name": "Sparkle Cluster",
+    "slug": "sparkle-cluster",
+    "type": "motion",
+    "set": "motion",
+    "description": "Grupo de destellos animados para resaltar productos premium o nuevos.",
+    "tags": [
+      "motion",
+      "sparkle",
+      "cluster",
+      "magic"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-05-sparkle-cluster@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-05-sparkle-cluster@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-05-sparkle-cluster@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-05-sparkle-cluster.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "fast-arrow",
+    "name": "Fast Arrow",
+    "slug": "fast-arrow",
+    "type": "motion",
+    "set": "motion",
+    "description": "Flecha horizontal de velocidad para guiar la atención del usuario.",
+    "tags": [
+      "motion",
+      "arrow",
+      "fast",
+      "direction"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-06-fast-arrow@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-06-fast-arrow@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-06-fast-arrow@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-06-fast-arrow.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "curved-arrow",
+    "name": "Curved Arrow",
+    "slug": "curved-arrow",
+    "type": "motion",
+    "set": "motion",
+    "description": "Flecha curva dibujada a mano para guiar el flujo en onboarding.",
+    "tags": [
+      "motion",
+      "arrow",
+      "curved",
+      "point"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-07-curved-arrow@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-07-curved-arrow@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-07-curved-arrow@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-07-curved-arrow.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "loop-arrow",
+    "name": "Loop Arrow",
+    "slug": "loop-arrow",
+    "type": "motion",
+    "set": "motion",
+    "description": "Flecha en bucle para animaciones de recarga, reinicio o sincronía.",
+    "tags": [
+      "motion",
+      "arrow",
+      "loop",
+      "reload"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-08-loop-arrow@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-08-loop-arrow@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-08-loop-arrow@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-08-loop-arrow.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "speed-lines",
+    "name": "Speed Lines",
+    "slug": "speed-lines",
+    "type": "motion",
+    "set": "motion",
+    "description": "Líneas de velocidad de estilo cómic para indicar envío ultra rápido.",
+    "tags": [
+      "motion",
+      "speed",
+      "lines",
+      "fast"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-09-speed-lines@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-09-speed-lines@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-09-speed-lines@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-09-speed-lines.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "squiggle-line",
+    "name": "Squiggle Line",
+    "slug": "squiggle-line",
+    "type": "motion",
+    "set": "motion",
+    "description": "Línea ondulada tipo doodle para decoración de títulos y banners.",
+    "tags": [
+      "motion",
+      "squiggle",
+      "doodle",
+      "sketch"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-10-squiggle-line@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-10-squiggle-line@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-10-squiggle-line@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-10-squiggle-line.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "underline-stroke",
+    "name": "Underline Stroke",
+    "slug": "underline-stroke",
+    "type": "motion",
+    "set": "motion",
+    "description": "Trazo de subrayado hecho a mano para enfatizar texto importante.",
+    "tags": [
+      "motion",
+      "underline",
+      "stroke",
+      "highlight"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-11-underline-stroke@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-11-underline-stroke@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-11-underline-stroke@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-11-underline-stroke.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "pink-blob",
+    "name": "Pink Blob",
+    "slug": "pink-blob",
+    "type": "motion",
+    "set": "motion",
+    "description": "Mancha abstracta rosa para fondo dinámico de textos o botones.",
+    "tags": [
+      "motion",
+      "blob",
+      "shape",
+      "background"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-12-pink-blob@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-12-pink-blob@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-12-pink-blob@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-12-pink-blob.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "dot-matrix",
+    "name": "Dot Matrix",
+    "slug": "dot-matrix",
+    "type": "motion",
+    "set": "motion",
+    "description": "Matriz de puntos decorativos para aportar textura retro y bento grid.",
+    "tags": [
+      "motion",
+      "dots",
+      "grid",
+      "pattern"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-13-dot-matrix@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-13-dot-matrix@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-13-dot-matrix@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-13-dot-matrix.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "halftone-burst",
+    "name": "Halftone Burst",
+    "slug": "halftone-burst",
+    "type": "motion",
+    "set": "motion",
+    "description": "Explosión de semitono estilo cómic para fondos de ofertas y novedades.",
+    "tags": [
+      "motion",
+      "halftone",
+      "burst",
+      "retro"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-14-halftone-burst@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-14-halftone-burst@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-14-halftone-burst@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-14-halftone-burst.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "confetti-sprinkles",
+    "name": "Confetti Sprinkles",
+    "slug": "confetti-sprinkles",
+    "type": "motion",
+    "set": "motion",
+    "description": "Chispas de confeti festivo para animaciones de éxito o compra completada.",
+    "tags": [
+      "motion",
+      "confetti",
+      "sprinkles",
+      "celebrate"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-15-confetti-sprinkles@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-15-confetti-sprinkles@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-15-confetti-sprinkles@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-15-confetti-sprinkles.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "speech-bubble",
+    "name": "Speech Bubble",
+    "slug": "speech-bubble",
+    "type": "motion",
+    "set": "motion",
+    "description": "Globo de diálogo vacío estilo cómic para notificaciones o subtítulos.",
+    "tags": [
+      "motion",
+      "bubble",
+      "chat",
+      "text"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-16-speech-bubble@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-16-speech-bubble@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-16-speech-bubble@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-16-speech-bubble.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "check-swoosh",
+    "name": "Check Swoosh",
+    "slug": "check-swoosh",
+    "type": "motion",
+    "set": "motion",
+    "description": "Marca de verificación fluida dibujada a mano para loaders de éxito.",
+    "tags": [
+      "motion",
+      "check",
+      "swoosh",
+      "done"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-17-check-swoosh@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-17-check-swoosh@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-17-check-swoosh@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-17-check-swoosh.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "circle-pulse",
+    "name": "Circle Pulse",
+    "slug": "circle-pulse",
+    "type": "motion",
+    "set": "motion",
+    "description": "Círculo concéntrico pulsante para animaciones de beacon o geolocalización.",
+    "tags": [
+      "motion",
+      "circle",
+      "pulse",
+      "beacon"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-18-circle-pulse@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-18-circle-pulse@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-18-circle-pulse@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-18-circle-pulse.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "wavy-divider",
+    "name": "Wavy Divider",
+    "slug": "wavy-divider",
+    "type": "motion",
+    "set": "motion",
+    "description": "Línea divisoria ondulada para secciones web o transiciones visuales.",
+    "tags": [
+      "motion",
+      "wave",
+      "divider",
+      "separator"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-19-wavy-divider@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-19-wavy-divider@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-19-wavy-divider@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-19-wavy-divider.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "frame-corner",
+    "name": "Frame Corner",
+    "slug": "frame-corner",
+    "type": "motion",
+    "set": "motion",
+    "description": "Esquina decorativa tipo escuadra para enmarcar fotos o tarjetas de menú.",
+    "tags": [
+      "motion",
+      "frame",
+      "corner",
+      "border"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-20-frame-corner@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-20-frame-corner@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-20-frame-corner@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-20-frame-corner.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "sticker-burst",
+    "name": "Sticker Burst",
+    "slug": "sticker-burst",
+    "type": "motion",
+    "set": "motion",
+    "description": "Estrella de explosión promocional (sticker burst) para destacar precios.",
+    "tags": [
+      "motion",
+      "burst",
+      "badge",
+      "promo"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-21-sticker-burst@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-21-sticker-burst@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-21-sticker-burst@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-21-sticker-burst.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "ribbon-strip",
+    "name": "Ribbon Strip",
+    "slug": "ribbon-strip",
+    "type": "motion",
+    "set": "motion",
+    "description": "Cinta o listón plano para colocar etiquetas de descuento o badges.",
+    "tags": [
+      "motion",
+      "ribbon",
+      "banner",
+      "label"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-22-ribbon-strip@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-22-ribbon-strip@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-22-ribbon-strip@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-22-ribbon-strip.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "ticket-stub",
+    "name": "Ticket Stub",
+    "slug": "ticket-stub",
+    "type": "motion",
+    "set": "motion",
+    "description": "Boleto o ticket troquelado ideal para cupones y promociones exclusivas.",
+    "tags": [
+      "motion",
+      "ticket",
+      "stub",
+      "coupon"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-23-ticket-stub@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-23-ticket-stub@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-23-ticket-stub@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-23-ticket-stub.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "check-seal",
+    "name": "Check Seal",
+    "slug": "check-seal",
+    "type": "motion",
+    "set": "motion",
+    "description": "Sello de verificación dentado para transacciones seguras o garantías.",
+    "tags": [
+      "motion",
+      "seal",
+      "check",
+      "verified"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-24-check-seal@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-24-check-seal@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-24-check-seal@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-24-check-seal.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "notification-ping",
+    "name": "Notification Ping",
+    "slug": "notification-ping",
+    "type": "motion",
+    "set": "motion",
+    "description": "Punto de notificación pulsante para capturar atención en la barra superior.",
+    "tags": [
+      "motion",
+      "ping",
+      "bell",
+      "dot"
+    ],
+    "files": {
+      "png_1x": "/assets/qrapidito/motion/qrapidito-motion-25-notification-ping@1x.png",
+      "png_2x": "/assets/qrapidito/motion/qrapidito-motion-25-notification-ping@2x.png",
+      "png_3x": "/assets/qrapidito/motion/qrapidito-motion-25-notification-ping@3x.png",
+      "png_master": "/assets/qrapidito/motion/qrapidito-motion-25-notification-ping.png"
+    },
+    "recommended_usage": [
+      "lottie_source",
+      "micro_interaction",
+      "loading_spinner",
+      "success_splash"
+    ]
+  },
+  {
+    "id": "pink-sprinkles-black",
+    "name": "Pink Sprinkles Black",
+    "slug": "pink-sprinkles-black",
+    "type": "texture",
+    "set": "textures",
+    "description": "Patrón de chispas dulces rosas y blancas sobre un fondo negro profundo.",
+    "tags": [
+      "texture",
+      "sprinkles",
+      "pink",
+      "black"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-01-pink-sprinkles-black.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "yellow-waves-cream",
+    "name": "Yellow Waves Cream",
+    "slug": "yellow-waves-cream",
+    "type": "texture",
+    "set": "textures",
+    "description": "Ondas y dunas orgánicas amarillas sobre fondo crema suave.",
+    "tags": [
+      "texture",
+      "waves",
+      "yellow",
+      "cream"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-02-yellow-waves-cream.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "green-checkerboard",
+    "name": "Green Checkerboard",
+    "slug": "green-checkerboard",
+    "type": "texture",
+    "set": "textures",
+    "description": "Patrón clásico de tablero de ajedrez en verde chroma y blanco crema.",
+    "tags": [
+      "texture",
+      "checkerboard",
+      "green",
+      "white"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-03-green-checkerboard.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "cream-doodle-pattern",
+    "name": "Cream Doodle Pattern",
+    "slug": "cream-doodle-pattern",
+    "type": "texture",
+    "set": "textures",
+    "description": "Patrón divertido de doodles y garabatos hechos a mano sobre fondo crema.",
+    "tags": [
+      "texture",
+      "doodle",
+      "cream",
+      "sketch"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-04-cream-doodle-pattern.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "yellow-halftone",
+    "name": "Yellow Halftone",
+    "slug": "yellow-halftone",
+    "type": "texture",
+    "set": "textures",
+    "description": "Degradado y trama de puntos de semitono amarillo estilo cómic retro.",
+    "tags": [
+      "texture",
+      "halftone",
+      "yellow",
+      "dots"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-05-yellow-halftone.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "pink-grid-paper",
+    "name": "Pink Grid Paper",
+    "slug": "pink-grid-paper",
+    "type": "texture",
+    "set": "textures",
+    "description": "Textura de papel cuadriculado técnico en líneas rosas suaves.",
+    "tags": [
+      "texture",
+      "grid",
+      "paper",
+      "pink"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-06-pink-grid-paper.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "cream-paper-grain",
+    "name": "Cream Paper Grain",
+    "slug": "cream-paper-grain",
+    "type": "texture",
+    "set": "textures",
+    "description": "Fina textura de grano de papel Kraft de alta calidad y tacto rugoso crema.",
+    "tags": [
+      "texture",
+      "paper",
+      "grain",
+      "cream"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-07-cream-paper-grain.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "brush-stripes",
+    "name": "Brush Stripes",
+    "slug": "brush-stripes",
+    "type": "texture",
+    "set": "textures",
+    "description": "Líneas de pinceladas gruesas y dinámicas en tonos vibrantes.",
+    "tags": [
+      "texture",
+      "stripes",
+      "brush",
+      "paint"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-08-brush-stripes.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "terrazzo-speckles",
+    "name": "Terrazzo Speckles",
+    "slug": "terrazzo-speckles",
+    "type": "texture",
+    "set": "textures",
+    "description": "Textura de terrazo de piedra con fragmentos coloridos e irregulares.",
+    "tags": [
+      "texture",
+      "terrazzo",
+      "speckles",
+      "stone"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-09-terrazzo-speckles.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "sticker-card-shadow",
+    "name": "Sticker Card Shadow",
+    "slug": "sticker-card-shadow",
+    "type": "texture",
+    "set": "textures",
+    "description": "Overlay de sombras suaves y texturas volumétricas para tarjetas bento.",
+    "tags": [
+      "texture",
+      "shadow",
+      "card",
+      "overlay"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-10-sticker-card-shadow.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "pink-scribble-loops",
+    "name": "Pink Scribble Loops",
+    "slug": "pink-scribble-loops",
+    "type": "texture",
+    "set": "textures",
+    "description": "Lazos y garabatos continuos rosas en un patrón abstracto y divertido.",
+    "tags": [
+      "texture",
+      "scribble",
+      "loops",
+      "pink"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-11-pink-scribble-loops.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  },
+  {
+    "id": "colorful-dot-confetti",
+    "name": "Colorful Dot Confetti",
+    "slug": "colorful-dot-confetti",
+    "type": "texture",
+    "set": "textures",
+    "description": "Lluvia aleatoria de confeti circular colorido para fondos festivos.",
+    "tags": [
+      "texture",
+      "dots",
+      "confetti",
+      "party"
+    ],
+    "files": {
+      "png_master": "/assets/qrapidito/textures/qrapidito-textures-12-colorful-dot-confetti.png"
+    },
+    "recommended_usage": [
+      "bento_grid_bg",
+      "card_background",
+      "full_page_overlay",
+      "text_stroke_mask"
+    ]
+  }
+]
