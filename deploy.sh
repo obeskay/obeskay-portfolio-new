@@ -10,7 +10,7 @@
 #   - Local dry-run build validation (Next.js compilation check)
 #   - Git workflow automation with current-branch detection
 #   - Coolify trigger API hook
-#   - Dual-layer health checks (API /api/health + homepage "Obed Vargas" validation)
+#   - Dual-layer health checks (API /api/health + homepage "fernanda.esr" validation)
 #   - Complete customizability via command-line flags
 # =============================================================================
 
@@ -212,10 +212,9 @@ log_section "🚀 STEP 3: TRIGGER DEPLOYMENT ON COOLIFY"
 log_info "Triggering remote build via Coolify API..."
 
 # Make API call and capture response
-DEPLOY_RESPONSE=$(curl -s -X POST \
+DEPLOY_RESPONSE=$(curl -s -X GET \
     -H "Authorization: Bearer $BEARER_TOKEN" \
-    -H "Content-Type: application/json" \
-    "$COOLIFY_URL/api/v1/applications/$PORTFOLIO_APP_ID/deploy" \
+    "$COOLIFY_URL/api/v1/deploy?uuid=$PORTFOLIO_APP_ID" \
     2>/dev/null || echo "failed")
 
 if [ "$DEPLOY_RESPONSE" = "failed" ] || echo "$DEPLOY_RESPONSE" | grep -qi "error" || [ -z "$DEPLOY_RESPONSE" ]; then

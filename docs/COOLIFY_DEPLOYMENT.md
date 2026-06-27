@@ -111,10 +111,9 @@ Coolify auto-deploys on Git push if webhook is configured.
 If Git webhook is not configured, trigger manually:
 
 ```bash
-curl -X POST \
+curl -X GET \
   -H "Authorization: Bearer $COOLIFY_BEARER_TOKEN" \
-  -H "Content-Type: application/json" \
-  "https://admin.cloud.obeskay.com/api/v1/applications/$COOLIFY_APP_ID/deploy"
+  "https://admin.cloud.obeskay.com/api/v1/deploy?uuid=$COOLIFY_APP_ID"
 ```
 
 ### Step 4: Monitor Deployment
@@ -131,10 +130,10 @@ Verify site is live:
 
 ```bash
 curl -I https://obeskay.com
-curl https://obeskay.com | grep -i "Obed Vargas"
+curl https://obeskay.com | grep -i "fernanda.esr"
 ```
 
-Expected: HTTP 200, content contains "Obed Vargas"
+Expected: HTTP 200, content contains "fernanda.esr"
 
 ---
 
@@ -255,7 +254,7 @@ curl -H "Authorization: Bearer $COOLIFY_BEARER_TOKEN" \
 ### View Live Site
 
 - **Production**: https://obeskay.com
-- **Expected Content**: "Obed Vargas", "products", "actually work"
+- **Expected Content**: "fernanda.esr", "Fotografía", "Photoshop"
 
 ### Check Build Logs
 

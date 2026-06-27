@@ -21,6 +21,16 @@ export type WorkshopCard = {
   duration: string;
 };
 
+export type RelatedProject = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  label: string;
+  href: string;
+  metric: string;
+  cta: string;
+};
+
 export type FernandaContent = {
   siteName: string;
   metaTitle: string;
@@ -64,6 +74,7 @@ export type FernandaContent = {
     formats: string[];
     note: string;
   };
+  related: RelatedProject;
   contact: {
     eyebrow: string;
     title: string;
@@ -279,6 +290,16 @@ const es: FernandaContent = {
     note:
       "Puedo adaptar el contenido a facultades, escuelas creativas, festivales o programas de formación continua.",
   },
+  related: {
+    eyebrow: "Relacionado",
+    title: "Freela",
+    description:
+      "Un proyecto paralelo del mismo ecosistema: matching con IA para trabajos freelance, pensado con foco en producto y una ejecución clara.",
+    label: "AI product",
+    href: "https://freela.cloud.obeskay.com",
+    metric: "Matching con IA · despliegue propio · claridad operativa",
+    cta: "Ver Freela",
+  },
   contact: {
     eyebrow: "Contacto",
     title: "Hagamos la siguiente imagen",
@@ -485,6 +506,16 @@ const en: FernandaContent = {
     ],
     note:
       "I can adapt the content to faculties, creative schools, festivals, or continuing education programs.",
+  },
+  related: {
+    eyebrow: "Related",
+    title: "Freela",
+    description:
+      "A parallel project from the same ecosystem: AI-native matching for freelance work, shaped with product clarity and a simple execution model.",
+    label: "AI product",
+    href: "https://freela.cloud.obeskay.com",
+    metric: "AI matching · self-hosted deployment · operational clarity",
+    cta: "Visit Freela",
   },
   contact: {
     eyebrow: "Contact",

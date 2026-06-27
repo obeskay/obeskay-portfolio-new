@@ -6,6 +6,7 @@ import {
   type ContentBlock,
   type FernandaLang,
   type GalleryItem,
+  type RelatedProject,
   type WorkshopCard,
 } from "../../lib/content/fernanda";
 import { isLang, type Lang } from "../../lib/i18n";
@@ -272,6 +273,28 @@ export default async function FernandaHome({
         </div>
       </section>
 
+      <section id="freela" className="relative scroll-mt-24 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="space-y-6">
+              <SectionLabel>{copy.related.eyebrow}</SectionLabel>
+              <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.06em] leading-[0.95] text-text-primary text-balance sm:text-4xl lg:text-5xl">
+                {copy.related.title}
+              </h2>
+              <p className="max-w-2xl text-base leading-8 text-text-secondary text-balance sm:text-lg">
+                {copy.related.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <MetaChip>{copy.related.label}</MetaChip>
+                <MetaChip>{lang === "en" ? "Adjacent product" : "Proyecto afín"}</MetaChip>
+              </div>
+            </div>
+
+            <RelatedProjectPanel project={copy.related} />
+          </div>
+        </div>
+      </section>
+
       <section id="contacto" className="relative scroll-mt-24 px-4 py-12 pb-20 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
@@ -472,6 +495,43 @@ function WorkshopPanel({
         {lang === "en" ? "Workshop module" : "Módulo de taller"}
       </p>
     </article>
+  );
+}
+
+function RelatedProjectPanel({ project }: { project: RelatedProject }) {
+  return (
+    <Link
+      href={project.href}
+      target="_blank"
+      rel="noreferrer"
+      className="group block rounded-[2rem] border border-border/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.78)_0%,rgba(255,255,255,0.52)_100%)] p-6 shadow-[0_24px_60px_rgba(24,56,59,0.1)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-[10px] uppercase tracking-[0.34em] text-text-muted">
+          {project.label}
+        </p>
+        <ArrowUpRight className="h-4 w-4 shrink-0 text-text-primary/70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      </div>
+
+      <h3 className="mt-6 text-3xl font-semibold tracking-[-0.06em] leading-[0.95] text-text-primary sm:text-4xl">
+        {project.title}
+      </h3>
+
+      <p className="mt-4 max-w-xl text-base leading-8 text-text-secondary">
+        {project.description}
+      </p>
+
+      <div className="mt-6 rounded-[1.5rem] border border-dashed border-text-primary/15 bg-background/55 px-4 py-4">
+        <p className="text-[10px] uppercase tracking-[0.34em] text-text-muted">
+          {project.metric}
+        </p>
+      </div>
+
+      <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border/80 bg-surface/75 px-4 py-2 text-sm font-medium text-text-primary transition-colors duration-300 group-hover:bg-background">
+        {project.cta}
+        <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
+      </div>
+    </Link>
   );
 }
 
