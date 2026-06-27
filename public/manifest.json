@@ -1,38 +1,29 @@
 {
-  "name": "Obed Vargas",
-  "short_name": "Obed",
-  "description": "Senior Software Engineer - Building AI products that solve real problems",
+  "name": "Fernanda Escalante Rodríguez",
+  "short_name": "Fernanda",
+  "description": "Portfolio editorial de fotografía, Photoshop e IA",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#FAFAF9",
-  "theme_color": "#2C3E35",
+  "background_color": "#dff5f7",
+  "theme_color": "#dff5f7",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "categories": ["portfolio", "business", "technology"],
+  "categories": ["portfolio", "photography", "art"],
   "screenshots": [
     {
-      "src": "/api/og?title=Obed%20Vargas&subtitle=Portfolio",
+      "src": "/api/og?title=Fernanda%20Escalante%20Rodr%C3%ADguez&subtitle=Fotograf%C3%ADa%20%2B%20Photoshop%20%2B%20IA",
       "sizes": "1200x630",
       "type": "image/png"
     }

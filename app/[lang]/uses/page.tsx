@@ -35,7 +35,7 @@ const sections: UseSection[] = [
     icon: Monitor,
     items: [
       { name: "MacBook Air M2", description: '13", 16GB RAM, 512GB SSD' },
-      { name: "Dell 27\" 4K Monitor", description: "Primary external display" },
+      { name: 'Dell 27" 4K Monitor', description: "Primary external display" },
       { name: "Keychron K3 Pro", description: "Mechanical keyboard, low profile switches" },
       { name: "Logitech MX Master 3S", description: "Best mouse for productivity" },
     ],
@@ -72,7 +72,6 @@ const sections: UseSection[] = [
   },
 ];
 
-// Reveal animation component
 const RevealText = ({
   children,
   delay = 0,
@@ -95,7 +94,6 @@ const RevealText = ({
   </div>
 );
 
-// Get specific icon for hardware items
 const getHardwareIcon = (name: string): LucideIcon | null => {
   if (name.includes("MacBook")) return Laptop;
   if (name.includes("Monitor")) return Monitor;
@@ -104,7 +102,6 @@ const getHardwareIcon = (name: string): LucideIcon | null => {
   return null;
 };
 
-// Get specific icon for dev tools items
 const getDevToolIcon = (name: string): LucideIcon | null => {
   if (name.includes("Cursor") || name.includes("VS Code")) return Code2;
   if (name.includes("iTerm")) return Terminal;
@@ -113,7 +110,6 @@ const getDevToolIcon = (name: string): LucideIcon | null => {
   return null;
 };
 
-// Get specific icon for AI items
 const getAIIcon = (name: string): LucideIcon | null => {
   if (name.includes("Claude") || name.includes("ChatGPT")) return MessageSquare;
   if (name.includes("n8n")) return Zap;
@@ -121,7 +117,6 @@ const getAIIcon = (name: string): LucideIcon | null => {
   return null;
 };
 
-// Get specific icon for package items
 const getPackageIcon = (name: string): LucideIcon | null => {
   if (name.includes("Next.js") || name.includes("React")) return Layers;
   if (name.includes("Tailwind") || name.includes("Framer")) return Palette;
@@ -130,19 +125,23 @@ const getPackageIcon = (name: string): LucideIcon | null => {
   return null;
 };
 
-export default function UsesPage() {
+export default function UsesPage({
+  params: _params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  // params is consumed by the parent [lang] layout; this page renders the
+  // same content in both languages until a real translation is added.
+  void _params;
   return (
     <main className="min-h-screen bg-background relative overflow-hidden">
-      {/* Subtle Warm Spot */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[5%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-bg/10 blur-[100px]" />
         <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/8 blur-[90px]" />
       </div>
 
-      {/* Hero Section */}
       <section className="pt-24 pb-12 px-6 lg:px-12 relative z-10">
         <div className="container mx-auto max-w-6xl">
-          {/* Header */}
           <div className="max-w-3xl mb-16 md:mb-20">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -178,7 +177,6 @@ export default function UsesPage() {
             </motion.p>
           </div>
 
-          {/* Sections Grid */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {sections.map((section, sectionIndex) => (
               <motion.div
@@ -191,7 +189,6 @@ export default function UsesPage() {
                 }}
                 className="bg-surface rounded-lg p-6 border border-border hover:border-text-secondary transition-colors shadow-xs"
               >
-                {/* Section Header */}
                 <div className="flex items-center gap-3.5 mb-6">
                   <div className="p-2 bg-surface-alt border border-border rounded-lg">
                     <section.icon className="w-4 h-4 text-text-secondary" />
@@ -201,9 +198,8 @@ export default function UsesPage() {
                   </h2>
                 </div>
 
-                {/* Items */}
                 <div className="space-y-3">
-                  {section.items.map((item, itemIndex) => {
+                  {section.items.map((item) => {
                     let ItemIcon: LucideIcon | null = null;
                     if (section.title === "Hardware Setup") {
                       ItemIcon = getHardwareIcon(item.name);
@@ -243,7 +239,6 @@ export default function UsesPage() {
         </div>
       </section>
 
-      {/* Outro Section */}
       <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle relative z-10 text-center">
         <div className="container mx-auto max-w-2xl">
           <motion.div

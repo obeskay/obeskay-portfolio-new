@@ -236,7 +236,7 @@ log_section "📊 STEP 4: MONITOR DEPLOYMENT & HEALTH CHECKS"
 log_info "Monitoring status at intervals of ${CHECK_INTERVAL}s (Max attempts: $MAX_ATTEMPTS)..."
 log_info "Target Domain: $PORTFOLIO_DOMAIN"
 log_info "Layer 1 Check: $PORTFOLIO_DOMAIN/api/health"
-log_info "Layer 2 Check: Contains 'Obed Vargas'"
+log_info "Layer 2 Check: Contains 'fernanda.esr'"
 echo ""
 
 HEALTH_PASSED=false
@@ -272,9 +272,9 @@ for i in $(seq 1 $MAX_ATTEMPTS); do
     homepage_body=$(curl -s -L "$PORTFOLIO_DOMAIN" 2>/dev/null || echo "failed")
     
     layer2_ok=false
-    if echo "$homepage_body" | grep -qi "Obed Vargas"; then
+    if echo "$homepage_body" | grep -qi "fernanda.esr"; then
         layer2_ok=true
-        echo -e "      ${GREEN}✓${NC} Layer 2: Homepage content verified ('Obed Vargas' found)"
+        echo -e "      ${GREEN}✓${NC} Layer 2: Homepage content verified ('fernanda.esr' found)"
     else
         echo -e "      ${RED}✗${NC} Layer 2: Homepage content missing key strings"
     fi

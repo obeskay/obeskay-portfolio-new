@@ -35,14 +35,12 @@ const experience = [
   },
 ];
 
-// Helper to group skills by category
 const groupedSkills = skills.reduce((acc, skill) => {
   if (!acc[skill.category]) acc[skill.category] = [];
   acc[skill.category].push(skill);
   return acc;
 }, {} as Record<string, typeof skills>);
 
-// Category Icons mapping
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const categoryIcons: Record<string, any> = {
   "Languages": Code2,
@@ -53,22 +51,21 @@ const categoryIcons: Record<string, any> = {
   "Desktop Apps": Laptop,
 };
 
-// Reveal animation component
-const RevealText = ({ 
-  children, 
+const RevealText = ({
+  children,
   delay = 0,
-}: { 
-  children: React.ReactNode; 
+}: {
+  children: React.ReactNode;
   delay?: number;
 }) => (
   <div className="overflow-hidden">
     <motion.div
       initial={{ y: "100%", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ 
-        duration: 0.8, 
+      transition={{
+        duration: 0.8,
         delay,
-        ease: [0.16, 1, 0.3, 1]
+        ease: [0.16, 1, 0.3, 1],
       }}
     >
       {children}
@@ -76,27 +73,30 @@ const RevealText = ({
   </div>
 );
 
-export default function About() {
+export default function About({
+  params: _params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  // params is consumed by the parent [lang] layout.
+  void _params;
   const imageRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: imageRef,
     offset: ["start end", "end start"]
   });
-  
+
   const imageY = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-background">
-      {/* Subtle Warm Spot */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-40 left-[5%] w-[400px] h-[400px] bg-accent-bg/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-20 right-[10%] w-[350px] h-[350px] bg-pastel-red-bg/8 rounded-full blur-[90px]" />
+        <div className="absolute bottom-20 right-[10%] w-[350px] h-[350px] bg-pastel-red-bg/8 blur-[90px]" />
       </div>
 
-      {/* Hero Section */}
       <section className="py-20 lg:py-32 px-6 lg:px-12 relative z-10">
         <div className="container mx-auto max-w-6xl">
-          {/* Header */}
           <div className="max-w-3xl mb-16 md:mb-24">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -106,7 +106,7 @@ export default function About() {
             >
               <span className="badge badge-blue">About Me</span>
             </motion.div>
-            
+
             <RevealText delay={0.1}>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-text-primary tracking-tight leading-tight lowercase">
                 building <span className="italic">useful things.</span>
@@ -114,9 +114,7 @@ export default function About() {
             </RevealText>
           </div>
 
-          {/* Split Layout */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Photo Column */}
             <motion.div
               ref={imageRef}
               initial={{ opacity: 0, scale: 0.98 }}
@@ -124,7 +122,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative w-full max-w-sm mx-auto lg:mx-0"
             >
-              <motion.div 
+              <motion.div
                 style={{ y: imageY }}
                 className="relative aspect-[4/5] rounded-lg overflow-hidden bg-surface border border-border shadow-xs"
               >
@@ -135,8 +133,7 @@ export default function About() {
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   priority
                 />
-                
-                {/* Floating Mexico City Badge */}
+
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -151,9 +148,7 @@ export default function About() {
               </motion.div>
             </motion.div>
 
-            {/* Content Column */}
             <div className="flex flex-col justify-center">
-              {/* Bio */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -177,7 +172,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-2 text-sm text-text-secondary">
                       <span className="w-1.5 h-1.5 rounded-full bg-text-muted mt-2 shrink-0" />
-                      <span>Resilient WhatsApp integration architecture & webhook ingestion</span>
+                      <span>Resilient WhatsApp integration architecture &amp; webhook ingestion</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm text-text-secondary">
                       <span className="w-1.5 h-1.5 rounded-full bg-text-muted mt-2 shrink-0" />
@@ -185,7 +180,7 @@ export default function About() {
                     </li>
                     <li className="flex items-start gap-2 text-sm text-text-secondary">
                       <span className="w-1.5 h-1.5 rounded-full bg-text-muted mt-2 shrink-0" />
-                      <span>Lightweight native desktop tools (Go & Wails)</span>
+                      <span>Lightweight native desktop tools (Go &amp; Wails)</span>
                     </li>
                   </ul>
                   <p>
@@ -197,7 +192,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Bento Skills Layout */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -207,12 +201,12 @@ export default function About() {
                 <h3 className="text-[10px] font-mono font-semibold text-text-muted uppercase tracking-wider mb-6">
                   Technical Instrumentation
                 </h3>
-                
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   {Object.entries(groupedSkills).map(([category, items]) => {
                     const IconComponent = categoryIcons[category] || Code2;
                     return (
-                      <div 
+                      <div
                         key={category}
                         className="bg-surface border border-border p-5 rounded-lg hover:border-text-secondary transition-all duration-300 shadow-xs"
                       >
@@ -222,7 +216,7 @@ export default function About() {
                         </div>
                         <div className="flex flex-wrap gap-1.5">
                           {items.map((skill) => (
-                            <span 
+                            <span
                               key={skill.name}
                               className="px-2.5 py-1 bg-surface-alt border border-border text-xs text-text-secondary rounded font-mono hover:text-text-primary transition-colors"
                             >
@@ -236,7 +230,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Connect */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -272,7 +265,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section className="py-24 px-6 lg:px-12 bg-surface relative overflow-hidden border-t border-border-subtle">
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
@@ -320,7 +312,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 px-6 lg:px-12 border-t border-border-subtle bg-surface-alt relative z-10 text-center">
         <div className="container mx-auto max-w-4xl">
           <motion.div
