@@ -1,34 +1,39 @@
-import Script from "next/script";
-import { getFernandaContent, type FernandaLang } from "../../lib/content/fernanda";
+import Script from 'next/script';
 
-const siteUrl = "https://obeskay.com";
-
-export default function JsonLd({ lang }: { lang: FernandaLang }) {
-  const copy = getFernandaContent(lang);
-
+export default function JsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: copy.siteName,
-    jobTitle:
-      lang === "en"
-        ? "Photographer, visual artist, and workshop facilitator"
-        : "Fotógrafa, artista visual y tallerista",
-    url: siteUrl,
-    image: `${siteUrl}${copy.contact.portrait}`,
-    description: copy.metaDescription,
-    sameAs: [copy.social.instagram, copy.social.threads],
-    knowsAbout:
-      lang === "en"
-        ? ["Photography", "Photoshop", "Generative AI", "Art direction", "Editorial imaging"]
-        : ["Fotografía", "Photoshop", "IA generativa", "Dirección de arte", "Imagen editorial"],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Ciudad de México",
-      addressCountry: "MX",
+    "name": "Obed Vargas",
+    "jobTitle": "Senior Software Engineer",
+    "url": "https://obeskay.com",
+    "sameAs": [
+      "https://github.com/obeskay",
+      "https://linkedin.com/in/obeskay",
+      "https://twitter.com/obeskay",
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "WOOW Todo Bien",
+      "url": "https://woowtodobien.com",
     },
-    email: copy.contact.email,
-    telephone: copy.contact.phone.replace(/\s+/g, ""),
+    "knowsAbout": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Node.js",
+      "AI",
+      "Conversational AI",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    "description": "Senior Software Engineer specializing in TypeScript, Next.js, and conversational AI. Building AI products that solve real problems.",
+    "image": "https://portfolio.cloud.obeskay.com/img/nobanana.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "MX",
+      "addressRegion": "Mexico City",
+    },
   };
 
   return (

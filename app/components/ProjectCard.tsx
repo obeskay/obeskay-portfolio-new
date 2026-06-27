@@ -1,62 +1,117 @@
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-import { t, type Lang } from "../../lib/i18n";
-import type { Product, ProductStatus } from "../../lib/content/work";
+"use client";
 
-const statusLabelKey: Record<ProductStatus, string> = {
-  live: "work.status.live",
-  pilot: "work.status.pilot",
-  frozen: "work.status.frozen",
-  maintenance: "work.status.maintenance",
-};
+import Image from "next/image";
+import { Star, ArrowUpRight } from "lucide-react";
 
-const statusClass: Record<ProductStatus, string> = {
-  live: "badge-green",
-  pilot: "badge-yellow",
-  frozen: "badge-red",
-  maintenance: "badge-blue",
-};
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  category: "Product" | "Lab" | "Open Source";
+  image?: string;
+  stars?: number;
+  url?: string;
+  status?: string;
+}
 
-export default function ProjectCard({
-  product,
-  lang,
-}: {
-  product: Product;
-  lang: Lang;
-}) {
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const isExternal = project.url?.startsWith("http");
+
+  // Determine pastel badge type
+  const badgeClass = 
+    project.category === "Product" ? "badge-blue" :
+    project.category === "Lab" ? "badge-green" : 
+    "badge-yellow";
+
   return (
-    <article className="group flex flex-col h-full bg-surface border border-border rounded-lg p-5 shadow-xs hover:border-text-secondary hover:shadow-sm transition-all duration-300">
-      <div className="flex items-center justify-between gap-2 mb-3">
-        <span className={`badge ${statusClass[product.status]}`}>
-          {t(lang, statusLabelKey[product.status])}
-        </span>
+    <a
+      href={project.url || "#"}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className="group block h-full"
+      style={{ textDecoration: "none" }}
+    >
+      <div className="flex flex-col h-full bg-surface border border-border rounded-lg overflow-hidden shadow-xs hover:border-text-secondary hover:shadow-sm transition-all duration-300">
+        {/* Image Area */}
+        <div className="aspect-[16/10] bg-surface-alt relative overflow-hidden border-b border-border">
+          {project.image ? (
+            <div className="relative w-full h-full">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top filter grayscale opacity-90 contrast-[1.05] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-surface-alt">
+              <span className="text-xl font-mono text-text-muted">
+                {project.title.substring(0, 2).toLowerCase()}
+              </span>
+            </div>
+          )}
+
+          {/* Tag Badges */}
+          <div className="absolute top-3 left-3 z-10">
+            <span className={`badge ${badgeClass}`}>
+              {project.category.toLowerCase()}
+            </span>
+          </div>
+
+          {project.stars && project.stars > 0 && (
+            <div className="absolute top-3 right-3 z-10">
+              <span className="badge badge-yellow flex items-center gap-1">
+                <Star className="w-3 h-3 fill-current shrink-0" />
+                {project.stars}
+              </span>
+            </div>
+          )}
+
+          {project.status && (
+            <div className="absolute top-3 right-3 z-10">
+              <span className="badge badge-red">
+                {project.status.toLowerCase()}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Content Area */}
+        <div className="flex flex-col flex-grow p-5 gap-3">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-base font-semibold text-text-primary transition-colors">
+              {project.title}
+            </h3>
+            {project.url && (
+              <div className="p-1 text-text-muted group-hover:text-text-primary transition-colors shrink-0">
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
+              </div>
+            )}
+          </div>
+
+          <p className="text-xs text-text-secondary leading-relaxed font-normal flex-grow">
+            {project.description}
+          </p>
+
+          {project.url ? (
+            <div className="mt-2 flex items-center gap-1 text-[10px] font-mono font-semibold text-text-primary uppercase tracking-wide">
+              <span>explore</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </div>
+          ) : (
+            <div className="mt-2 text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wide">
+              {project.status?.toLowerCase() ?? "internal lab"}
+            </div>
+          )}
+        </div>
       </div>
-
-      <h3 className="text-lg font-semibold text-text-primary tracking-tight">
-        {product.name}
-      </h3>
-
-      <p className="mt-1 text-[10px] font-mono font-semibold uppercase tracking-wider text-text-muted">
-        {product.role}
-      </p>
-
-      <p className="mt-4 font-serif italic text-base text-text-primary leading-snug">
-        &ldquo;{product.learned}&rdquo;
-      </p>
-
-      <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-text-muted">
-        {product.metric}
-      </p>
-
-      <div className="mt-auto pt-5">
-        <Link
-          href={`/${lang}/work/${product.slug}`}
-          className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-text-primary"
-        >
-          <span>case study</span>
-          <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-        </Link>
-      </div>
-    </article>
+    </a>
   );
 }

@@ -1,4 +1,4 @@
-# Robots.txt for Fernanda portfolio
+# Robots.txt for obeskay.com
 
 User-agent: *
 Allow: /

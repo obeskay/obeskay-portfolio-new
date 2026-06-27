@@ -10,7 +10,7 @@
 #   - Local dry-run build validation (Next.js compilation check)
 #   - Git workflow automation with current-branch detection
 #   - Coolify trigger API hook
-#   - Dual-layer health checks (API /api/health + homepage "fernanda.esr" validation)
+#   - Dual-layer health checks (API /api/health + homepage "Obed Vargas" validation)
 #   - Complete customizability via command-line flags
 # =============================================================================
 
@@ -212,9 +212,10 @@ log_section "🚀 STEP 3: TRIGGER DEPLOYMENT ON COOLIFY"
 log_info "Triggering remote build via Coolify API..."
 
 # Make API call and capture response
-DEPLOY_RESPONSE=$(curl -s -X GET \
+DEPLOY_RESPONSE=$(curl -s -X POST \
     -H "Authorization: Bearer $BEARER_TOKEN" \
-    "$COOLIFY_URL/api/v1/deploy?uuid=$PORTFOLIO_APP_ID" \
+    -H "Content-Type: application/json" \
+    "$COOLIFY_URL/api/v1/applications/$PORTFOLIO_APP_ID/deploy" \
     2>/dev/null || echo "failed")
 
 if [ "$DEPLOY_RESPONSE" = "failed" ] || echo "$DEPLOY_RESPONSE" | grep -qi "error" || [ -z "$DEPLOY_RESPONSE" ]; then
@@ -235,7 +236,7 @@ log_section "📊 STEP 4: MONITOR DEPLOYMENT & HEALTH CHECKS"
 log_info "Monitoring status at intervals of ${CHECK_INTERVAL}s (Max attempts: $MAX_ATTEMPTS)..."
 log_info "Target Domain: $PORTFOLIO_DOMAIN"
 log_info "Layer 1 Check: $PORTFOLIO_DOMAIN/api/health"
-log_info "Layer 2 Check: Contains 'fernanda.esr'"
+log_info "Layer 2 Check: Contains 'Obed Vargas'"
 echo ""
 
 HEALTH_PASSED=false
@@ -271,9 +272,9 @@ for i in $(seq 1 $MAX_ATTEMPTS); do
     homepage_body=$(curl -s -L "$PORTFOLIO_DOMAIN" 2>/dev/null || echo "failed")
     
     layer2_ok=false
-    if echo "$homepage_body" | grep -qi "fernanda.esr"; then
+    if echo "$homepage_body" | grep -qi "Obed Vargas"; then
         layer2_ok=true
-        echo -e "      ${GREEN}✓${NC} Layer 2: Homepage content verified ('fernanda.esr' found)"
+        echo -e "      ${GREEN}✓${NC} Layer 2: Homepage content verified ('Obed Vargas' found)"
     else
         echo -e "      ${RED}✗${NC} Layer 2: Homepage content missing key strings"
     fi

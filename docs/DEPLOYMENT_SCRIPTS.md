@@ -48,7 +48,7 @@ The new `deploy.sh` is a highly robust, fully-featured DevOps script that unifie
 6. **Dual-Layer Health Checking:**
    Instead of checking only one layer, the monitor performs a sophisticated two-step validation:
    - **Layer 1:** Verification of the `/api/health` endpoint, making sure the Next.js API router is responding with HTTP 200 and an `{"status": "ok"}` JSON payload.
-   - **Layer 2:** Verification of the root homepage (`/`), scraping and ensuring key strings like `"fernanda.esr"` are successfully returned.
+   - **Layer 2:** Verification of the root homepage (`/`), scraping and ensuring key strings like `"Obed Vargas"` are successfully returned.
 
 ---
 
@@ -94,13 +94,13 @@ PORTFOLIO_DOMAIN="https://obeskay.com"
                        │
 ┌──────────────────────▼───────────────────────┐
 │     4. Coolify Deployment API Trigger        │
-│         (GET /api/v1/deploy?uuid=APP_ID)     │
+│         (POST /api/v1/applications)          │
 └──────────────────────┬───────────────────────┘
                        │
 ┌──────────────────────▼───────────────────────┐
 │      5. Loop Monitor & Dual-Layer Health     │
 │        - Check 1: /api/health → "ok"         │
-│        - Check 2: Homepage → "fernanda.esr"   │
+│        - Check 2: Homepage → "Obed Vargas"   │
 └──────────────────────┬───────────────────────┘
                        │
 ┌──────────────────────▼───────────────────────┐

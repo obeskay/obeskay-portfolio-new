@@ -22,23 +22,38 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/email",
-        destination: "mailto:fer.esc1509@gmail.com",
+        source: '/github',
+        destination: 'https://github.com/obeskay',
         permanent: false,
       },
       {
-        source: "/instagram",
-        destination: "https://www.instagram.com/fernanda.esr/",
+        source: '/linkedin',
+        destination: 'https://linkedin.com/in/obeskay',
         permanent: false,
       },
       {
-        source: "/threads",
-        destination: "https://www.threads.com/@fernanda.esr",
+        source: '/email',
+        destination: 'mailto:obeskay.mail@gmail.com',
         permanent: false,
       },
       {
-        source: "/whatsapp",
-        destination: "https://wa.me/525523191080",
+        source: '/chateala',
+        destination: 'https://chatea.la',
+        permanent: false,
+      },
+      {
+        source: '/qrapidito',
+        destination: 'https://qrapidito.com',
+        permanent: false,
+      },
+      {
+        source: '/carti',
+        destination: 'https://carti.app',
+        permanent: false,
+      },
+      {
+        source: '/freela',
+        destination: 'https://freela.cloud.obeskay.com',
         permanent: false,
       },
     ];
