@@ -212,10 +212,10 @@ log_section "🚀 STEP 3: TRIGGER DEPLOYMENT ON COOLIFY"
 log_info "Triggering remote build via Coolify API..."
 
 # Make API call and capture response
-DEPLOY_RESPONSE=$(curl -s -X GET \
+DEPLOY_RESPONSE=$(curl -s -X POST \
     -H "Authorization: Bearer $BEARER_TOKEN" \
     -H "Content-Type: application/json" \
-    "$COOLIFY_URL/api/v1/deploy?uuid=$PORTFOLIO_APP_ID" \
+    "$COOLIFY_URL/api/v1/applications/$PORTFOLIO_APP_ID/deploy" \
     2>/dev/null || echo "failed")
 
 if [ "$DEPLOY_RESPONSE" = "failed" ] || echo "$DEPLOY_RESPONSE" | grep -qi "error" || [ -z "$DEPLOY_RESPONSE" ]; then
