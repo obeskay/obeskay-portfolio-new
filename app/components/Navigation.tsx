@@ -57,17 +57,37 @@ export default function Navigation() {
                     className="relative px-3.5 py-1.5 group"
                   >
                     <span className={`relative z-10 text-xs font-medium tracking-wide transition-colors ${
-                      isActive ? "text-text-primary font-semibold" : "text-text-secondary group-hover:text-text-primary"
+                      isActive ? "text-teal-primary font-semibold" : "text-text-secondary group-hover:text-teal-primary"
                     }`}>
                       {link.label}
                     </span>
-                    
+
+                    {/* Hover background — shared layoutId per link */}
+                    {!isActive && (
+                      <motion.div
+                        layoutId={`nav-hover-${link.href}`}
+                        className="absolute inset-0 bg-surface-alt border border-border-subtle rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        style={{ zIndex: 0 }}
+                      />
+                    )}
+
+                    {/* Active pill — slides between links via shared layoutId */}
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-surface-alt border border-border rounded-md shadow-xs"
+                        className="absolute inset-0 bg-pastel-teal-bg border border-teal-secondary/40 rounded-md shadow-xs"
                         style={{ zIndex: 0 }}
                         transition={springTransition}
+                      />
+                    )}
+
+                    {/* Active underline indicator — slides via shared layoutId */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-teal-accent rounded-full"
+                        transition={springTransition}
+                        style={{ zIndex: 1 }}
                       />
                     )}
                   </Link>

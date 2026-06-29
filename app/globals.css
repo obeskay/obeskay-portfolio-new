@@ -1,44 +1,52 @@
 @import "tailwindcss";
 
-/* ===== OBESKAY PREMIUM MINIMALIST & EDITORIAL DESIGN SYSTEM ===== */
-/* Warm Off-White / Bone Light Theme & Deep Charcoal Dark Theme */
+/* ===== OBESKAY — TEAL & WHITE LIGHT MODE DESIGN SYSTEM ===== */
+/* Recovered from the original teal/verde/blanco palette (commit 4a8bc42).
+   Crisp white surfaces, deep teal ink, mint accents. Editorial & minimalist. */
 
 :root {
-  /* ---- COLOR PALETTE: Warm Minimalist Light Theme ---- */
-  --ink: #111111; /* Off-black Charcoal */
-  --cream-paper: #FBFBFA; /* Warm Off-white / Bone */
-  --cream-dark: #F5F4F0; /* Soft Warm Gray */
-  --white: #FFFFFF;
-  
-  /* Muted Editorial Accents (Desaturated Spot Pastels) */
-  --pastel-red-bg: #FDEBEC;
-  --pastel-red-fg: #9F2F2D;
-  --pastel-blue-bg: #E1F3FE;
-  --pastel-blue-fg: #1F6C9F;
-  --pastel-green-bg: #EDF3EC;
-  --pastel-green-fg: #346538;
-  --pastel-yellow-bg: #FBF3DB;
-  --pastel-yellow-fg: #956400;
+  /* ---- CORE PALETTE: Teal & White Light Theme ---- */
+  --teal-ink: #023437;        /* Deep teal — primary text / ink */
+  --teal-primary: #008698;    /* Primary teal — buttons, active states */
+  --teal-secondary: #00a896;  /* Secondary teal */
+  --teal-accent: #02c39a;     /* Bright accent teal */
+  --teal-deep: #013a40;       /* Slightly deeper teal for hover/contrast */
 
-  /* Accent Spot Colors mapped to custom values */
-  --accent: var(--pastel-blue-fg);
-  --accent-bg: var(--pastel-blue-bg);
-  --accent-highlight: var(--pastel-red-fg);
-  --accent-highlight-bg: var(--pastel-red-bg);
-  
-  /* ---- SURFACES ---- */
-  --background: var(--cream-paper);
-  --surface: var(--white);
-  --surface-alt: var(--cream-dark);
+  --white: #FFFFFF;
+  --paper: #F7FBFA;           /* Warm-tinted off-white background */
+  --surface: #FFFFFF;         /* Card surface */
+  --surface-alt: #F0FDFa;     /* Soft mint surface (was #f0fdfa) */
+  --surface-hover: #CCFBF1;   /* Hover mint (was #ccfbf1) */
+
+  /* ---- SPOT ACCENTS (mint-leaning, on-brand) ---- */
+  --pastel-teal-bg: #E6FBF6;
+  --pastel-teal-fg: #008698;
+  --pastel-green-bg: #EDF8F4;
+  --pastel-green-fg: #0d7f6a;
+  --pastel-blue-bg: #E6F4FA;
+  --pastel-blue-fg: #1F6C9F;
+  --pastel-yellow-bg: #FBF6E3;
+  --pastel-yellow-fg: #8a6d00;
+  --pastel-red-bg: #FCEDEA;
+  --pastel-red-fg: #9F2F2D;
+
+  /* ---- SEMANTIC MAP ---- */
+  --accent: var(--teal-accent);
+  --accent-bg: var(--pastel-teal-bg);
+  --accent-highlight: var(--teal-secondary);
+  --accent-highlight-bg: var(--pastel-green-bg);
+
+  --background: var(--paper);
+  --foreground: var(--teal-ink);
 
   /* ---- TEXT ---- */
-  --text-primary: var(--ink);
-  --text-secondary: #5F5E5B;
-  --text-muted: #8E8D8A;
+  --text-primary: var(--teal-ink);
+  --text-secondary: #2f6b6f;
+  --text-muted: #4a7c78;
 
   /* ---- BORDERS ---- */
-  --border: #EAEAEA;
-  --border-subtle: #F0EFEA;
+  --border: #99f6e4;          /* Soft teal-green border (was #99f6e4) */
+  --border-subtle: #d3f5ec;
   --border-width: 1px;
 
   /* ---- RADIUS ---- */
@@ -53,71 +61,99 @@
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ---- SHADOWS: Ultra-low opacity, diffuse soft shadows ---- */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.015);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.025);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.035);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.045);
+  /* ---- SHADOWS: teal-tinted, diffuse ---- */
+  --shadow-xs: 0 1px 2px rgba(2, 52, 55, 0.04);
+  --shadow-sm: 0 2px 8px rgba(2, 52, 55, 0.06);
+  --shadow-md: 0 4px 16px rgba(2, 52, 55, 0.08);
+  --shadow-lg: 0 8px 24px rgba(2, 52, 55, 0.10);
+  --shadow-xl: 0 12px 32px rgba(2, 52, 55, 0.12);
 }
 
-/* Dark mode overrides (both CSS class and system media query for consistency) */
+/* ===== DARK MODE: Deep teal-charcoal (opt-in only) ===== */
 .dark {
-  /* ---- COLOR PALETTE: Deep Charcoal Dark Theme ---- */
-  --ink: #ECEBE8; /* Bone white text */
-  --cream-paper: #0D0F10; /* Deep Charcoal Background */
-  --cream-dark: #121415; /* Subtly lighter charcoal */
-  --white: #16191A; /* Surface color */
-  
-  /* Muted Editorial Accents for Dark Mode (Desaturated & visible on dark) */
-  --pastel-red-bg: #2C1A1B;
-  --pastel-red-fg: #FFA3A1;
-  --pastel-blue-bg: #132533;
-  --pastel-blue-fg: #A2D6FF;
-  --pastel-green-bg: #1C261D;
-  --pastel-green-fg: #A3E0A7;
-  --pastel-yellow-bg: #2C2512;
-  --pastel-yellow-fg: #FFDFA2;
+  --teal-ink: #E6FBF6;
+  --teal-primary: #02c39a;
+  --teal-secondary: #00a896;
+  --teal-accent: #02c39a;
+  --teal-deep: #01b287;
 
-  --accent: var(--pastel-blue-fg);
-  --accent-bg: var(--pastel-blue-bg);
-  --accent-highlight: var(--pastel-red-fg);
-  --accent-highlight-bg: var(--pastel-red-bg);
-  
-  --background: var(--cream-paper);
-  --surface: var(--white);
-  --surface-alt: var(--cream-dark);
-  
-  --text-primary: var(--ink);
-  --text-secondary: #A3A29E;
-  --text-muted: #706E6B;
-  
-  --border: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.04);
-  
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.15);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --white: #0c1517;
+  --paper: #0a1315;
+  --surface: #0f1c1e;
+  --surface-alt: #122226;
+  --surface-hover: #16302e;
+
+  --pastel-teal-bg: #0c2622;
+  --pastel-teal-fg: #02c39a;
+  --pastel-green-bg: #0d211c;
+  --pastel-green-fg: #2fd6a8;
+  --pastel-blue-bg: #0a1f2a;
+  --pastel-blue-fg: #6fc4ee;
+  --pastel-yellow-bg: #1f1c0c;
+  --pastel-yellow-fg: #f0d873;
+  --pastel-red-bg: #2a1311;
+  --pastel-red-fg: #ff9b97;
+
+  --accent: var(--teal-accent);
+  --accent-bg: var(--pastel-teal-bg);
+  --accent-highlight: var(--teal-secondary);
+  --accent-highlight-bg: var(--pastel-green-bg);
+
+  --background: var(--paper);
+  --foreground: var(--teal-ink);
+
+  --text-primary: var(--teal-ink);
+  --text-secondary: #9cc7c2;
+  --text-muted: #6a8f8b;
+
+  --border: rgba(153, 246, 228, 0.12);
+  --border-subtle: rgba(153, 246, 228, 0.06);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Only apply media-query variables if theme cookie/class doesn't explicitly disable it */
-  :root:not(.light-force) {
-    /* Fallback media dark theme identical to class .dark */
-  }
-}
-
-/* Tailwind theme bindings for v4 */
+/* Tailwind theme bindings for v4 — register EVERY token so utilities resolve */
 @theme inline {
   --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-alt: var(--surface-alt);
+  --color-surface-hover: var(--surface-hover);
+  --color-paper: var(--paper);
+  --color-white: var(--white);
+
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+
+  --color-primary: var(--teal-primary);
+  --color-secondary: var(--teal-secondary);
   --color-accent: var(--accent);
+  --color-accent-bg: var(--accent-bg);
+  --color-accent-highlight: var(--accent-highlight);
+  --color-accent-highlight-bg: var(--accent-highlight-bg);
+
+  --color-teal-ink: var(--teal-ink);
+  --color-teal-primary: var(--teal-primary);
+  --color-teal-secondary: var(--teal-secondary);
+  --color-teal-accent: var(--teal-accent);
+  --color-teal-deep: var(--teal-deep);
+
+  --color-pastel-teal-bg: var(--pastel-teal-bg);
+  --color-pastel-teal-fg: var(--pastel-teal-fg);
+  --color-pastel-green-bg: var(--pastel-green-bg);
+  --color-pastel-green-fg: var(--pastel-green-fg);
+  --color-pastel-blue-bg: var(--pastel-blue-bg);
+  --color-pastel-blue-fg: var(--pastel-blue-fg);
+  --color-pastel-yellow-bg: var(--pastel-yellow-bg);
+  --color-pastel-yellow-fg: var(--pastel-yellow-fg);
+  --color-pastel-red-bg: var(--pastel-red-bg);
+  --color-pastel-red-fg: var(--pastel-red-fg);
+
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
 
@@ -130,7 +166,7 @@
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
   --radius-full: var(--radius-full);
-  
+
   --shadow-xs: var(--shadow-xs);
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
@@ -146,6 +182,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -166,7 +203,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* Display Titles use elegant Instrument Serif display font */
 .font-serif {
   font-family: var(--font-display);
   font-weight: 400;
@@ -174,7 +210,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* System Sans for technical labels & buttons */
 .font-sans {
   font-family: var(--font-body);
 }
@@ -206,8 +241,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: var(--text-muted);
-  opacity: 0.3;
+  background-color: var(--teal-secondary);
+  opacity: 0.35;
 }
 
 /* ===== CRISP EDITORIAL BADGES ===== */
@@ -224,24 +259,25 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-full);
 }
 
-.badge-red {
-  background: var(--pastel-red-bg);
-  color: var(--pastel-red-fg);
+.badge-teal {
+  background: var(--pastel-teal-bg);
+  color: var(--pastel-teal-fg);
 }
-
 .badge-blue {
   background: var(--pastel-blue-bg);
   color: var(--pastel-blue-fg);
 }
-
 .badge-green {
   background: var(--pastel-green-bg);
   color: var(--pastel-green-fg);
 }
-
 .badge-yellow {
   background: var(--pastel-yellow-bg);
   color: var(--pastel-yellow-fg);
+}
+.badge-red {
+  background: var(--pastel-red-bg);
+  color: var(--pastel-red-fg);
 }
 
 /* ===== EDITORIAL BENTO CARDS ===== */
@@ -258,22 +294,22 @@ h1, h2, h3, h4, h5, h6 {
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
-  border-color: var(--text-muted);
+  border-color: var(--teal-secondary);
 }
 
 .card:active {
   transform: translateY(0);
 }
 
-/* ===== PREMIUM SOLID BUTTONS ===== */
+/* ===== PREMIUM TEAL BUTTONS ===== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--ink);
-  color: var(--background)!important;
-  border: 1px solid var(--ink);
+  background-color: var(--teal-primary);
+  color: var(--white) !important;
+  border: 1px solid var(--teal-primary);
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
@@ -285,7 +321,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  background-color: var(--teal-deep);
+  border-color: var(--teal-deep);
+  opacity: 0.95;
   transform: scale(0.98);
 }
 
@@ -313,7 +351,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:hover {
   background-color: var(--surface-alt);
-  border-color: var(--text-muted);
+  border-color: var(--teal-secondary);
+  color: var(--teal-primary);
   transform: scale(0.98);
 }
 
@@ -337,7 +376,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--teal-secondary);
 }
 
 /* ===== TELEMETRY & PROGRESS WIDGETS ===== */
@@ -350,18 +389,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-bar-fill {
-  background: var(--pastel-blue-fg);
+  background: linear-gradient(90deg, var(--teal-primary), var(--teal-accent));
   height: 100%;
   border-radius: var(--radius-full);
 }
 
-/* Faint ambient light spot */
+/* Faint ambient teal light spot */
 .radial-spot {
-  background: radial-gradient(circle, rgba(162, 214, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(2, 195, 154, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
   position: absolute;
   pointer-events: none;
 }
 
 .dark .radial-spot {
-  background: radial-gradient(circle, rgba(162, 214, 255, 0.015) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(2, 195, 154, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
 }
+
+/* ===== FRAMER MOTION LAYOUTID NAV PILL (teal) ===== */
+/* The sliding active indicator uses layoutId="nav-pill" in Navigation.tsx */

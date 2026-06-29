@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Clock, MessageSquare, Send, Sparkles, User, MapPin } from "lucide-react";
+import { ArrowRight, Clock, MessageSquare, Sparkles, User, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 // TYPES & CONTEXTS
@@ -12,10 +12,41 @@ interface ChatMessage {
   time: string;
 }
 
+const springTransition = { type: "spring" as const, stiffness: 380, damping: 30 };
+
+// Animated counter that counts up when scrolled into view
+function AnimatedCounter({ to, suffix = "", duration = 1.6 }: { to: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / (duration * 1000), 1);
+      // easeOutExpo for a satisfying settle
+      const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+      setDisplay(Math.round(eased * to));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, to, duration]);
+
+  return (
+    <span ref={ref}>
+      {display.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
+
 export default function Home() {
   // CDMX REAL-TIME CLOCK & STATUS WIDGET
   const [cdmxTime, setCdmxTime] = useState("");
-  const [cdmxStatus, setCdmxStatus] = useState({ text: "Active & Shipping", color: "bg-[#346538]" });
+  const [cdmxStatus, setCdmxStatus] = useState({ text: "Active & Shipping", color: "bg-[#00a896]" });
 
   useEffect(() => {
     const updateTime = () => {
@@ -44,11 +75,11 @@ export default function Home() {
         const numericHour = parseInt(hour24, 10);
         
         if (numericHour >= 8 && numericHour < 19) {
-          setCdmxStatus({ text: "Active & Shipping", color: "bg-[#346538]" });
+          setCdmxStatus({ text: "Active & Shipping", color: "bg-[#00a896]" });
         } else if (numericHour >= 19 && numericHour < 24) {
-          setCdmxStatus({ text: "Chilling & Coding", color: "bg-[#9F2F2D]" });
+          setCdmxStatus({ text: "Chilling & Coding", color: "bg-[#008698]" });
         } else {
-          setCdmxStatus({ text: "Off the grid / Resting", color: "bg-[#8E8D8A]" });
+          setCdmxStatus({ text: "Off the grid / Resting", color: "bg-[#4a7c78]" });
         }
       }
     };
@@ -134,6 +165,27 @@ export default function Home() {
     setSelectedQuickReplies([]);
   };
 
+  // CURSOR SPOTLIGHT for hero — smooth spring-following radial glow
+  const heroRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(-1000);
+  const mouseY = useMotionValue(-1000);
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 25, mass: 0.4 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 25, mass: 0.4 });
+  const spotlightX = useTransform(springX, (v) => `${v}px`);
+  const spotlightY = useTransform(springY, (v) => `${v}px`);
+
+  const handleHeroMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = heroRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
+
+  const handleHeroMouseLeave = () => {
+    mouseX.set(-1000);
+    mouseY.set(-1000);
+  };
+
   return (
     <main className="min-h-screen relative overflow-hidden bg-background">
       {/* Subtle Warm Gradient Blob */}
@@ -142,9 +194,26 @@ export default function Home() {
         <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/10 blur-[100px]" />
       </div>
 
-      {/* HERO SECTION */}
-      <section className="relative pt-24 pb-28 md:py-36 px-6 lg:px-12 z-10 flex flex-col items-center justify-center min-h-[75vh]">
-        <div className="relative container mx-auto max-w-4xl text-center flex flex-col items-center">
+      {/* HERO SECTION with cursor spotlight */}
+      <section
+        ref={heroRef}
+        onMouseMove={handleHeroMouseMove}
+        onMouseLeave={handleHeroMouseLeave}
+        className="relative pt-24 pb-28 md:py-36 px-6 lg:px-12 z-10 flex flex-col items-center justify-center min-h-[75vh]"
+      >
+        {/* Cursor-following spotlight glow (teal) */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute z-0 h-[420px] w-[420px] rounded-full opacity-60"
+          style={{
+            left: spotlightX,
+            top: spotlightY,
+            x: "-50%",
+            y: "-50%",
+            background: "radial-gradient(circle, rgba(2,195,154,0.18) 0%, rgba(0,134,152,0.08) 35%, rgba(255,255,255,0) 70%)",
+          }}
+        />
+        <div className="relative container mx-auto max-w-4xl text-center flex flex-col items-center z-10">
           {/* Status Badge with Mexico City Time */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -208,8 +277,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ANIMATED METRICS STRIP — counts up on scroll into view */}
+      <section className="py-16 px-6 lg:px-12 bg-surface border-y border-border-subtle relative z-10">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+            {[
+              { value: <AnimatedCounter to={6} suffix="+" />, label: "Years building", accent: "text-teal-primary" },
+              { value: <AnimatedCounter to={12} suffix="+" />, label: "Products shipped", accent: "text-teal-secondary" },
+              { value: <AnimatedCounter to={148} suffix="K" />, label: "Messages processed", accent: "text-teal-accent" },
+              { value: <AnimatedCounter to={6} />, label: "AI agents live", accent: "text-teal-primary" },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="text-center md:border-r md:border-border-subtle md:last:border-r-0"
+              >
+                <p className={`text-3xl md:text-4xl font-serif tracking-tight ${stat.accent} leading-none`}>
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[10px] font-mono font-semibold uppercase tracking-wider text-text-muted">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* INTERACTIVE WHATSAPP AGENT PREVIEW */}
-      <section className="py-24 px-6 lg:px-12 bg-surface-alt border-t border-border-subtle relative z-10">
+      <section className="py-24 px-6 lg:px-12 bg-surface-alt relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
             {/* Context Left */}
@@ -460,7 +559,7 @@ export default function Home() {
           >
             <div className="flex flex-col gap-1 text-left relative z-10">
               <span className="badge badge-green w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#346538] animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00a896] animate-ping" />
                 Live Performance
               </span>
               <h3 className="text-lg font-semibold text-text-primary mt-2">Active Systems Telemetry</h3>
@@ -486,7 +585,7 @@ export default function Home() {
               <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Chatea.la</span>
                 <span className={`text-[10px] font-mono font-semibold mt-1.5 leading-none flex items-center gap-1.5 ${telemetry.chateaHealth === 'online' ? 'text-pastel-green-fg' : 'text-text-muted'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.chateaHealth === 'online' ? 'bg-[#346538]' : 'bg-[#8E8D8A]'} animate-pulse`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.chateaHealth === 'online' ? 'bg-[#00a896]' : 'bg-[#4a7c78]'} animate-pulse`} />
                   {telemetry.chateaHealth === 'online' ? 'ONLINE' : 'PING...'}
                 </span>
                 <span className="text-[8px] font-mono text-text-muted uppercase mt-2">SaaS node</span>
@@ -496,7 +595,7 @@ export default function Home() {
               <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Carti.app</span>
                 <span className={`text-[10px] font-mono font-semibold mt-1.5 leading-none flex items-center gap-1.5 ${telemetry.cartiHealth === 'online' ? 'text-pastel-green-fg' : 'text-text-muted'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.cartiHealth === 'online' ? 'bg-[#346538]' : 'bg-[#8E8D8A]'} animate-pulse`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.cartiHealth === 'online' ? 'bg-[#00a896]' : 'bg-[#4a7c78]'} animate-pulse`} />
                   {telemetry.cartiHealth === 'online' ? 'ONLINE' : 'PING...'}
                 </span>
                 <span className="text-[8px] font-mono text-text-muted uppercase mt-2">Queue node</span>
@@ -506,7 +605,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SKILLS SECTION */}
+      {/* SKILLS SECTION — interactive with shared layout hover */}
       <section className="py-24 px-6 lg:px-12 bg-background relative z-10">
         <div className="container mx-auto max-w-5xl">
           <motion.div
@@ -522,21 +621,37 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              "TypeScript", "Next.js", "AI Agents", "React",
-              "Node.js", "Tailwind CSS", "PostgreSQL", "Go"
+              { name: "TypeScript", desc: "type-safe systems" },
+              { name: "Next.js", desc: "app router, RSC" },
+              { name: "AI Agents", desc: "multi-agent flows" },
+              { name: "React", desc: "19, server components" },
+              { name: "Node.js", desc: "realtime backends" },
+              { name: "Tailwind CSS", desc: "v4 design systems" },
+              { name: "PostgreSQL", desc: "relational data" },
+              { name: "Go", desc: "perf-critical services" },
             ].map((skill, i) => (
               <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.98 }}
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.03 }}
-                className="group p-4 bg-surface rounded-lg border border-border hover:border-text-secondary transition-colors cursor-default text-center shadow-xs"
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                whileHover={{ y: -4 }}
+                className="group relative p-5 bg-surface rounded-lg border border-border hover:border-teal-secondary cursor-default text-center shadow-xs hover:shadow-md transition-shadow overflow-hidden"
               >
-                <p className="font-mono text-xs text-text-secondary group-hover:text-text-primary transition-colors tracking-wide">
-                  {skill}
+                {/* shared-layout hover highlight that slides between cards */}
+                <motion.div
+                  layoutId={`skill-glow-${i % 4}`}
+                  className="absolute inset-0 bg-pastel-teal-bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  transition={springTransition}
+                />
+                <p className="relative z-10 font-mono text-sm font-semibold text-text-secondary group-hover:text-teal-primary transition-colors tracking-wide">
+                  {skill.name}
+                </p>
+                <p className="relative z-10 mt-1.5 text-[10px] font-mono text-text-muted group-hover:text-teal-secondary transition-colors">
+                  {skill.desc}
                 </p>
               </motion.div>
             ))}

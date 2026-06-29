@@ -11,13 +11,13 @@ export default function ThemeToggle() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    // Check localStorage and system preference
+    // Default to LIGHT mode (teal & white). Only go dark if explicitly chosen.
     const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+    if (savedTheme === "dark") {
       setIsDark(true);
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.add("light-force");
     }
   }, []);
 
@@ -27,9 +27,11 @@ export default function ThemeToggle() {
 
     if (newTheme) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light-force");
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light-force");
       localStorage.setItem("theme", "light");
     }
   };
@@ -41,7 +43,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="relative p-2.5 text-foreground hover:bg-muted rounded-full transition-all duration-200"
+      className="relative p-2.5 text-text-secondary hover:text-teal-primary hover:bg-surface-alt border border-border rounded-md transition-all duration-200"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <motion.div
