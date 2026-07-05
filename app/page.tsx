@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Clock, MessageSquare, Sparkles, User, MapPin } from "lucide-react";
+import { ArrowRight, MessageSquare, Sparkles, User, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 // TYPES & CONTEXTS
@@ -44,43 +44,25 @@ function AnimatedCounter({ to, suffix = "", duration = 1.6 }: { to: number; suff
 }
 
 export default function Home() {
-  // CDMX REAL-TIME CLOCK & STATUS WIDGET
-  const [cdmxTime, setCdmxTime] = useState("");
-  const [cdmxStatus, setCdmxStatus] = useState({ text: "Active & Shipping", color: "bg-[#00a896]" });
+  // CDMX live status (drives only the semantic availability dot, never a time strip)
+  const [cdmxStatus, setCdmxStatus] = useState({ text: "Open to select work", color: "bg-[#00a896]" });
 
   useEffect(() => {
     const updateTime = () => {
-      const options = {
+      const hour24 = new Date().toLocaleTimeString("en-US", {
         timeZone: "America/Mexico_City",
-        hour: "numeric" as const,
-        minute: "numeric" as const,
-        second: "numeric" as const,
-        hour12: true,
-      };
-      
-      const formatter = new Intl.DateTimeFormat("en-US", options);
-      const parts = formatter.formatToParts(new Date());
-      const hourPart = parts.find(p => p.type === "hour");
-      const minPart = parts.find(p => p.type === "minute");
-      const dayPeriod = parts.find(p => p.type === "dayPeriod");
-      
-      if (hourPart && minPart && dayPeriod) {
-        setCdmxTime(`${hourPart.value}:${minPart.value} ${dayPeriod.value}`);
-        
-        const hour24 = new Date().toLocaleTimeString("en-US", {
-          timeZone: "America/Mexico_City",
-          hour12: false,
-        }).split(":")[0];
-        
-        const numericHour = parseInt(hour24, 10);
-        
-        if (numericHour >= 8 && numericHour < 19) {
-          setCdmxStatus({ text: "Active & Shipping", color: "bg-[#00a896]" });
-        } else if (numericHour >= 19 && numericHour < 24) {
-          setCdmxStatus({ text: "Chilling & Coding", color: "bg-[#008698]" });
-        } else {
-          setCdmxStatus({ text: "Off the grid / Resting", color: "bg-[#4a7c78]" });
-        }
+        hour12: false,
+      }).split(":")[0];
+
+      const numericHour = parseInt(hour24, 10);
+
+      // Real semantic state: window of active work vs. off-hours. No city/time rendered.
+      if (numericHour >= 8 && numericHour < 19) {
+        setCdmxStatus({ text: "Open to select work", color: "bg-[#00a896]" });
+      } else if (numericHour >= 19 && numericHour < 24) {
+        setCdmxStatus({ text: "Wrapping up for today", color: "bg-[#008698]" });
+      } else {
+        setCdmxStatus({ text: "Off the grid / Resting", color: "bg-[#4a7c78]" });
       }
     };
 
@@ -214,21 +196,16 @@ export default function Home() {
           }}
         />
         <div className="relative container mx-auto max-w-4xl text-center flex flex-col items-center z-10">
-          {/* Status Badge with Mexico City Time */}
+          {/* Status Badge — semantic availability only (no locale strip, no clock) */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8 flex flex-col sm:flex-row items-center gap-3 bg-surface border border-border rounded-full px-4 py-1.5 shadow-xs"
+            className="mb-8 inline-flex items-center gap-2 bg-surface border border-border rounded-full px-3.5 py-1.5 shadow-xs"
           >
-            <span className="flex items-center gap-2 text-[10px] font-mono font-semibold text-text-secondary uppercase tracking-wider">
-              <span className={`w-2 h-2 rounded-full ${cdmxStatus.color} animate-pulse`} />
+            <span className={`w-1.5 h-1.5 rounded-full ${cdmxStatus.color} animate-pulse`} />
+            <span className="text-[10px] font-mono font-semibold text-text-secondary uppercase tracking-wider">
               {cdmxStatus.text}
-            </span>
-            <span className="hidden sm:inline text-border font-light">|</span>
-            <span className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-text-muted uppercase tracking-wider">
-              <Clock className="w-3.5 h-3.5 text-text-muted shrink-0" />
-              cdmx • {cdmxTime || "cst"}
             </span>
           </motion.div>
 
@@ -313,7 +290,6 @@ export default function Home() {
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
             {/* Context Left */}
             <div>
-              <span className="badge badge-blue mb-4">Live Demonstration</span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary mb-6 lowercase">
                 interactive <span className="italic">agent workflows</span>
               </h2>
@@ -613,9 +589,8 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="mb-12"
           >
-            <span className="badge badge-yellow mb-4">Expertise</span>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary lowercase">
               technical <span className="italic">instrumentation</span>
             </h2>
