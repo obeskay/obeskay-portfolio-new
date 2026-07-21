@@ -2,8 +2,9 @@
 
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, MessageSquare, Sparkles, User, MapPin } from "lucide-react";
+import { ArrowRight, MessageSquare, Sparkles, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import ProjectCard, { Project } from "./components/ProjectCard";
 
 // TYPES & CONTEXTS
 interface ChatMessage {
@@ -15,7 +16,7 @@ interface ChatMessage {
 const springTransition = { type: "spring" as const, stiffness: 380, damping: 30 };
 
 // Animated counter that counts up when scrolled into view
-function AnimatedCounter({ to, suffix = "", duration = 1.6 }: { to: number; suffix?: string; duration?: number }) {
+function AnimatedCounter({ to, suffix = "", duration = 1.4 }: { to: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [display, setDisplay] = useState(0);
@@ -26,7 +27,6 @@ function AnimatedCounter({ to, suffix = "", duration = 1.6 }: { to: number; suff
     const start = performance.now();
     const tick = (now: number) => {
       const p = Math.min((now - start) / (duration * 1000), 1);
-      // easeOutExpo for a satisfying settle
       const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
       setDisplay(Math.round(eased * to));
       if (p < 1) raf = requestAnimationFrame(tick);
@@ -43,8 +43,66 @@ function AnimatedCounter({ to, suffix = "", duration = 1.6 }: { to: number; suff
   );
 }
 
+const allProjects: Project[] = [
+  {
+    id: "chateala",
+    title: "Chatea.la",
+    description: "WhatsApp AI & lead capture SaaS. Converts unstructured audio/text into synced calendar bookings and CRM records.",
+    category: "Product",
+    image: "/projects/chateala.png",
+    url: "https://chatea.la"
+  },
+  {
+    id: "carti",
+    title: "Carti.app",
+    description: "WhatsApp finance agent parsing spontaneous voice clips into instant ledger entries and budgets.",
+    category: "Product",
+    image: "/projects/carti.png",
+    status: "Private beta",
+    url: "https://carti.app"
+  },
+  {
+    id: "sello",
+    title: "Sello",
+    description: "WhatsApp-native digital loyalty cards replacing paper stamp cards with instant QR check-ins.",
+    category: "Lab",
+    image: "/projects/sello.png",
+    status: "Live pilot",
+    url: "https://sello.cloud.obeskay.com"
+  },
+  {
+    id: "freela",
+    title: "Freela",
+    description: "AI project scoping tool translating vague client briefs into deliverables and timelines.",
+    category: "Lab",
+    image: "/projects/freela.png",
+    status: "Prototype",
+    url: "https://freela.cloud.obeskay.com"
+  },
+  {
+    id: "stickycovers",
+    title: "StickyCovers",
+    description: "Custom card skin canvas with AI asset generator and MercadoPago automated checkout.",
+    category: "Product",
+    image: "/projects/stickycovers.png",
+    url: "https://stickycovers.cloud.obeskay.com"
+  },
+  {
+    id: "lottie-skill",
+    title: "Lottie Animator",
+    description: "Agent skill generating production-ready Lottie animations directly from SVG vectors.",
+    category: "Open Source",
+    image: "/projects/lottie-skill.png",
+    stars: 3,
+    url: "https://github.com/obeskay/lottie-animator-skill"
+  }
+];
+
+const categories = ["All", "Product", "Lab", "Open Source"] as const;
+type Category = typeof categories[number];
+
 export default function Home() {
-  // CDMX live status (drives only the semantic availability dot, never a time strip)
+  const [activeTab, setActiveTab] = useState<Category>("All");
   const [cdmxStatus, setCdmxStatus] = useState({ text: "Open to select work", color: "bg-[#00a896]" });
 
   useEffect(() => {
@@ -53,10 +111,8 @@ export default function Home() {
         timeZone: "America/Mexico_City",
         hour12: false,
       }).split(":")[0];
-
       const numericHour = parseInt(hour24, 10);
 
-      // Real semantic state: window of active work vs. off-hours. No city/time rendered.
       if (numericHour >= 8 && numericHour < 19) {
         setCdmxStatus({ text: "Open to select work", color: "bg-[#00a896]" });
       } else if (numericHour >= 19 && numericHour < 24) {
@@ -75,17 +131,17 @@ export default function Home() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: "bot",
-      text: "¡Hola! I am Obed's Agent Bot. I run on his multi-agent architecture. What would you like to explore today?",
+      text: "¡Hola! I am Obed's Agent Worker. Explore how I translate unstructured messages into deterministic data layers.",
       time: "Just now",
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [selectedQuickReplies, setSelectedQuickReplies] = useState<string[]>([]);
 
-  // ECOSYSTEM LIVE TELEMETRY STATE
+  // TELEMETRY STATE
   const [telemetry, setTelemetry] = useState({
-    chateaHealth: "loading",
-    cartiHealth: "loading",
+    chateaHealth: "online",
+    cartiHealth: "online",
     messagesProcessed: 148204,
     activeAgents: 6,
   });
@@ -96,20 +152,9 @@ export default function Home() {
         ...prev,
         messagesProcessed: prev.messagesProcessed + Math.floor(Math.random() * 3) + 1
       }));
-    }, 4000);
+    }, 3500);
 
-    const healthTimeout = setTimeout(() => {
-      setTelemetry(prev => ({
-        ...prev,
-        chateaHealth: "online",
-        cartiHealth: "online"
-      }));
-    }, 1800);
-
-    return () => {
-      clearInterval(msgInterval);
-      clearTimeout(healthTimeout);
-    };
+    return () => clearInterval(msgInterval);
   }, []);
 
   const handleQuickReply = (text: string, response: string, category: string) => {
@@ -133,21 +178,21 @@ export default function Home() {
         time: new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }),
       };
       setMessages(prev => [...prev, newMsgBot]);
-    }, 1200);
+    }, 1000);
   };
 
   const resetChat = () => {
     setMessages([
       {
         sender: "bot",
-        text: "¡Hola! Let's start fresh. Pick a topic to see how I help businesses automate communication.",
+        text: "¡Hola! Choose a topic below to test the agent engine.",
         time: "Just now",
       },
     ]);
     setSelectedQuickReplies([]);
   };
 
-  // CURSOR SPOTLIGHT for hero — smooth spring-following radial glow
+  // CURSOR SPOTLIGHT
   const heroRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-1000);
   const mouseY = useMotionValue(-1000);
@@ -168,22 +213,25 @@ export default function Home() {
     mouseY.set(-1000);
   };
 
+  const filteredProjects = activeTab === "All"
+    ? allProjects
+    : allProjects.filter(p => p.category === activeTab);
+
   return (
     <main className="min-h-screen relative overflow-hidden bg-background">
-      {/* Subtle Warm Gradient Blob */}
+      {/* Background Accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-bg/15 blur-[120px]" />
-        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-red-bg/10 blur-[100px]" />
+        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-pastel-teal-bg/30 blur-[100px]" />
       </div>
 
-      {/* HERO SECTION with cursor spotlight */}
+      {/* HERO SECTION */}
       <section
         ref={heroRef}
         onMouseMove={handleHeroMouseMove}
         onMouseLeave={handleHeroMouseLeave}
-        className="relative pt-24 pb-28 md:py-36 px-6 lg:px-12 z-10 flex flex-col items-center justify-center min-h-[75vh]"
+        className="relative pt-24 pb-24 md:py-32 px-6 lg:px-12 z-10 flex flex-col items-center justify-center min-h-[70vh]"
       >
-        {/* Cursor-following spotlight glow (teal) */}
         <motion.div
           aria-hidden
           className="pointer-events-none absolute z-0 h-[420px] w-[420px] rounded-full opacity-60"
@@ -196,12 +244,11 @@ export default function Home() {
           }}
         />
         <div className="relative container mx-auto max-w-4xl text-center flex flex-col items-center z-10">
-          {/* Status Badge — semantic availability only (no locale strip, no clock) */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8 inline-flex items-center gap-2 bg-surface border border-border rounded-full px-3.5 py-1.5 shadow-xs"
+            transition={{ duration: 0.4 }}
+            className="mb-6 inline-flex items-center gap-2 bg-surface border border-border rounded-full px-3.5 py-1.5 shadow-xs"
           >
             <span className={`w-1.5 h-1.5 rounded-full ${cdmxStatus.color} animate-pulse`} />
             <span className="text-[10px] font-mono font-semibold text-text-secondary uppercase tracking-wider">
@@ -209,53 +256,50 @@ export default function Home() {
             </span>
           </motion.div>
 
-          {/* Main Heading with Elegant display serif font */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-8 text-center"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-6 text-center"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-text-primary tracking-tight leading-[1.08] lowercase max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-text-primary tracking-tight leading-[1.05] lowercase max-w-4xl">
               building <span className="italic">products that work.</span>
             </h1>
           </motion.div>
 
-          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base text-text-secondary max-w-lg mx-auto leading-relaxed mb-10 px-4 font-normal"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm md:text-base text-text-secondary max-w-md mx-auto leading-relaxed mb-8 px-4 font-normal"
           >
-            Software Engineer based in Mexico City. I build production-grade AI systems, multi-agent frameworks, and developer tools that turn complex logic into clean, intuitive utilities.
+            AI Systems Lead & Software Engineer in CDMX. I build multi-agent platforms and developer tools that turn complex logic into clean utilities.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm px-6"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-xs px-4"
           >
             <Link href="/work" className="w-full">
               <button className="btn-primary w-full whitespace-nowrap">
-                explore my work
+                view work
                 <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </button>
             </Link>
 
             <Link href="/contact" className="w-full">
               <button className="btn-secondary w-full whitespace-nowrap">
-                get in touch
+                contact
               </button>
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* ANIMATED METRICS STRIP — counts up on scroll into view */}
-      <section className="py-16 px-6 lg:px-12 bg-surface border-y border-border-subtle relative z-10">
+      {/* METRICS STRIP */}
+      <section className="py-12 px-6 lg:px-12 bg-surface border-y border-border-subtle relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
             {[
@@ -266,10 +310,10 @@ export default function Home() {
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="text-center md:border-r md:border-border-subtle md:last:border-r-0"
               >
                 <p className={`text-3xl md:text-4xl font-serif tracking-tight ${stat.accent} leading-none`}>
@@ -285,68 +329,65 @@ export default function Home() {
       </section>
 
       {/* INTERACTIVE WHATSAPP AGENT PREVIEW */}
-      <section className="py-24 px-6 lg:px-12 bg-surface-alt relative z-10">
+      <section className="py-20 px-6 lg:px-12 bg-surface-alt relative z-10">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
-            {/* Context Left */}
+          <div className="grid lg:grid-cols-[1fr_0.9fr] gap-10 lg:gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary mb-6 lowercase">
-                interactive <span className="italic">agent workflows</span>
+              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary mb-4 lowercase">
+                conversational <span className="italic">agent engines</span>
               </h2>
-              <p className="text-text-secondary leading-relaxed text-sm mb-8 font-normal">
-                Most AI integrations sound abstract. I design resilient, production-ready WhatsApp interfaces like <strong className="text-text-primary font-medium">Chatea.la</strong> and <strong className="text-text-primary font-medium">Carti.app</strong> that translate spontaneous audio clips or quick texts into deterministic, structured data layers.
+              <p className="text-text-secondary leading-relaxed text-sm mb-6 font-normal">
+                I design resilient WhatsApp interfaces like <strong className="text-text-primary font-medium">Chatea.la</strong> and <strong className="text-text-primary font-medium">Carti.app</strong> that translate raw audio clips or short text into structured, deterministic database layers.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-pastel-blue-bg text-pastel-blue-fg rounded-lg h-fit border border-border">
+              <div className="space-y-4">
+                <div className="flex gap-3 items-start">
+                  <div className="p-1.5 bg-pastel-teal-bg text-teal-primary rounded-md h-fit border border-border shrink-0 mt-0.5">
                     <Sparkles className="w-4 h-4 shrink-0" />
                   </div>
                   <div>
-                    <h4 className="font-sans font-semibold text-text-primary text-sm tracking-tight">Structured State Workflows</h4>
-                    <p className="text-xs text-text-muted mt-1 leading-relaxed">Handling concurrent webhook streams, contextual memory states, and rate-limiting gracefully.</p>
+                    <h4 className="font-sans font-semibold text-text-primary text-xs tracking-tight">Structured State Workflows</h4>
+                    <p className="text-xs text-text-muted leading-relaxed">Handling webhook streams, rate-limiting, and state continuity.</p>
                   </div>
                 </div>
                 
-                <div className="flex gap-4">
-                  <div className="p-2 bg-pastel-red-bg text-pastel-red-fg rounded-lg h-fit border border-border">
+                <div className="flex gap-3 items-start">
+                  <div className="p-1.5 bg-pastel-blue-bg text-pastel-blue-fg rounded-md h-fit border border-border shrink-0 mt-0.5">
                     <MessageSquare className="w-4 h-4 shrink-0" />
                   </div>
                   <div>
-                    <h4 className="font-sans font-semibold text-text-primary text-sm tracking-tight">Operator Handover Loops</h4>
-                    <p className="text-xs text-text-muted mt-1 leading-relaxed">Smooth fallback protocols that route complex requests to actual operators when required.</p>
+                    <h4 className="font-sans font-semibold text-text-primary text-xs tracking-tight">Operator Handover Loops</h4>
+                    <p className="text-xs text-text-muted leading-relaxed">Deterministic fallback triggers when human intervention is required.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Chat Frame Right (Clean Web App Mockup style) */}
+            {/* Chat Frame */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="window-chrome relative w-full max-w-sm mx-auto aspect-[9/15] flex flex-col justify-between"
+              transition={{ duration: 0.4 }}
+              className="window-chrome relative w-full max-w-sm mx-auto aspect-[9/14] flex flex-col justify-between"
             >
-              {/* Mockup Header */}
               <div className="window-header justify-between">
                 <div className="flex items-center gap-1.5">
                   <div className="window-dot" />
                   <div className="window-dot" />
                   <div className="window-dot" />
-                  <span className="text-[10px] font-mono text-text-muted uppercase ml-2 tracking-wider">obeskay_agent_worker</span>
+                  <span className="text-[10px] font-mono text-text-muted uppercase ml-2 tracking-wider">agent_runtime_v3</span>
                 </div>
                 <button onClick={resetChat} className="text-[9px] font-mono text-pastel-red-fg px-2.5 py-0.5 bg-pastel-red-bg border border-border rounded-full hover:opacity-85 transition-opacity whitespace-nowrap">
                   reset
                 </button>
               </div>
 
-              {/* Chat Log (Scrollable) */}
-              <div className="flex-1 p-5 overflow-y-auto space-y-4 flex flex-col bg-surface">
+              <div className="flex-1 p-4 overflow-y-auto space-y-3 flex flex-col bg-surface">
                 {messages.map((msg, index) => (
                   <div
                     key={index}
-                    className={`max-w-[85%] p-3 rounded-lg text-xs leading-relaxed border ${
+                    className={`max-w-[88%] p-3 rounded-lg text-xs leading-relaxed border ${
                       msg.sender === "user"
                         ? "bg-pastel-blue-bg border-pastel-blue-fg/20 text-text-primary self-end"
                         : "bg-surface-alt border-border text-text-primary self-start"
@@ -360,7 +401,7 @@ export default function Home() {
                 ))}
 
                 {isTyping && (
-                  <div className="bg-surface-alt border border-border self-start rounded-lg p-3 flex items-center gap-1 max-w-[80%]">
+                  <div className="bg-surface-alt border border-border self-start rounded-lg p-2.5 flex items-center gap-1 max-w-[80%]">
                     <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                     <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                     <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -368,33 +409,29 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Quick Reply Drawer */}
-              <div className="bg-surface-alt border-t border-border p-4">
-                <p className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider mb-2.5">
-                  Select a prompt:
-                </p>
-                <div className="flex gap-2 overflow-x-auto flex-nowrap scrollbar-none pb-1 -mx-1 px-1">
+              <div className="bg-surface-alt border-t border-border p-3">
+                <div className="flex gap-2 overflow-x-auto flex-nowrap scrollbar-none pb-1">
                   {!selectedQuickReplies.includes("chateala") && (
-                    <button onClick={() => handleQuickReply("Tell me about Chatea.la", "Chatea.la is a WhatsApp AI automation platform for Mexican businesses. It processes unstructured messages, coordinates calendars, qualifies leads, and updates active CRM databases automatically.", "chateala")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
+                    <button onClick={() => handleQuickReply("Tell me about Chatea.la", "Chatea.la automates WhatsApp lead qualification, calendar booking, and CRM synchronization for Mexican businesses.", "chateala")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap">
                       chatea.la
                     </button>
                   )}
 
                   {!selectedQuickReplies.includes("carti") && (
-                    <button onClick={() => handleQuickReply("What is Carti.app?", "Carti.app is a secure WhatsApp assistant for personal finance tracking. It parses messy voice logs and text receipts into instant ledger updates. It is a live agent making accounting friction-free.", "carti")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
+                    <button onClick={() => handleQuickReply("What is Carti.app?", "Carti.app parses WhatsApp voice notes and receipts into instant expense entries and budget balances.", "carti")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap">
                       carti.app
                     </button>
                   )}
 
                   {!selectedQuickReplies.includes("about") && (
-                    <button onClick={() => handleQuickReply("Are you currently available?", "Yes. Obed is available for architectural advisory, multi-agent pipelines, and premium TypeScript engineering integrations. He loves designing elegant developer products.", "about")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer whitespace-nowrap">
+                    <button onClick={() => handleQuickReply("Are you available for projects?", "Yes. Obed provides architectural advisory, agentic workflows, and high-performance TypeScript integrations.", "about")} className="flex-shrink-0 bg-surface hover:bg-surface-alt border border-border px-3 py-1.5 rounded-md text-xs font-medium text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap">
                       availability
                     </button>
                   )}
 
                   {selectedQuickReplies.length >= 3 && (
                     <div className="py-1 text-center w-full flex-shrink-0">
-                      <p className="text-[10px] font-mono text-pastel-green-fg uppercase font-medium">Demo complete.</p>
+                      <p className="text-[10px] font-mono text-pastel-green-fg uppercase font-semibold">Demo complete.</p>
                     </div>
                   )}
                 </div>
@@ -404,195 +441,121 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED WORK */}
-      <section className="py-24 px-6 lg:px-12 bg-background border-t border-border-subtle relative z-10">
+      {/* FEATURED WORK WITH ANIMATED TABS */}
+      <section className="py-20 px-6 lg:px-12 bg-background border-t border-border-subtle relative z-10">
         <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
-          >
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <span className="badge badge-green mb-4">Selected Work</span>
+              <span className="badge badge-green mb-3">Selected Work</span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary lowercase">
-                featured <span className="italic">digital works</span>
+                featured <span className="italic">systems & apps</span>
               </h2>
             </div>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-text-secondary hover:text-text-primary transition-colors group"
-            >
-              Explore all
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform shrink-0" />
-            </Link>
-          </motion.div>
 
-          {/* Project Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Chatea.la",
-                desc: "WhatsApp automation for Mexican operators. Direct pipelines that take unstructured voice logs and text, qualifying them into actual calendar bookings and leads.",
-                tag: "SaaS",
-                link: "https://chatea.la",
-                image: "/projects/chateala.png",
-                badgeClass: "badge-blue"
-              },
-              {
-                title: "Carti.app",
-                desc: "WhatsApp-native personal finance bookkeeping. Translates informal text and audio logs into structured budgets and ledger entries, cleanly and securely.",
-                tag: "Private Beta",
-                link: "https://carti.app",
-                image: "/projects/carti.png",
-                badgeClass: "badge-yellow"
-              },
-              {
-                title: "Sello",
-                desc: "WhatsApp-native digital loyalty cards. Swaps easily misplaced paper stamp cards with a fast QR scanning flow that runs directly in the client chat.",
-                tag: "Lab",
-                link: "https://sello.cloud.obeskay.com",
-                image: "/projects/sello.png",
-                badgeClass: "badge-green"
-              },
-              {
-                title: "Freela",
-                desc: "AI proposal scoping and design tool. Synthesizes vague client briefs into structured scope-of-work sheets, timelines, and precise deliverables.",
-                tag: "Lab",
-                link: "https://freela.cloud.obeskay.com",
-                image: "/projects/freela.png",
-                badgeClass: "badge-green"
-              },
-              {
-                title: "StickyCovers",
-                desc: "Custom credit card skin customizer. Integrates interactive client canvases with MercadoPago checkouts and automated email retention hooks.",
-                tag: "Product",
-                link: "https://stickycovers.cloud.obeskay.com",
-                image: "/projects/stickycovers.png",
-                badgeClass: "badge-red"
-              },
-              {
-                title: "obeskay.com",
-                desc: "Personal directory and lab nodes. A minimalist space detailing active production systems, tools, and developer experiments.",
-                tag: "Portfolio",
-                link: "https://obeskay.com",
-                image: "/projects/obeskay_home.png",
-                badgeClass: "badge-blue"
-              }
-            ].map((project, i) => {
-              return (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="h-full"
-                >
-                  <a 
-                    href={project.link} 
-                    target={project.link.startsWith("http") ? "_blank" : undefined}
-                    rel={project.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="block h-full group"
+            {/* Filter Tabs using layoutId */}
+            <div className="flex items-center gap-1.5 bg-surface border border-border p-1 rounded-lg w-fit">
+              {categories.map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className="relative px-3 py-1 text-xs font-mono font-medium transition-colors select-none cursor-pointer"
                   >
-                    <div className="flex flex-col h-full bg-surface border border-border rounded-lg overflow-hidden shadow-xs hover:border-text-secondary hover:shadow-sm transition-all duration-300">
-                      {/* Content Header */}
-                      <div className="p-5 flex-grow">
-                        <div className="flex items-center justify-between gap-2 mb-3">
-                          <span className={`badge ${project.badgeClass}`}>
-                            {project.tag}
-                          </span>
-                        </div>
-                        <h3 className="text-lg font-semibold text-text-primary group-hover:text-text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-xs text-text-secondary font-normal mt-2 leading-relaxed">{project.desc}</p>
-                      </div>
-
-                      {/* Crisp Image Frame */}
-                      <div className="mt-auto relative w-full h-44 overflow-hidden border-t border-border bg-surface-alt">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover grayscale opacity-90 contrast-[1.05] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500" 
-                        />
-                      </div>
-                    </div>
-                  </a>
-                </motion.div>
-              );
-            })}
+                    <span className={`relative z-10 ${isActive ? "text-teal-primary font-semibold" : "text-text-muted hover:text-text-primary"}`}>
+                      {tab}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="home-filter-pill"
+                        className="absolute inset-0 bg-pastel-teal-bg border border-teal-secondary/30 rounded-md shadow-xs"
+                        style={{ zIndex: 0 }}
+                        transition={springTransition}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Ecosystem Live Telemetry Bento Widget */}
+          {/* Project Cards Grid with Framer Motion layout morphing */}
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ECOSYSTEM LIVE TELEMETRY BENTO */}
+      <section className="py-16 px-6 lg:px-12 bg-surface border-t border-border-subtle relative z-10">
+        <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-12 p-6 md:p-8 rounded-lg bg-surface-alt border border-border shadow-xs hover:border-text-muted transition-colors flex flex-col lg:flex-row items-center justify-between gap-6 relative overflow-hidden"
+            transition={{ duration: 0.4 }}
+            className="p-6 md:p-8 rounded-lg bg-surface-alt border border-border shadow-xs flex flex-col lg:flex-row items-center justify-between gap-6"
           >
-            <div className="flex flex-col gap-1 text-left relative z-10">
+            <div className="flex flex-col gap-1 text-left">
               <span className="badge badge-green w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00a896] animate-ping" />
                 Live Performance
               </span>
-              <h3 className="text-lg font-semibold text-text-primary mt-2">Active Systems Telemetry</h3>
-              <p className="text-xs text-text-secondary leading-relaxed font-normal">Real-time tracking of processed webhook integrations and active AI worker flows across production SaaS systems.</p>
+              <h3 className="text-lg font-semibold text-text-primary mt-2">Systems Telemetry</h3>
+              <p className="text-xs text-text-secondary leading-relaxed font-normal">Real-time stats across active production nodes.</p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full lg:w-auto relative z-10 shrink-0">
-              {/* Telemetry Item 1: Messages Ticker */}
-              <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full lg:w-auto shrink-0">
+              <div className="p-3.5 bg-surface border border-border rounded-lg text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Processed</span>
-                <span className="text-base font-mono font-semibold text-text-primary mt-1">{telemetry.messagesProcessed.toLocaleString()}</span>
-                <span className="text-[9px] font-mono text-pastel-green-fg uppercase mt-1 font-semibold">▲ live</span>
+                <span className="text-base font-mono font-semibold text-text-primary block mt-1">{telemetry.messagesProcessed.toLocaleString()}</span>
+                <span className="text-[9px] font-mono text-pastel-green-fg uppercase font-semibold">▲ live</span>
               </div>
 
-              {/* Telemetry Item 2: Active AI Workers */}
-              <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
+              <div className="p-3.5 bg-surface border border-border rounded-lg text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">AI Workers</span>
-                <span className="text-base font-mono font-semibold text-text-primary mt-1">{telemetry.activeAgents} active</span>
-                <span className="text-[9px] font-mono text-text-muted uppercase mt-1 font-semibold">loops</span>
+                <span className="text-base font-mono font-semibold text-text-primary block mt-1">{telemetry.activeAgents} active</span>
+                <span className="text-[9px] font-mono text-text-muted uppercase font-semibold">loops</span>
               </div>
 
-              {/* Telemetry Item 3: Chatea Health */}
-              <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
+              <div className="p-3.5 bg-surface border border-border rounded-lg text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Chatea.la</span>
-                <span className={`text-[10px] font-mono font-semibold mt-1.5 leading-none flex items-center gap-1.5 ${telemetry.chateaHealth === 'online' ? 'text-pastel-green-fg' : 'text-text-muted'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.chateaHealth === 'online' ? 'bg-[#00a896]' : 'bg-[#4a7c78]'} animate-pulse`} />
-                  {telemetry.chateaHealth === 'online' ? 'ONLINE' : 'PING...'}
+                <span className="text-[10px] font-mono font-semibold text-pastel-green-fg block mt-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a896] animate-pulse" />
+                  ONLINE
                 </span>
-                <span className="text-[8px] font-mono text-text-muted uppercase mt-2">SaaS node</span>
+                <span className="text-[8px] font-mono text-text-muted uppercase block mt-1">SaaS node</span>
               </div>
 
-              {/* Telemetry Item 4: Carti.app Health */}
-              <div className="p-4 bg-surface border border-border rounded-lg flex flex-col justify-center text-left">
+              <div className="p-3.5 bg-surface border border-border rounded-lg text-left">
                 <span className="text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wider">Carti.app</span>
-                <span className={`text-[10px] font-mono font-semibold mt-1.5 leading-none flex items-center gap-1.5 ${telemetry.cartiHealth === 'online' ? 'text-pastel-green-fg' : 'text-text-muted'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${telemetry.cartiHealth === 'online' ? 'bg-[#00a896]' : 'bg-[#4a7c78]'} animate-pulse`} />
-                  {telemetry.cartiHealth === 'online' ? 'ONLINE' : 'PING...'}
+                <span className="text-[10px] font-mono font-semibold text-pastel-green-fg block mt-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00a896] animate-pulse" />
+                  ONLINE
                 </span>
-                <span className="text-[8px] font-mono text-text-muted uppercase mt-2">Queue node</span>
+                <span className="text-[8px] font-mono text-text-muted uppercase block mt-1">Queue node</span>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* SKILLS SECTION — interactive with shared layout hover */}
-      <section className="py-24 px-6 lg:px-12 bg-background relative z-10">
+      {/* TECHNICAL INSTRUMENTATION */}
+      <section className="py-20 px-6 lg:px-12 bg-background relative z-10 border-t border-border-subtle">
         <div className="container mx-auto max-w-5xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-12"
+            transition={{ duration: 0.4 }}
+            className="mb-8"
           >
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-text-primary lowercase">
-              technical <span className="italic">instrumentation</span>
+              technical <span className="italic">stack</span>
             </h2>
           </motion.div>
 
@@ -612,20 +575,19 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                whileHover={{ y: -4 }}
-                className="group relative p-5 bg-surface rounded-lg border border-border hover:border-teal-secondary cursor-default text-center shadow-xs hover:shadow-md transition-shadow overflow-hidden"
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                whileHover={{ y: -3 }}
+                className="group relative p-4 bg-surface rounded-lg border border-border hover:border-teal-secondary cursor-default text-center shadow-xs transition-all overflow-hidden"
               >
-                {/* shared-layout hover highlight that slides between cards */}
                 <motion.div
                   layoutId={`skill-glow-${i % 4}`}
                   className="absolute inset-0 bg-pastel-teal-bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   transition={springTransition}
                 />
-                <p className="relative z-10 font-mono text-sm font-semibold text-text-secondary group-hover:text-teal-primary transition-colors tracking-wide">
+                <p className="relative z-10 font-mono text-xs font-semibold text-text-secondary group-hover:text-teal-primary transition-colors tracking-wide">
                   {skill.name}
                 </p>
-                <p className="relative z-10 mt-1.5 text-[10px] font-mono text-text-muted group-hover:text-teal-secondary transition-colors">
+                <p className="relative z-10 mt-1 text-[10px] font-mono text-text-muted">
                   {skill.desc}
                 </p>
               </motion.div>
@@ -635,7 +597,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 px-6 lg:px-12 border-t border-border-subtle bg-surface-alt relative z-10">
+      <footer className="py-10 px-6 lg:px-12 border-t border-border-subtle bg-surface-alt relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
             <p>© {new Date().getFullYear()} Obed Vargas</p>
