@@ -273,7 +273,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-sm md:text-base text-text-secondary max-w-lg mx-auto leading-relaxed mb-8 px-4 font-normal"
           >
-            AI Strategy Lead at Grupo Promass. Building autonomous WhatsApp platforms and developer tools in Mexico City.
+            AI Lead @ Grupo Promass. Building WhatsApp platforms & dev tools in CDMX.
           </motion.p>
 
           <motion.div
