@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, ArrowUpRight } from "lucide-react";
 
@@ -25,7 +24,6 @@ const springTransition = { type: "spring" as const, stiffness: 350, damping: 28 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const isExternal = project.url?.startsWith("http");
 
-  // Determine pastel badge type
   const badgeClass = 
     project.category === "Product" ? "badge-blue" :
     project.category === "Lab" ? "badge-green" : 
@@ -35,9 +33,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     <motion.div
       layout
       layoutId={`project-card-${project.id}`}
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
+      exit={{ opacity: 0, scale: 0.96 }}
       transition={springTransition}
       className="h-full"
     >
@@ -48,79 +46,53 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         className="group block h-full select-none"
         style={{ textDecoration: "none" }}
       >
-        <div className="flex flex-col h-full bg-surface border border-border rounded-lg overflow-hidden shadow-xs hover:border-teal-primary/40 hover:shadow-md transition-all duration-300">
-          {/* Image Area */}
-          <div className="aspect-[16/10] bg-surface-alt relative overflow-hidden border-b border-border">
-            {project.image ? (
-              <div className="relative w-full h-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-top filter grayscale opacity-90 contrast-[1.05] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
-                  loading="lazy"
-                />
-              </div>
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-surface-alt">
-                <span className="text-xl font-mono text-text-muted">
-                  {project.title.substring(0, 2).toLowerCase()}
+        <div className="flex flex-col justify-between h-full bg-surface border border-border rounded-lg p-5 hover:border-teal-primary/40 hover:shadow-sm transition-all duration-300 relative overflow-hidden">
+          {/* Header Row: Title + Badges */}
+          <div>
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className={`badge ${badgeClass}`}>
+                  {project.category.toLowerCase()}
                 </span>
+                {project.status && (
+                  <span className="badge badge-red">
+                    {project.status.toLowerCase()}
+                  </span>
+                )}
+                {project.stars && project.stars > 0 && (
+                  <span className="badge badge-yellow flex items-center gap-1">
+                    <Star className="w-3 h-3 fill-current shrink-0" />
+                    {project.stars}
+                  </span>
+                )}
               </div>
-            )}
 
-            {/* Tag Badges */}
-            <div className="absolute top-3 left-3 z-10">
-              <span className={`badge ${badgeClass}`}>
-                {project.category.toLowerCase()}
-              </span>
-            </div>
-
-            {project.stars && project.stars > 0 && (
-              <div className="absolute top-3 right-3 z-10">
-                <span className="badge badge-yellow flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-current shrink-0" />
-                  {project.stars}
-                </span>
-              </div>
-            )}
-
-            {project.status && (
-              <div className="absolute top-3 right-3 z-10">
-                <span className="badge badge-red">
-                  {project.status.toLowerCase()}
-                </span>
-              </div>
-            )}
-          </div>
-
-          {/* Content Area */}
-          <div className="flex flex-col flex-grow p-5 gap-3">
-            <div className="flex items-start justify-between gap-2">
-              <h3 className="text-base font-semibold text-text-primary group-hover:text-teal-primary transition-colors">
-                {project.title}
-              </h3>
               {project.url && (
-                <div className="p-1 text-text-muted group-hover:text-teal-primary transition-colors shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                <div className="p-1 text-text-muted group-hover:text-teal-primary shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
                   <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </div>
               )}
             </div>
 
-            <p className="text-xs text-text-secondary leading-relaxed font-normal flex-grow line-clamp-3">
+            <h3 className="text-lg font-semibold text-text-primary group-hover:text-teal-primary transition-colors tracking-tight">
+              {project.title}
+            </h3>
+
+            <p className="text-xs text-text-secondary leading-relaxed font-normal mt-2">
               {project.description}
             </p>
+          </div>
 
-            {project.url ? (
-              <div className="mt-2 flex items-center gap-1 text-[10px] font-mono font-semibold text-teal-primary uppercase tracking-wide">
-                <span>explore</span>
+          {/* Bottom Link Bar */}
+          <div className="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between">
+            <span className="text-[10px] font-mono font-semibold text-text-muted uppercase tracking-wider">
+              {project.url ? "View project" : "Internal node"}
+            </span>
+            {project.url && (
+              <span className="text-[10px] font-mono font-semibold text-teal-primary group-hover:underline uppercase tracking-wider flex items-center gap-0.5">
+                Visit
                 <ArrowUpRight className="w-3 h-3" />
-              </div>
-            ) : (
-              <div className="mt-2 text-[9px] font-mono font-semibold text-text-muted uppercase tracking-wide">
-                {project.status?.toLowerCase() ?? "internal lab"}
-              </div>
+              </span>
             )}
           </div>
         </div>
@@ -128,4 +100,5 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     </motion.div>
   );
 }
+
 
