@@ -260,9 +260,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-6 text-center"
+            className="mb-6 text-center w-full max-w-5xl"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-text-primary tracking-tight leading-[1.05] lowercase max-w-4xl">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-text-primary tracking-tight leading-[1.02] lowercase w-full max-w-5xl mx-auto">
               building <span className="italic">products that work.</span>
             </h1>
           </motion.div>
@@ -271,9 +271,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm md:text-base text-text-secondary max-w-md mx-auto leading-relaxed mb-8 px-4 font-normal"
+            className="text-sm md:text-base text-text-secondary max-w-lg mx-auto leading-relaxed mb-8 px-4 font-normal"
           >
-            AI Systems Lead & Software Engineer in CDMX. I build multi-agent platforms and developer tools that turn complex logic into clean utilities.
+            AI Strategy Lead at Grupo Promass. Building autonomous WhatsApp platforms and developer tools in Mexico City.
           </motion.p>
 
           <motion.div
