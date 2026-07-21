@@ -11,6 +11,7 @@ const projects: Project[] = [
     title: "Chatea.la",
     description: "WhatsApp AI & lead capture SaaS. Converts unstructured audio/text into synced calendar bookings and CRM records.",
     category: "Product",
+    image: "/brand-guides/chateala-brand-guide.png",
     url: "https://chatea.la"
   },
   {
@@ -18,6 +19,7 @@ const projects: Project[] = [
     title: "Carti.app",
     description: "WhatsApp finance agent parsing spontaneous voice clips into instant ledger entries and budgets.",
     category: "Product",
+    image: "/brand-guides/carti-brand-guide.png",
     status: "Private beta",
     url: "https://carti.app"
   },
@@ -26,6 +28,7 @@ const projects: Project[] = [
     title: "Sello",
     description: "WhatsApp-native digital loyalty cards replacing paper stamp cards with instant QR check-ins.",
     category: "Lab",
+    image: "/brand-guides/sello-brand-guide.png",
     status: "Live pilot",
     url: "https://sello.cloud.obeskay.com"
   },
@@ -34,6 +37,7 @@ const projects: Project[] = [
     title: "Freela",
     description: "AI project scoping tool translating vague client briefs into deliverables and timelines.",
     category: "Lab",
+    image: "/brand-guides/freela-brand-guide.png",
     status: "Prototype",
     url: "https://freela.cloud.obeskay.com"
   },
@@ -42,6 +46,7 @@ const projects: Project[] = [
     title: "StickyCovers",
     description: "Custom card skin canvas with AI asset generator and MercadoPago automated checkout.",
     category: "Product",
+    image: "/brand-guides/stickycovers-brand-guide.png",
     url: "https://stickycovers.cloud.obeskay.com"
   },
   {
@@ -49,6 +54,7 @@ const projects: Project[] = [
     title: "QRapidito",
     description: "Digital menus in seconds for restaurants via structured image and PDF menu parsing.",
     category: "Product",
+    image: "/brand-guides/qrapidito-brand-guide.png",
     url: "https://qrapidito.com"
   },
   {
@@ -56,6 +62,7 @@ const projects: Project[] = [
     title: "Lottie Animator",
     description: "Agent skill generating production-ready Lottie animations directly from SVG vectors.",
     category: "Open Source",
+    image: "/brand-guides/lottie-skill-brand-guide.png",
     stars: 3,
     url: "https://github.com/obeskay/lottie-animator-skill"
   },
@@ -64,6 +71,7 @@ const projects: Project[] = [
     title: "SwarmVille",
     description: "2D visualization of autonomous AI agents collaborating in real-time.",
     category: "Open Source",
+    image: "/brand-guides/swarm-ville-brand-guide.png",
     url: "https://github.com/obeskay/swarm-ville"
   },
   {
@@ -71,6 +79,7 @@ const projects: Project[] = [
     title: "One-Shot",
     description: "Lightning-fast desktop context builder for LLMs built with Wails, Go, and React.",
     category: "Open Source",
+    image: "/brand-guides/one-shot-brand-guide.png",
     url: "https://github.com/obeskay/one-shot"
   },
 ];
