@@ -75,7 +75,7 @@ const allProjects: Project[] = [
     title: "Freela",
     description: "AI project scoping tool translating vague client briefs into deliverables and timelines.",
     category: "Lab",
-    image: "/projects/freela.png",
+    image: "/brand-guides/freela-brand-guide.png",
     status: "Prototype",
     url: "https://freela.cloud.obeskay.com"
   },
@@ -84,7 +84,7 @@ const allProjects: Project[] = [
     title: "StickyCovers",
     description: "Custom card skin canvas with AI asset generator and MercadoPago automated checkout.",
     category: "Product",
-    image: "/projects/stickycovers.png",
+    image: "/brand-guides/stickycovers-brand-guide.png",
     url: "https://stickycovers.cloud.obeskay.com"
   },
   {
